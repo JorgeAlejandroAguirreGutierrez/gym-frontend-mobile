@@ -1,0 +1,150 @@
+<div class="d-flex myfont" id="wrapper">
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">MENU </div>
+        <hr>
+        <div class="list-group list-group-flush">
+            <a href="/leer-medida" class="list-group-item list-group-item-action bg-light">MEDIDAS</a>
+            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light">CERRAR
+                SESION</a>
+        </div>
+    </div>
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify">
+            <button class="btn btn-ligth" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
+            <span class="separate"></span>
+            <a class="navbar-brand" href="#">{{gimnasio}}</a>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm" align="center">
+                    <hr>
+                    <h2>PLAN DE ENTRENAMIENTO</h2>
+                    <hr>
+                </div>
+            </div>
+            <br>
+            <ng-container *ngIf="usuario.plan != null && usuario.plan.dias.length==0">
+                <div class="row">
+                    <div class="col-sm">
+                        <div align="center" class="alert alert-warning font-weight-bold" role="alert">
+                            NO EXISTE PLAN DE ENTRENAMIENTO
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="usuario.plan != null && usuario.plan.dias.length!=0">
+                <div class="row">
+                    <div class="col-sm">
+                        <div id="accordion">
+                            <ng-container *ngFor="let dia of usuario.plan.dias; let i=index">
+                                <div class="card">
+                                    <div class="card-header" id="heading{{i+1}}">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse"
+                                                attr.data-target="#collapse{{i+1}}" aria-expanded="true"
+                                                attr.aria-controls="collapse{{i+1}}">
+                                                DIA {{i+1}} ({{dia.nombre}})
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapse{{i+1}}" class="collapse {{dia.show}}"
+                                        attr.aria-labelledby="heading{{i+1}}" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <ng-container *ngIf="dia.rutinas.length>0">
+                                                <div class="row">
+                                                    <div class="col-sm table-responsive">
+                                                        <table class="table table-sm table-hover table-bordered">
+                                                            <thead>
+                                                                <tr class="menor-fuente">
+                                                                    <th scope="col">°</th>
+                                                                    <th scope="col">EJERCICIO</th>
+                                                                    <th scope="col">REP</th>
+                                                                    <th scope="col">SER</th>
+                                                                    <th scope="col">PESO&nbsp;&nbsp;</th>
+                                                                    <th scope="col">TIEMPO</th>
+                                                                    <th scope="col">OPC</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="menor-fuente" *ngFor="let rutina of dia.rutinas; let j=index">
+                                                                    <td>{{j+1}}</td>
+                                                                    <td>
+                                                                        {{rutina.ejercicio.descripcion}}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{rutina.repeticiones}}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{rutina.series}}</td>
+                                                                    <td>
+                                                                        {{rutina.valorPeso}}&nbsp;
+                                                                        {{rutina.medidaPeso}}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{rutina.valorTiempo}}&nbsp;
+                                                                        {{rutina.medidaTiempo}}
+                                                                    </td>
+                                                                    <td>
+                                                                        <button class="btn btn-sm btn-primary separate"
+                                                                            (click)="abrirModalLeerEjercicio(i, j)">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <br>
+            <div class="row">
+                <div class="col-sm">
+                    <footer class="text-muted">
+                        <div class="container">
+                            <p>{{gimnasio}} {{ubicacion}}. Todos los derechos reservados 2021.</p>
+                            <p>Instagram Gimnasio Olimpia <a href="../../">
+                                    Visitala!</a> o haznos una pregunta a <a href="../../getting-started/">Contactenos</a>.</p>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #modalLeerEjercicio let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">RUTINA</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group row">
+            <div align="center" class="col-sm">
+                <label
+                    class="font-weight-bold">{{usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.descripcion}}</label>
+                <ng-container *ngIf="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen!=null">
+                    <img class="card-img-top"
+                    src="{{prefijoUrlEjercicios+usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen}}"
+                    height="300px" alt="Card image cap">
+                </ng-container>
+                <ng-container *ngIf="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen==null">
+                    <textarea rows="3" [disabled]="true" [(ngModel)]="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.detalle"
+                            oninput="this.value = this.value.toUpperCase()" class="form-control form-control-sm"></textarea>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cerrar')">Cerrar</button>
+    </div>
+</ng-template>

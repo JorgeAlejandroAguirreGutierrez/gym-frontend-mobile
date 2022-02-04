@@ -1,0 +1,63 @@
+.esp-img-responsive {
+    height: 100vh;
+} 
+
+.esp-div{
+    position: absolute;
+    top:60%;
+}
+
+.esp-button{
+    margin-top: 10%;
+}
+
+.font-tittle {
+    font-family: 'Baloo 2', cursive;
+    font-size: 28px;
+    font-weight: bold;
+}
+.font-description {
+    font-family: 'Baloo 2', cursive;
+    font-size: 24px;
+    line-height: 120%;
+}
+.font-button {
+    font-family: 'Baloo 2', cursive;
+    font-size: 26px;
+}
+.font-color{
+    color: #2b4a99;
+}
+
+@media (max-width: 400px) {
+    .esp-img-responsive {
+        height: 100vh;
+    }
+
+    .esp-div{
+        position: absolute;
+        top:60%;
+    }
+    
+    .esp-button{
+        margin-top: 10%;
+    }
+    
+    .font-tittle {
+        font-family: 'Baloo 2', cursive;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .font-description {
+        font-family: 'Baloo 2', cursive;
+        font-size: 18px;
+        line-height: 120%;
+    }
+    .font-button {
+        font-family: 'Baloo 2', cursive;
+        font-size: 20px;
+    }
+    .font-color{
+        color: #2b4a99;
+    }
+}

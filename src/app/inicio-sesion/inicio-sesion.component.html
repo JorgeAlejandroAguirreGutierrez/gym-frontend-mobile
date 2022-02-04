@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm">
+            <hr>
+            <h2 align="center">{{gimnasio}}</h2>
+            <hr>
+            <div class="form-group row">
+                <label for="contrasena" class="col-sm-3 col-form-label">Identificacion:</label>
+                <div class="col-sm-9">
+                    <input type="text" [(ngModel)]="sesion.usuario.identificacion" oninput="this.value = this.value.toUpperCase()"
+                        class="form-control form-control-sm">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="contrasena" class="col-sm-3 col-form-label">Contraseña:</label>
+                <div class="col-sm-9">
+                    <input type="password" [(ngModel)]="sesion.usuario.contrasena" class="form-control form-control-sm">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <button class="btn btn-sm btn-success btn-block" (click)="iniciarSesion()">Iniciar Sesion</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            <footer class="text-muted">
+                <div class="container">
+                    <p>{{gimnasio}} {{ubicacion}}. Todos los derechos reservados 2021.</p>
+                    <p>Instagram Gimnasio Olimpia <a href="../../">
+                            Visitala!</a> o haznos una pregunta a <a href="../../getting-started/">Contactenos</a>.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>

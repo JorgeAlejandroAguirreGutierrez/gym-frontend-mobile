@@ -1,0 +1,232 @@
+<div class="d-flex myfont" id="wrapper">
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">MENU </div>
+        <hr>
+        <div class="list-group list-group-flush">
+            <a href="/leer-plan" class="list-group-item list-group-item-action bg-light">VER PLAN</a>
+            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light" >CERRAR SESION</a>
+        </div>
+    </div>
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify">
+            <button class="btn btn-ligth" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
+            <span class="separate"></span>
+            <a class="navbar-brand" href="#">{{gimnasio}}</a>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm" align="center">
+                    <hr>
+                    <h2>MEDIDAS</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card-group col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">{{usuario.nombre}}</h2>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex">
+                                <span class="justify-content-start">
+                                    IDENTIFICACION
+                                </span>
+                                <span class="justify-content-end ml-auto">
+                                    {{usuario.identificacion}}
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <span class="justify-content-start">
+                                    TALLA
+                                </span>
+                                <span class="justify-content-end ml-auto">
+                                    {{usuario.talla}}
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <span class="justify-content-start">
+                                    EDAD
+                                </span>
+                                <span class="justify-content-end ml-auto">
+                                    {{usuario.edad}}
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm" style="text-align: center;">
+                                        <button (click)="suscripcionesVer()"
+                                            class="btn btn-sm btn-block btn-primary">VER SUSCRIPCIONES</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm" style="text-align: center;">
+                                        <button (click)="pesosVer()" class="btn btn-sm btn-block btn-primary">
+                                            VER PESOS
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm" style="text-align: center;">
+                                        <button (click)="observacionesVer()" class="btn btn-sm btn-block btn-primary">
+                                            VER OBSERVACIONES
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm" style="text-align: center;">
+                                        <button (click)="objetivosVer()" class="btn btn-sm btn-block btn-primary">
+                                            VER OBJETIVOS
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm" style="text-align: center;">
+                                        <a type="button" href="/leer-plan"
+                                            class="btn btn-sm btn-primary btn-block">
+                                            VER PLAN DE ENTRENAMIENTO
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm">
+                    <footer class="text-muted">
+                        <div class="container">
+                            <p>{{gimnasio}} {{ubicacion}}. Todos los derechos reservados 2021.</p>
+                            <p>Instagram Gimnasio Olimpia <a href="../../">
+                                    Visitala!</a> o haznos una pregunta a <a href="../../getting-started/">Contactenos</a>.</p>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #modalSuscripciones let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">SUSCRIPCIONES</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-hover table-bordered" style="font-size: 0.7rem">
+            <thead class="table-active">
+                <tr>
+                    <th>No.</th>
+                    <th>FECHA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let suscripcion of usuario.suscripciones; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{suscripcion.fecha | DateShortPipe}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cerrar')">Cerrar</button>
+    </div>
+</ng-template>
+
+<ng-template #modalPesos let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">PESOS</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-hover table-bordered" style="font-size: 0.7rem">
+            <thead class="table-active">
+                <tr>
+                    <th>No.</th>
+                    <th>PESO</th>
+                    <th>FECHA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let peso of usuario.pesos; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{peso.valor}} KG</td>
+                    <td>{{peso.fecha | DateShortPipe}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cerrar')">Cerrar</button>
+    </div>
+</ng-template>
+
+<ng-template #modalObservaciones let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">OBSERVACIONES</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-hover table-bordered" style="font-size: 0.7rem">
+            <thead class="table-active">
+                <tr>
+                    <th>No.</th>
+                    <th>OBSERVACION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let observacion of usuario.observaciones; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{observacion.descripcion}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cerrar')">Cerrar</button>
+    </div>
+</ng-template>
+
+<ng-template #modalObjetivos let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">OBJETIVOS</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-hover table-bordered" style="font-size: 0.7rem">
+            <thead class="table-active">
+                <tr>
+                    <th>No.</th>
+                    <th>OBJETIVO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let objetivo of usuario.objetivos; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{objetivo.descripcion}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cerrar')">Cerrar</button>
+    </div>
+</ng-template>
