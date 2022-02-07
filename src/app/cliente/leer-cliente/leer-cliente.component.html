@@ -45,103 +45,159 @@
                 </div>
             </div>
             <br>
-            <ng-container *ngFor="let usuarioEnc of usuariosEnc">
-                <div class="row">
-                    <div class="card-group col-sm">
-                        <ng-container *ngFor="let usuario of usuarioEnc">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h2 class="card-title">{{usuario.nombre}}</h2>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <ng-container *ngFor="let usuario of usuarios; let i=index">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-heading{{i}}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                attr.data-bs-target="#flush-collapse{{i}}" aria-expanded="false"
+                                attr.aria-controls="flush-collapse{{i}}">
+                                {{usuario.nombre}}
+                            </button>
+                        </h2>
+                        <div id="flush-collapse{{i}}" class="accordion-collapse collapse"
+                            attr.aria-labelledby="flush-heading{{i}}" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="card">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item d-flex">
+                                            <span class="justify-content-start">
+                                                IDENTIFICACION
+                                            </span>
+                                            <span class="justify-content-end ml-auto">
+                                                {{usuario.identificacion}}
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item d-flex">
+                                            <span class="justify-content-start">
+                                                TALLA
+                                            </span>
+                                            <span class="justify-content-end ml-auto">
+                                                {{usuario.talla}}
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item d-flex">
+                                            <span class="justify-content-start">
+                                                EDAD
+                                            </span>
+                                            <span class="justify-content-end ml-auto">
+                                                {{usuario.edad}}
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-sm" style="text-align: center;">
+                                                    <button (click)="editar(usuario)"
+                                                        class="btn btn-sm btn-block btn-primary">ACTUALIZAR DATOS
+                                                        DEL
+                                                        CLIENTE</button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-sm" style="text-align: center;">
+                                                    <button (click)="actualizarSuscripciones(usuario)"
+                                                        class="btn btn-sm btn-block btn-primary">ACTUALIZAR
+                                                        SUSCRIPCIONES</button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-sm" style="text-align: center;">
+                                                    <button (click)="pesosVer(usuario)"
+                                                        class="btn btn-sm btn-block btn-primary">
+                                                        VER PESOS
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-sm" style="text-align: center;">
+                                                    <button (click)="observacionesVer(usuario)"
+                                                        class="btn btn-sm btn-block btn-primary">
+                                                        VER OBSERVACIONES
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-sm" style="text-align: center;">
+                                                    <button (click)="objetivosVer(usuario)"
+                                                        class="btn btn-sm btn-block btn-primary">
+                                                        VER OBJETIVOS
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-sm" style="text-align: center;">
+                                                    <a type="button"
+                                                        href="/crear-plan?identificacion={{usuario.identificacion}}"
+                                                        class="btn btn-sm btn-primary btn-block">
+                                                        VER PLAN DE ENTRENAMIENTO
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex">
-                                        <span class="justify-content-start">
-                                            IDENTIFICACION
-                                        </span>
-                                        <span class="justify-content-end ml-auto">
-                                            {{usuario.identificacion}}
-                                        </span>
-                                    </li>
-                                    <li class="list-group-item d-flex">
-                                        <span class="justify-content-start">
-                                            TALLA
-                                        </span>
-                                        <span class="justify-content-end ml-auto">
-                                            {{usuario.talla}}
-                                        </span>
-                                    </li>
-                                    <li class="list-group-item d-flex">
-                                        <span class="justify-content-start">
-                                            EDAD
-                                        </span>
-                                        <span class="justify-content-end ml-auto">
-                                            {{usuario.edad}}
-                                        </span>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-sm" style="text-align: center;">
-                                                <button (click)="editar(usuario)"
-                                                    class="btn btn-sm btn-block btn-primary">ACTUALIZAR DATOS DEL
-                                                    CLIENTE</button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-sm" style="text-align: center;">
-                                                <button (click)="actualizarSuscripciones(usuario)"
-                                                    class="btn btn-sm btn-block btn-primary">ACTUALIZAR
-                                                    SUSCRIPCIONES</button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-sm" style="text-align: center;">
-                                                <button (click)="pesosVer(usuario)" class="btn btn-sm btn-block btn-primary">
-                                                    VER PESOS
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-sm" style="text-align: center;">
-                                                <button (click)="observacionesVer(usuario)"
-                                                    class="btn btn-sm btn-block btn-primary">
-                                                    VER OBSERVACIONES
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-sm" style="text-align: center;">
-                                                <button (click)="objetivosVer(usuario)"
-                                                    class="btn btn-sm btn-block btn-primary">
-                                                    VER OBJETIVOS
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-sm" style="text-align: center;">
-                                                <a type="button"
-                                                    href="/crear-plan?identificacion={{usuario.identificacion}}"
-                                                    class="btn btn-sm btn-primary btn-block">
-                                                    VER PLAN DE ENTRENAMIENTO
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
                             </div>
-                        </ng-container>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <!--<div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Accordion Item #1
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
+                            body.</div>
                     </div>
                 </div>
-            </ng-container>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Accordion Item #2
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
+                            body. Let's imagine this being filled with some actual content.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            Accordion Item #3
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+                            body. Nothing more exciting happening here in terms of content, but just filling up the
+                            space to make it look, at least at first glance, a bit more representative of how this would
+                            look in a real-world application.</div>
+                    </div>
+                </div>
+            </div>-->
             <br>
             <div class="row">
                 <div class="col-sm">

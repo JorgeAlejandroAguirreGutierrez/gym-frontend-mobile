@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     util.loadScripts();
     this.consultarLogo();
-    //this.validarSesion();
+    this.validarSesion();
   }
 
   validarSesion() {
@@ -65,6 +65,29 @@ export class MenuComponent implements OnInit {
 
   navegarIndex() {
     this.router.navigateByUrl('/index');
+  }
+
+  navegarCrearCliente(){
+    this.router.navigateByUrl('/crear-cliente');
+  }
+  navegarVerClientes(){
+    this.router.navigateByUrl('/leer-cliente');
+  }
+
+  navegarCrearEjercicio(){
+    this.router.navigateByUrl('/crear-ejercicio');
+  }
+
+  navegarVerEjercicios(){
+    this.router.navigateByUrl('/leer-ejercicio');
+  }
+
+  navegarCrearPlantilla(){
+    this.router.navigateByUrl('/crear-plantilla');
+  }
+
+  navegarVerPlantillas(){
+    this.router.navigateByUrl('/leer-plantilla');
   }
 
   cerrarSesion(event: any) {

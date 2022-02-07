@@ -19,9 +19,7 @@
             <div class="row">
                 <div class="col-12 mb-4">
                     <div class="form-floating">
-                        <input type="text" [(ngModel)]="sesion.usuario.contrasena"
-                            oninput="this.value = this.value.toUpperCase()" placeholder=""
-                            class="form-control form-control-sm" id="floatingInput">
+                        <input type="password" [(ngModel)]="sesion.usuario.contrasena" placeholder="" class="form-control form-control-sm" id="floatingInput">
                         <label for="floatingInput">Contraseña</label>
                     </div>
                 </div>

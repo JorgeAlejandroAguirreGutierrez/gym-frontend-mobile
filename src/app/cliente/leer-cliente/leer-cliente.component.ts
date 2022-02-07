@@ -36,8 +36,6 @@ export class LeerClienteComponent implements OnInit {
 
   suscripcionCrear: Suscripcion=new Suscripcion();
 
-  usuariosEnc: any[] = [];
-
   sesion: Sesion=null as any;
 
   cerrarModal: string="";
@@ -60,18 +58,6 @@ export class LeerClienteComponent implements OnInit {
     this.usuarioService.consultarClientes().subscribe(
       res => {
         this.usuarios = res;
-        this.usuariosEnc=[];
-        let usuariosRec: Usuario[] = [];
-        for (let i = 0; i < this.usuarios.length; i++) {
-          usuariosRec.push(this.usuarios[i]);
-          if (usuariosRec.length == 4) {
-            this.usuariosEnc.push(usuariosRec);
-            usuariosRec = [];
-          }
-        }
-        if (usuariosRec.length > 0) {
-          this.usuariosEnc.push(usuariosRec);
-        }
       },
       err => {
         Swal.fire(constantes.error, err.error.mensaje, constantes.error_swal)
@@ -168,19 +154,7 @@ export class LeerClienteComponent implements OnInit {
   consultarClientesPorNombreIdentificacion(){
     this.usuarioService.consultarClientesPorNombreIdentificacion(this.nombre, this.identificacion).subscribe(
       res => {
-        this.usuariosEnc=[];
         this.usuarios = res;
-        let usuariosRec: Usuario[] = [];
-        for (let i = 0; i < this.usuarios.length; i++) {
-          usuariosRec.push(this.usuarios[i]);
-          if (usuariosRec.length == 4) {
-            this.usuariosEnc.push(usuariosRec);
-            usuariosRec = [];
-          }
-        }
-        if (usuariosRec.length > 0) {
-          this.usuariosEnc.push(usuariosRec);
-        }
       },
       err => {
         Swal.fire(constantes.error, constantes.error_buscar_usuario, constantes.error_swal)

@@ -76,7 +76,7 @@ export class InicioSesionComponent implements OnInit {
   }
 
   navegarAdmin() {
-    this.router.navigate(['/leer-cliente']);
+    this.router.navigate(['/menu']);
   }
 
   navegarCliente() {
