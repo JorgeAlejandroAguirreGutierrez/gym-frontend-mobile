@@ -18,8 +18,7 @@ import { Sesion } from 'src/app/modelos/sesion';
 })
 export class LeerPlantillaPlanComponent implements OnInit {
 
-  gimnasio=environment.gimnasio;
-  ubicacion=environment.ubicacion;
+  app=environment.app;
 
   plantillasPlan: PlantillaPlan[]=[];
   nombre: string="";
@@ -107,7 +106,7 @@ export class LeerPlantillaPlanComponent implements OnInit {
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', centered: true}).result.then((result) => {
       this.cerrarModal = `Closed with: ${result}`;
-    }, (reason) => {
+    }, (reason: any) => {
       this.cerrarModal = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }

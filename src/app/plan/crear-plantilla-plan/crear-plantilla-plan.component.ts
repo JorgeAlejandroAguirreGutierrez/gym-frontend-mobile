@@ -25,8 +25,7 @@ import { RutinaService } from 'src/app/servicios/rutina.service';
 })
 export class CrearPlantillaPlanComponent implements OnInit {
 
-  gimnasio=environment.gimnasio;
-  ubicacion=environment.ubicacion;
+  app=environment.app;
 
   plantillaPlan: PlantillaPlan=new PlantillaPlan();
   cerrarModal: string = "";

@@ -19,8 +19,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CrearClienteComponent implements OnInit {
 
-  gimnasio=environment.gimnasio;
-  ubicacion=environment.ubicacion;
+  app=environment.app;
   
   usuario: Usuario = new Usuario();
   observacion: string = ""

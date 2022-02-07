@@ -22,8 +22,7 @@ import * as util from '../../util';
 })
 export class LeerClienteComponent implements OnInit {
 
-  gimnasio=environment.gimnasio;
-  ubicacion=environment.ubicacion;
+  app=environment.app;
 
   usuarios: Usuario[]=[];
   usuarioActualizar: Usuario=new Usuario();

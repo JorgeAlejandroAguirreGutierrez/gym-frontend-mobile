@@ -1,10 +1,18 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { DateShortPipe } from './pipes/date-short-pipe';
+
 import { CrearClienteComponent } from './cliente/crear-cliente/crear-cliente.component';
 import { LeerClienteComponent } from './cliente/leer-cliente/leer-cliente.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
@@ -16,6 +24,12 @@ import { LeerPlanComponent } from './plan/leer-plan/leer-plan.component';
 import { LeerMedidaComponent } from './plan/leer-medida/leer-medida.component';
 import { CrearPlantillaPlanComponent } from './plan/crear-plantilla-plan/crear-plantilla-plan.component';
 import { LeerPlantillaPlanComponent } from './plan/leer-plantilla-plan/leer-plantilla-plan.component';
+
+
+import { InicioComponent } from './inicio/inicio.component';
+import { InicioSlideComponent } from './inicio-slide/inicio-slide.component';
+import { MenuComponent } from './menu/menu.component';
+
 
 @NgModule({
   declarations: [
@@ -31,12 +45,22 @@ import { LeerPlantillaPlanComponent } from './plan/leer-plantilla-plan/leer-plan
     LeerPlanComponent,
     LeerMedidaComponent,
     CrearPlantillaPlanComponent,
-    LeerPlantillaPlanComponent
+    LeerPlantillaPlanComponent,
+    InicioComponent,
+    InicioSlideComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    NgbModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

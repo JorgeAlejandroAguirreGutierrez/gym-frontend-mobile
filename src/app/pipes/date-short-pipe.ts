@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 })
 export class DateShortPipe extends
     DatePipe implements PipeTransform {
-    transform(value: any, args?: any): any {
+    override transform(value: any, args?: any): any {
         return super.transform(value, "yyyy-MM-dd");
     }
 }

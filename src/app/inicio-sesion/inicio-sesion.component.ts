@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import * as constantes from '../constantes';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { Parametro } from '../modelos/parametro';
+import { ParametroService } from '../servicios/parametro.service';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -13,14 +15,40 @@ import { environment } from '../../environments/environment';
 })
 export class InicioSesionComponent implements OnInit {
 
-  gimnasio=environment.gimnasio;
-  ubicacion=environment.ubicacion;
+  app=environment.app;
+
+  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  fondoInicioSesion: Parametro[]=[new Parametro()];
+  logo: Parametro[]=[new Parametro()];
 
   sesion: Sesion=new Sesion();
 
-  constructor(private sesionService: SesionService, private router: Router) { }
+  constructor(private router: Router, private parametroService: ParametroService, private sesionService: SesionService) { }
 
   ngOnInit(): void {
+    this.consultarFondoInicioSesion();
+    this.consultarLogo();
+  }
+
+  consultarFondoInicioSesion(){
+    this.parametroService.consultarPorTipo(constantes.parametroFondoInicioSesion).subscribe(
+      res => {
+        this.fondoInicioSesion=res;
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
+      }
+    );
+  }
+  consultarLogo(){
+    this.parametroService.consultarPorTipo(constantes.parametroLogo2).subscribe(
+      res => {
+        this.logo=res;
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
+      }
+    );
   }
 
   iniciarSesion() {

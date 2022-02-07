@@ -28,8 +28,7 @@ import { RutinaService } from 'src/app/servicios/rutina.service';
 })
 export class CrearPlanComponent implements OnInit {
 
-  gimnasio = environment.gimnasio;
-  ubicacion = environment.ubicacion;
+  app = environment.app;
 
   plantillaPlanCrear: PlantillaPlan = new PlantillaPlan();
   plantillasPlan: PlantillaPlan[] = [];

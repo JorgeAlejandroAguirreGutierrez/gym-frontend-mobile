@@ -17,8 +17,7 @@ import { Sesion } from 'src/app/modelos/sesion';
 })
 export class LeerPlanComponent implements OnInit {
 
-  gimnasio=environment.gimnasio;
-  ubicacion=environment.ubicacion;
+  app=environment.app;
 
   sesion: Sesion= null as any;
   usuario: Usuario=new Usuario();

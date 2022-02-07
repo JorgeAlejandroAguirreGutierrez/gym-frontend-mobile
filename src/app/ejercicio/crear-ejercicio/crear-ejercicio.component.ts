@@ -18,8 +18,7 @@ import { environment } from './../../../environments/environment';
 })
 export class CrearEjercicioComponent implements OnInit {
 
-  gimnasio=environment.gimnasio;
-  ubicacion=environment.ubicacion;
+  app=environment.app;
   
   ejercicio: Ejercicio = new Ejercicio();
   imagen: any = null;

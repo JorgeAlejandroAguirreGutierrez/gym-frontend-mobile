@@ -7,8 +7,7 @@ export const environment = {
   host: 'http://localhost:5000',
   prefijo_url_imagenes: 'http://localhost:5000/img/',
   prefijo_url_ejercicios: 'http://localhost:5000/imgejercicio/',
-  gimnasio: "GYM",
-  ubicacion: "SALAMINA CALDAS"
+  app: "GymUp",
 };
 
 /*

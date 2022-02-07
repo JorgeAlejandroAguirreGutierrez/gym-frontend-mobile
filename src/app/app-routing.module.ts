@@ -7,6 +7,7 @@ import { LeerEjercicioComponent } from './ejercicio/leer-ejercicio/leer-ejercici
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { InicioSlideComponent } from './inicio-slide/inicio-slide.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { MenuComponent } from './menu/menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CrearPlanComponent } from './plan/crear-plan/crear-plan.component';
 import { CrearPlantillaPlanComponent } from './plan/crear-plantilla-plan/crear-plantilla-plan.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent},
   { path: 'inicio-slide', component: InicioSlideComponent},
   { path: 'iniciar-sesion', component: InicioSesionComponent},
+  { path: 'menu', component: MenuComponent},
   { path: 'crear-cliente', component: CrearClienteComponent},
   { path: 'leer-cliente', component: LeerClienteComponent},
   { path: 'crear-ejercicio', component: CrearEjercicioComponent},

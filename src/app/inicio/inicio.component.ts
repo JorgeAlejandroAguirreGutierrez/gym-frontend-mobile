@@ -15,7 +15,7 @@ import { Parametro } from '../modelos/parametro';
 })
 export class InicioComponent implements OnInit {
 
-  prefijoUrlImagenes = "/assets/";
+  prefijoUrlImagenes = environment.prefijo_url_imagenes;
   bandera=false;
 
   inicio: Parametro[]=[new Parametro()];
@@ -24,10 +24,6 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.consultarInicio();
-  }
-
-  navegarSlide() {
-    this.router.navigateByUrl('/inicio-slide');
   }
 
   consultarInicio(){
@@ -47,6 +43,10 @@ export class InicioComponent implements OnInit {
         Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
+  }
+
+  navegarSlide() {
+    this.router.navigateByUrl('/inicio-slide');
   }
 
 }

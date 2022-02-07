@@ -16,61 +16,31 @@ export class UsuarioService {
 
   crear(usuario: Usuario): Observable<Usuario> {
     return this.http.post(environment.host + util.ruta + util.usuario, usuario, util.options).pipe(
-      map(response => response as Usuario),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Usuario)
     );
   }
 
   consultar(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(environment.host + util.ruta + util.usuario, util.options).pipe(
-      map(response => response as Usuario[]),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Usuario[])
     );
-  }
-  
-  async consultarAsync(): Promise<Usuario[]> {
-    return await this.http.get<Usuario[]>(environment.host + util.ruta + util.usuario, util.options).pipe(
-      map(response => response as Usuario[]),
-      catchError(err => {
-        return throwError(err);
-      })).toPromise();
   }
 
   obtener(cliente_id: number): Observable<Usuario> {
     return this.http.get<Usuario>(environment.host + util.ruta + util.usuario + '/' + cliente_id, util.options).pipe(
-      map(response => response as Usuario),
-      catchError(err => {
-        return throwError(err);
-      }));
-  }
-
-  async obtenerAsync(cliente_id: number): Promise<Usuario> {
-    return await this.http.get<Usuario>(environment.host + util.ruta + util.usuario + '/' + cliente_id, util.options).pipe(
-      map(response => response as Usuario),
-      catchError(err => {
-        return throwError(err);
-      })).toPromise();
+      map(response => response as Usuario)
+      );
   }
 
   actualizar(usuario: Usuario): Observable<Usuario> {
     return this.http.put(environment.host+util.ruta+util.usuario, usuario, util.options).pipe(
-      map(response => response as Usuario),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Usuario)
     );
   }
 
   eliminar(usuario_id: number): Observable<Usuario> {
     return this.http.delete(environment.host+util.ruta+util.usuario + '/' + usuario_id, util.options).pipe(
-      map(response => response as Usuario),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Usuario)
     );
   }
 
@@ -78,19 +48,13 @@ export class UsuarioService {
     let params = new HttpParams().set("nombre", nombre)
                                  .set("identificacion", identificacion);
     return this.http.get(environment.host+util.ruta+util.usuario+util.consultarClientesPorNombreIdentificacion, {params: params, headers: util.options.headers}).pipe(
-      map(response => response as Usuario[]),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Usuario[])
     );
   }
 
   consultarClientes(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(environment.host + util.ruta + util.usuario +util.consultarClientes, util.options).pipe(
-      map(response => response as Usuario[]),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Usuario[])
     );
   }
 
@@ -105,27 +69,19 @@ export class UsuarioService {
 
   obtenerPorIdentificacion(identificacion: string): Observable<Usuario> {
     return this.http.get<Usuario>(environment.host + util.ruta + util.usuario+util.obtenerPorIdentificacion + '/' + identificacion, util.options).pipe(
-      map(response => response as Usuario),
-      catchError(err => {
-        return throwError(err);
-      }));
+      map(response => response as Usuario)
+      );
   }
 
   crearCliente(usuario: Usuario): Observable<Usuario> {
     return this.http.post(environment.host + util.ruta + util.usuario + util.crearCliente, usuario, util.options).pipe(
-      map(response => response as Usuario),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Usuario)
     );
   }
 
   crearAdmin(usuario: Usuario): Observable<Usuario> {
     return this.http.post(environment.host + util.ruta + util.usuario + util.crearAdmin, usuario, util.options).pipe(
-      map(response => response as Usuario),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Usuario)
     );
   }
 

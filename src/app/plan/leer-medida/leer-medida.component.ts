@@ -17,8 +17,7 @@ import { environment } from '../../../environments/environment';
 })
 export class LeerMedidaComponent implements OnInit {
 
-  gimnasio=environment.gimnasio;
-  ubicacion=environment.ubicacion;
+  app=environment;
 
   usuario: Usuario=new Usuario();
   sesion: Sesion=null as any;

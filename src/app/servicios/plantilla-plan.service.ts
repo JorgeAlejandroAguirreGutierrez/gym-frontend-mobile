@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
-import { of, Observable, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import * as util from '../util';
 import { environment } from '../../environments/environment';
@@ -16,19 +16,13 @@ export class PlantillaPlanService {
 
   crear(plantillaPlan: PlantillaPlan): Observable<PlantillaPlan> {
     return this.http.post(environment.host + util.ruta + util.plantillaplan, plantillaPlan, util.options).pipe(
-      map(response => response as PlantillaPlan),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as PlantillaPlan)
     );
   }
 
   consultar(): Observable<PlantillaPlan[]> {
     return this.http.get<PlantillaPlan[]>(environment.host + util.ruta + util.plantillaplan, util.options).pipe(
-      map(response => response as PlantillaPlan[]),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as PlantillaPlan[])
     );
   }
 
@@ -36,36 +30,25 @@ export class PlantillaPlanService {
     let params = new HttpParams().set("nombre", nombre)
     .set("somatotipo", somatotipo);
     return this.http.get(environment.host+util.ruta+util.plantillaplan+util.buscar, {params: params, headers: util.options.headers}).pipe(
-      map(response => response as PlantillaPlan[]),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as PlantillaPlan[])
     );
   }
 
   obtener(plantillaPlanId: number): Observable<PlantillaPlan> {
     return this.http.get<PlantillaPlan>(environment.host + util.ruta + util.plantillaplan + '/' + plantillaPlanId, util.options).pipe(
-      map(response => response as PlantillaPlan),
-      catchError(err => {
-        return throwError(err);
-      }));
+      map(response => response as PlantillaPlan)
+      );
   }
 
   actualizar(plantillaPlan: PlantillaPlan): Observable<PlantillaPlan> {
     return this.http.put(environment.host+util.ruta+util.plantillaplan, plantillaPlan, util.options).pipe(
-      map(response => response as PlantillaPlan),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as PlantillaPlan)
     );
   }
 
   eliminar(plantillaPlanId: number): Observable<PlantillaPlan> {
     return this.http.delete(environment.host+util.ruta+util.plantillaplan + '/' + plantillaPlanId, util.options).pipe(
-      map(response => response as PlantillaPlan),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as PlantillaPlan)
     );
   }
 
