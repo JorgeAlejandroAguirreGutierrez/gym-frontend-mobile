@@ -27,8 +27,7 @@ export class LeerClienteComponent implements OnInit {
   usuarios: Usuario[]=[];
   usuarioActualizar: Usuario=new Usuario();
 
-  nombre: string="";
-  identificacion: string="";
+  usuario: string="";
 
   pesoActualizar: number=0;
   observacionActualizar: string="";
@@ -144,15 +143,12 @@ export class LeerClienteComponent implements OnInit {
     );
   }
 
-  limpiarNombre(){
-    this.nombre="";
+  limpiarUsuario(){
+    this.usuario="";
   }
 
-  limpiarIdentificacion(){
-    this.identificacion="";
-  }
   consultarClientesPorNombreIdentificacion(){
-    this.usuarioService.consultarClientesPorNombreIdentificacion(this.nombre, this.identificacion).subscribe(
+    this.usuarioService.consultarClientesPorNombreIdentificacion(this.usuario).subscribe(
       res => {
         this.usuarios = res;
       },

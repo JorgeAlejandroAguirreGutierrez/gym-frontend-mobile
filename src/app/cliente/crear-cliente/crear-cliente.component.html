@@ -1,4 +1,4 @@
-<div class="d-flex myfont" id="wrapper">
+<div class="d-flex font-size" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">MENU </div>
         <hr>
@@ -17,209 +17,139 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify">
             <button class="btn btn-ligth" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
             <span class="separate"></span>
-            <a class="navbar-brand" href="#">{{app}}</a>
+            <a class="navbar-brand" href="#"></a>
         </nav>
         <div class="container">
             <div class="row">
                 <div class="col-sm" align="center">
                     <hr>
-                    <h2 class="font-weight-bold">CLIENTE</h2>
+                    <h2 class="font-color font-size-tittle">CREAR CLIENTE</h2>
                     <hr>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label class="font-weight-bold">Nombre:</label>
-                            <div class="input-group">
-                                <input type="text" [(ngModel)]="usuario.nombre" class="form-control form-control-sm"
-                                    oninput="this.value = this.value.toUpperCase()">
-                                <div class="input-group-text"><i class="fa fa-user"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label class="font-weight-bold">Identificacion:</label>
-                            <div class="input-group">
-                                <input type="text" [(ngModel)]="usuario.identificacion"
-                                    class="form-control form-control-sm"
-                                    oninput="this.value = this.value.toUpperCase()">
-                                <div class="input-group-text"><i class="fa fa-id-card"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label class="font-weight-bold">Talla:</label>
-                            <div class="input-group">
-                                <input type="number" [(ngModel)]="usuario.talla" class="form-control form-control-sm"
-                                    oninput="this.value = this.value.toUpperCase()">
-                                <div class="input-group-text"><i class="fa fa-text-height"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label class="font-weight-bold">Edad:</label>
-                            <div class="input-group">
-                                <input type="number" [(ngModel)]="usuario.edad" class="form-control form-control-sm"
-                                    oninput="this.value = this.value.toUpperCase()">
-                                <div class="input-group-text"><i class="fa fa-pager"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label class="font-weight-bold">Peso:</label>
-                            <div class="input-group input-group-sm">
-                                <input type="number" [(ngModel)]="peso" class="form-control form-control-sm"
-                                    oninput="this.value = this.value.toUpperCase()">
-                                <div class="input-group-append">
-                                    <span class="input-group-text font-weight-bold">KG</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <button class="btn btn-sm btn-block btn-primary font-weight-bold" (click)="crearPeso()">Agregar Peso</button>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-                                <thead class="table-active">
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>PESO</th>
-                                        <th>FECHA</th>
-                                        <th>OPC</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let peso of usuario.pesos; let i=index">
-                                        <td>{{i+1}}</td>
-                                        <td>{{peso.valor}} KG</td>
-                                        <td>{{peso.fecha | DateShortPipe}}</td>
-                                        <td>
-                                            <button (click)="eliminarPeso(i)" class="btn btn-primary form-control-sm"><i
-                                                    class="fa fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label class="font-weight-bold">Observaciones:</label>
-                            <div class="input-group">
-                                <input type="text" [(ngModel)]="observacion" class="form-control form-control-sm"
-                                    oninput="this.value = this.value.toUpperCase()">
-                                <div class="input-group-text"><i class="fa fa-bolt"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <button class="btn btn-sm btn-block btn-primary font-weight-bold" (click)="crearObservacion()">Agregar
-                                Observacion</button>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-                                <thead class="table-active">
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>OBSERVACION</th>
-                                        <th>OPC</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let observacion of usuario.observaciones; let i=index">
-                                        <td>{{i+1}}</td>
-                                        <td>{{observacion.descripcion}}</td>
-                                        <td>
-                                            <button (click)="eliminarObservacion(i)"
-                                                class="btn btn-primary btn-sm"><i
-                                                    class="fa fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label class="font-weight-bold">Objetivos:</label>
-                            <div class="input-group">
-                                <input type="text" [(ngModel)]="objetivo" class="form-control form-control-sm"
-                                    oninput="this.value = this.value.toUpperCase()">
-                                <div class="input-group-text"><i class="fa fa-list-ol"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <button class="btn btn-sm btn-block btn-primary font-weight-bold" (click)="crearObjetivo()">Agregar
-                                Objetivo</button>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-                                <thead class="table-active">
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>OBJETIVO</th>
-                                        <th>OPC</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let objetivo of usuario.objetivos; let i=index">
-                                        <td>{{i+1}}</td>
-                                        <td>{{objetivo.descripcion}}</td>
-                                        <td>
-                                            <button (click)="eliminarObjetivo(i)"
-                                                class="btn btn-primary btn-sm">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <button type="button" (click)="crear()" class="btn btn-success btn-sm btn-block font-weight-bold"
-                                oninput="this.value = this.value.toUpperCase()">Guardar</button>
-                        </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" [(ngModel)]="usuario.nombre" placeholder="" class="form-control"
+                            oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
+                        <label for="floatingNombre">Nombre</label>
                     </div>
                 </div>
-                <div class="col-sm-3"></div>
             </div>
-            <br>
-            <div class="row">
-                <div class="col-sm">
-                    <footer class="text-muted">
-                        <div class="container">
-                            <p>{{app}} </p>
-                            <p>Todos los derechos reservados 2021.</p>
-                        </div>
-                    </footer>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" [(ngModel)]="usuario.identificacion" placeholder="" class="form-control"
+                            id="floatingIdentificacion">
+                        <label for="floatingIdentificacion">Identificacion</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="number" [(ngModel)]="usuario.talla" placeholder="" class="form-control"
+                            id="floatingTalla">
+                        <label for="floatingTalla">Talla</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="number" [(ngModel)]="usuario.edad" placeholder="" class="form-control"
+                            id="floatingEdad">
+                        <label for="floatingEdad">Edad</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="number" [(ngModel)]="peso" placeholder="" class="form-control" id="floatingPeso">
+                        <label for="floatingPeso">Peso</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" [(ngModel)]="observacion" placeholder="" class="form-control"
+                            id="floatingObservacion">
+                        <label for="floatingObservacion">Observacion</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="d-grid gap-1">
+                    <button class="btn btn-primary color-button" (click)="crearObservacion()">Agregar
+                        Observacion</button>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <table class="table table-hover table-bordered" style="font-size: 0.7rem">
+                        <thead class="table-active">
+                            <tr>
+                                <th>No.</th>
+                                <th>OBSERVACION</th>
+                                <th>OPC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let observacion of usuario.observaciones; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{observacion.descripcion}}</td>
+                                <td>
+                                    <button (click)="eliminarObservacion(i)" class="btn btn-primary btn-sm"><i
+                                            class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" [(ngModel)]="objetivo" placeholder="" class="form-control"
+                            id="floatingObjetivo">
+                        <label for="floatingObjetivo">Objetivo</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="d-grid gap-1">
+                    <button class="btn btn-primary color-button" (click)="crearObjetivo()">Agregar Objetivo</button>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class= "col-12">
+                    <table class="table table-hover table-bordered" style="font-size: 0.7rem">
+                        <thead class="table-active">
+                            <tr>
+                                <th>No.</th>
+                                <th>OBJETIVO</th>
+                                <th>OPC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let objetivo of usuario.objetivos; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{objetivo.descripcion}}</td>
+                                <td>
+                                    <button (click)="eliminarObjetivo(i)" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="d-grid gap-1">
+                    <button type="button" (click)="crear()" class="btn btn-success">Guardar</button>
                 </div>
             </div>
         </div>
