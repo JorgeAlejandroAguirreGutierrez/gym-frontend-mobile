@@ -1,4 +1,4 @@
-<div class="d-flex" id="wrapper">
+<div class="d-flex font-size" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">MENU </div>
         <hr>
@@ -25,29 +25,33 @@
             </div>
             <div class="row">
                 <div class="col-12" align="center">
-                    <h2 class="font-size-tittle font-color font-tittle">MENU</h2>
-                    <hr>
+                    <h2 class="font-size-tittle color-tittle font-tittle">MENU</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-8 font-size">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="d-grid gap-2">
-                                <button type="button" (click)="navegarCrearCliente()" class="btn btn-primary color-button">Crear Cliente</button>
-                                <button type="button" (click)="navegarVerClientes()" class="btn btn-primary color-button">Ver Clientes</button>
-                                <button type="button" (click)="navegarCrearEjercicio()" class="btn btn-primary color-button">Crear Ejercicio</button>
-                                <button type="button" (click)="navegarVerEjercicios()" class="btn btn-primary color-button">Ver Ejercicios</button>
-                                <button type="button" (click)="navegarCrearPlantilla()" class="btn btn-primary color-button">Crear Plantilla</button>
-                                <button type="button" (click)="navegarVerPlantillas()" class="btn btn-primary color-button">Ver Plantillas</button>
-                                <br>
-                                <button type="button" (click)="cerrarSesion(null)" class="btn btn-primary color-button">Cerrar Sesion</button>
-                            </div>
-                        </div>
+            <br>
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="d-grid gap-2">
+                        <button type="button" (click)="navegarCrearCliente()"
+                            class="btn btn-primary color-button">Crear Cliente</button>
+                        <button type="button" (click)="navegarVerClientes()"
+                            class="btn btn-primary color-button">Ver Clientes</button>
+                        <button type="button" (click)="navegarCrearEjercicio()"
+                            class="btn btn-primary color-button">Crear Ejercicio</button>
+                        <button type="button" (click)="navegarVerEjercicios()"
+                            class="btn btn-primary color-button">Ver Ejercicios</button>
+                        <button type="button" (click)="navegarCrearPlantilla()"
+                            class="btn btn-primary color-button">Crear Plantilla</button>
+                        <button type="button" (click)="navegarVerPlantillas()"
+                            class="btn btn-primary color-button">Ver Plantillas</button>
                     </div>
                 </div>
-                <div class="col-2"></div>
+            </div>
+            <div class="row font-size">
+                <div class="col-12 d-grid gap-2">
+                    <button type="button" (click)="cerrarSesion(null)"
+                        class="btn btn-primary color-button">Cerrar Sesion</button>
+                </div>
             </div>
         </div>
     </div>

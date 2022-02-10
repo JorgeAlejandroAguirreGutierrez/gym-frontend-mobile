@@ -154,17 +154,16 @@
     </div>
     <div class="modal-body">
         <div class="row">
-            <div class="col-sm-12">
-                <label>Fecha:</label>
-                <div class="input-group">
-                    <input type="date" [(ngModel)]="suscripcionCrear.fecha" class="form-control form-control-sm">
-                    <div class="input-group-text"><i class="fa fa-dumbbell"></i></div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input type="date" [(ngModel)]="suscripcionCrear.fecha" placeholder="" class="form-control form-control-sm" id="floatingSuscripcion">
+                    <label for="floatingSuscripcion">Fecha</label>
                 </div>
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="d-grid gap-1">
                 <button type="button" class="btn btn-sm btn-success btn-block"
                     (click)="crearSuscripcion()">Agregar</button>
             </div>
@@ -206,18 +205,16 @@
     </div>
     <div class="modal-body">
         <div class="row">
-            <div class="col-sm-12">
-                <label>Nuevo Peso:</label>
-                <div class="input-group">
-                    <input type="text" [(ngModel)]="pesoActualizar" class="form-control form-control-sm"
-                        oninput="this.value = this.value.toUpperCase()">
-                    <div class="input-group-text"><i class="fa fa-dumbbell"></i></div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input type="number" [(ngModel)]="pesoActualizar" placeholder="" class="form-control form-control-sm" id="floatingPeso">
+                    <label for="floatingPeso">Nuevo Peso</label>
                 </div>
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="d-grid gap-1">
                 <button type="button" class="btn btn-sm btn-success btn-block" (click)="pesoCrear()">Agregar</button>
             </div>
         </div>
@@ -260,18 +257,16 @@
     </div>
     <div class="modal-body">
         <div class="row">
-            <div class="col-sm-12">
-                <label>Nueva Observacion:</label>
-                <div class="input-group">
-                    <input type="text" [(ngModel)]="observacionActualizar" class="form-control form-control-sm"
-                        oninput="this.value = this.value.toUpperCase()">
-                    <div class="input-group-text"><i class="fa fa-dumbbell"></i></div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input type="text" [(ngModel)]="observacionActualizar" placeholder="" class="form-control form-control-sm" id="floatingObservacion">
+                    <label for="floatingObservacion">Nueva Observacion</label>
                 </div>
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="d-grid gap-1">
                 <button type="button" class="btn btn-sm btn-success btn-block"
                     (click)="observacionCrear()">Agregar</button>
             </div>
@@ -314,17 +309,15 @@
     <div class="modal-body">
         <div class="row">
             <div class="col-sm-12">
-                <label>Nuevo Objetivo:</label>
-                <div class="input-group">
-                    <input type="text" [(ngModel)]="objetivoActualizar" class="form-control form-control-sm"
-                        oninput="this.value = this.value.toUpperCase()">
-                    <div class="input-group-text"><i class="fa fa-dumbbell"></i></div>
+                <div class="form-floating">
+                    <input type="text" [(ngModel)]="objetivoActualizar" placeholder="" class="form-control form-control-sm" id="floatingObservacion">
+                    <label for="floatingObjetivo">Nuevo Objetivo</label>
                 </div>
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="d-grid gap-1">
                 <button type="button" class="btn btn-sm btn-success btn-block"
                     (click)="objetivoCrear()">Agregar</button>
             </div>
@@ -366,52 +359,43 @@
     </div>
     <div class="modal-body">
         <div class="row">
-            <div class="col-sm-12">
-                <label>Nombre:</label>
-                <div class="input-group">
-                    <input type="text" [(ngModel)]="usuarioActualizar.nombre" class="form-control form-control-sm"
-                        oninput="this.value = this.value.toUpperCase()">
-                    <div class="input-group-text"><i class="fa fa-user"></i></div>
+            <div class="col-12 mb-3">
+                <div class="form-floating">
+                    <input type="text" [(ngModel)]="usuarioActualizar.nombre" placeholder="" class="form-control form-control-sm" id="floatingNombre">
+                    <label for="floatingNombre">Nombre</label>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
-                <label>Identificacion:</label>
-                <div class="input-group">
-                    <input type="text" [(ngModel)]="usuarioActualizar.identificacion"
-                        class="form-control form-control-sm" oninput="this.value = this.value.toUpperCase()">
-                    <div class="input-group-text"><i class="fa fa-id-card"></i></div>
+            <div class="col-12 mb-3">
+                <div class="form-floating">
+                    <input type="text" [(ngModel)]="usuarioActualizar.identificacion" placeholder="" [disabled]="true" class="form-control form-control-sm" id="floatingIdentificacion">
+                    <label for="floatingIdentificacion">Identificacion</label>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
-                <label>Contraseña:</label>
-                <div class="input-group">
-                    <input type="text" [(ngModel)]="usuarioActualizar.contrasena" class="form-control form-control-sm"
-                        oninput="this.value = this.value.toUpperCase()">
-                    <div class="input-group-text"><i class="fa fa-id-card"></i></div>
+            <div class="col-12 mb-3">
+                <div class="form-floating">
+                    <input type="text" [(ngModel)]="usuarioActualizar.contrasena" placeholder="" class="form-control form-control-sm" id="floatingContrasena">
+                    <label for="floatingContrasena">Contraseña</label>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
-                <label>Talla:</label>
-                <div class="input-group">
-                    <input type="text" [(ngModel)]="usuarioActualizar.talla" class="form-control form-control-sm"
-                        oninput="this.value = this.value.toUpperCase()">
-                    <div class="input-group-text"><i class="fa fa-text-height"></i></div>
+            <div class="col-12 mb-3">
+                <div class="form-floating">
+                    <input type="text" [(ngModel)]="usuarioActualizar.talla" placeholder=""  class="form-control form-control-sm" id="floatingTalla">
+                    <label for="floatingTalla">Talla</label>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
-                <label>Edad:</label>
-                <div class="input-group">
-                    <input type="text" [(ngModel)]="usuarioActualizar.edad" class="form-control form-control-sm"
-                        oninput="this.value = this.value.toUpperCase()">
-                    <div class="input-group-text"><i class="fa fa-pager"></i></div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input type="text" [(ngModel)]="usuarioActualizar.edad" placeholder="" class="form-control form-control-sm"
+                        id="floatingEdad">
+                    <label for="floatingEdad">Edad</label>
                 </div>
             </div>
         </div>

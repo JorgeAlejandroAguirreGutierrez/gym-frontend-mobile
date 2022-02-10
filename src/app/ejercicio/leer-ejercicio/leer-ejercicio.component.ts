@@ -29,7 +29,7 @@ export class LeerEjercicioComponent implements OnInit {
 
   ejercicioLeer: Ejercicio=null as any;
 
-  tiposMusculo: TipoMusculo[]=[];
+  tiposMusculos: TipoMusculo[]=[];
 
   cerrarModal: string="";
 
@@ -54,7 +54,7 @@ export class LeerEjercicioComponent implements OnInit {
   consultarTiposMuculo(){
     this.tipoMusculoService.consultar().subscribe(
       res => {
-        this.tiposMusculo = res;
+        this.tiposMusculos = res;
       },
       err => {
         Swal.fire(constantes.error, constantes.error_consultar_musculos, constantes.error_swal)

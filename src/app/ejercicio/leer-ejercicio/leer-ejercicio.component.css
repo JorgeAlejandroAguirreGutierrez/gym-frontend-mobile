@@ -1,3 +1,25 @@
+.color-button{
+  background-color: #496bb7;
+}
+.font-size {
+  font-family: 'Baloo 2', cursive;
+  font-size: 18px;
+}
+.font-size-tittle {
+  font-family: 'Baloo 2', cursive;
+  font-size: 28px;
+}
+.font-color {
+  color: #496bb7;
+  font-weight: bold;
+}
+.icon-search{
+  background-image : url(/assets/search.png);
+  background-size: cover;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
 .scrollcustom {
   max-height: 500px;
   overflow-y: scroll;

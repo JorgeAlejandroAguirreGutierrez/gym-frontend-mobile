@@ -11,7 +11,16 @@
 }
 .font-color {
   color: #496bb7;
+}
+.font-bold {
   font-weight: bold;
+}
+.color-label{
+  color: #2b4a99;
+}
+.esp-image{
+  margin-top: -20%;
+  margin-bottom: -10%;
 }
 .icon-search{
   background-image : url(/assets/search.png);

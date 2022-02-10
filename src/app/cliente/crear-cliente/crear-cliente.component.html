@@ -21,10 +21,11 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div class="col-sm" align="center">
-                    <hr>
+                <img src="{{prefijoUrlImagenes+logo[0].valor}}" class="esp-image" alt="...">
+            </div>
+            <div class="row">
+                <div class="col" align="center">
                     <h2 class="font-color font-size-tittle">CREAR CLIENTE</h2>
-                    <hr>
                 </div>
             </div>
             <div class="row mb-3">
@@ -32,7 +33,7 @@
                     <div class="form-floating">
                         <input type="text" [(ngModel)]="usuario.nombre" placeholder="" class="form-control"
                             oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
-                        <label for="floatingNombre">Nombre</label>
+                        <label for="floatingNombre" class="color-label">Nombre</label>
                     </div>
                 </div>
             </div>
@@ -41,7 +42,7 @@
                     <div class="form-floating">
                         <input type="text" [(ngModel)]="usuario.identificacion" placeholder="" class="form-control"
                             id="floatingIdentificacion">
-                        <label for="floatingIdentificacion">Identificacion</label>
+                        <label for="floatingIdentificacion" class="color-label">Identificacion</label>
                     </div>
                 </div>
             </div>
@@ -49,8 +50,8 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="usuario.talla" placeholder="" class="form-control"
-                            id="floatingTalla">
-                        <label for="floatingTalla">Talla</label>
+                            id="floatingEstatura">
+                        <label for="floatingEstatura" class="color-label">Estatura</label>
                     </div>
                 </div>
             </div>
@@ -59,7 +60,7 @@
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="usuario.edad" placeholder="" class="form-control"
                             id="floatingEdad">
-                        <label for="floatingEdad">Edad</label>
+                        <label for="floatingEdad" class="color-label">Edad</label>
                     </div>
                 </div>
             </div>
@@ -67,7 +68,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="peso" placeholder="" class="form-control" id="floatingPeso">
-                        <label for="floatingPeso">Peso</label>
+                        <label for="floatingPeso" class="color-label">Peso</label>
                     </div>
                 </div>
             </div>
@@ -76,7 +77,7 @@
                     <div class="form-floating">
                         <input type="text" [(ngModel)]="observacion" placeholder="" class="form-control"
                             id="floatingObservacion">
-                        <label for="floatingObservacion">Observacion</label>
+                        <label for="floatingObservacion" class="color-label">Observacion</label>
                     </div>
                 </div>
             </div>
@@ -88,15 +89,15 @@
             </div>
             <div class="row mb-3">
                 <div class="col-12">
-                    <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-                        <thead class="table-active">
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-active font-color">
                             <tr>
                                 <th>No.</th>
                                 <th>OBSERVACION</th>
                                 <th>OPC</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="font-color">
                             <tr *ngFor="let observacion of usuario.observaciones; let i=index">
                                 <td>{{i+1}}</td>
                                 <td>{{observacion.descripcion}}</td>
@@ -114,7 +115,7 @@
                     <div class="form-floating">
                         <input type="text" [(ngModel)]="objetivo" placeholder="" class="form-control"
                             id="floatingObjetivo">
-                        <label for="floatingObjetivo">Objetivo</label>
+                        <label for="floatingObjetivo" class="color-label">Objetivo</label>
                     </div>
                 </div>
             </div>
@@ -125,15 +126,15 @@
             </div>
             <div class="row mb-3">
                 <div class= "col-12">
-                    <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-                        <thead class="table-active">
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-active font-color">
                             <tr>
                                 <th>No.</th>
                                 <th>OBJETIVO</th>
                                 <th>OPC</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="font-color">
                             <tr *ngFor="let objetivo of usuario.objetivos; let i=index">
                                 <td>{{i+1}}</td>
                                 <td>{{objetivo.descripcion}}</td>

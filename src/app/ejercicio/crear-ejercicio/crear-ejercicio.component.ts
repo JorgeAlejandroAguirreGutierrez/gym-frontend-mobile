@@ -3,9 +3,11 @@ import { Router } from '@angular/router';
 import { Ejercicio } from 'src/app/modelos/ejercicio';
 import { Parametro } from 'src/app/modelos/parametro';
 import { Sesion } from 'src/app/modelos/sesion';
+import { TipoMusculo } from 'src/app/modelos/tipo-musculo';
 import { EjercicioService } from 'src/app/servicios/ejercicio.service';
 import { ParametroService } from 'src/app/servicios/parametro.service';
 import { SesionService } from 'src/app/servicios/sesion.service';
+import { TipoMusculoService } from 'src/app/servicios/tipo-musculo.service';
 import Swal from 'sweetalert2';
 import * as constantes from '../../constantes';
 import * as util from '../../util';
@@ -22,17 +24,17 @@ export class CrearEjercicioComponent implements OnInit {
   
   ejercicio: Ejercicio = new Ejercicio();
   imagen: any = null;
-  musculos: Parametro[] = [];
+  tiposMusculos: TipoMusculo[] = [];
   sesion: Sesion=null as any;
 
 
-  constructor(private ejercicioService: EjercicioService, private parametroService: ParametroService,
+  constructor(private ejercicioService: EjercicioService, private parametroService: ParametroService, private tipoMusculoService: TipoMusculoService,
     private sesionService: SesionService, private router: Router) { }
 
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
-    this.consultarMusculos();
+    this.consultarTiposMusculos();
   }
 
   validarSesion() {
@@ -60,10 +62,10 @@ export class CrearEjercicioComponent implements OnInit {
     this.ejercicio = new Ejercicio();
   }
 
-  consultarMusculos() {
-    this.parametroService.consultarPorTipo(constantes.parametroMusculo).subscribe(
+  consultarTiposMusculos() {
+    this.tipoMusculoService.consultar().subscribe(
       res => {
-        this.musculos = res
+        this.tiposMusculos = res
       },
       err => {
         Swal.fire(constantes.error, constantes.error_consultar_musculos, constantes.error_swal)
@@ -104,6 +106,10 @@ export class CrearEjercicioComponent implements OnInit {
         Swal.fire(constantes.error, err.error.mensaje, constantes.error_swal)
       }
     );
+  }
+
+  compareFn(a:any, b:any) {
+    return a && b && a.id == b.id;
   }
 
   navegarIndex() {

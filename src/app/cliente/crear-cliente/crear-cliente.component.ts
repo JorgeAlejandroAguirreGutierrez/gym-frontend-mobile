@@ -11,6 +11,8 @@ import * as util from '../../util';
 import { Peso } from 'src/app/modelos/peso';
 import { Sesion } from 'src/app/modelos/sesion';
 import { environment } from 'src/environments/environment';
+import { ParametroService } from 'src/app/servicios/parametro.service';
+import { Parametro } from 'src/app/modelos/parametro';
 
 @Component({
   selector: 'app-crear-cliente',
@@ -20,19 +22,22 @@ import { environment } from 'src/environments/environment';
 export class CrearClienteComponent implements OnInit {
 
   app=environment.app;
+  prefijoUrlImagenes = environment.prefijo_url_imagenes;
   
   usuario: Usuario = new Usuario();
   observacion: string = ""
   objetivo: string = "";
   peso: number = null as any;
   sesion: Sesion=null as any;
+  logo: Parametro[]=[new Parametro()];
 
-  constructor(private usuarioService: UsuarioService, 
+  constructor(private usuarioService: UsuarioService, private parametroService: ParametroService,
     private sesionService: SesionService, private router: Router) { }
 
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
+    this.consultarLogo();
   }
 
   validarSesion() {
@@ -50,6 +55,17 @@ export class CrearClienteComponent implements OnInit {
           this.sesionService.cerrarSesion();
           this.navegarIndex();
         }
+      }
+    );
+  }
+
+  consultarLogo(){
+    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
+      res => {
+        this.logo=res;
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
   }
