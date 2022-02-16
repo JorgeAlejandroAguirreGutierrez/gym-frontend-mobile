@@ -75,16 +75,14 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="text" [(ngModel)]="observacion" placeholder="" class="form-control"
-                            id="floatingObservacion">
+                        <input type="text" [(ngModel)]="observacion" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingObservacion">
                         <label for="floatingObservacion" class="color-label">Observacion</label>
                     </div>
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="d-grid gap-1">
-                    <button class="btn btn-primary color-button" (click)="crearObservacion()">Agregar
-                        Observacion</button>
+                    <button class="btn btn-primary color-button" (click)="crearObservacion()">Agregar Observacion</button>
                 </div>
             </div>
             <div class="row mb-3">
@@ -101,9 +99,10 @@
                             <tr *ngFor="let observacion of usuario.observaciones; let i=index">
                                 <td>{{i+1}}</td>
                                 <td>{{observacion.descripcion}}</td>
-                                <td>
-                                    <button (click)="eliminarObservacion(i)" class="btn btn-primary btn-sm"><i
-                                            class="fa fa-trash"></i></button>
+                                <td class="d-flex justify-content-center">
+                                    <button (click)="eliminarObservacion(i)" class="btn btn-light btn-sm">
+                                        <i class="bi bi-trash font-color"></i>
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>
@@ -113,8 +112,7 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="text" [(ngModel)]="objetivo" placeholder="" class="form-control"
-                            id="floatingObjetivo">
+                        <input type="text" [(ngModel)]="objetivo" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingObjetivo">
                         <label for="floatingObjetivo" class="color-label">Objetivo</label>
                     </div>
                 </div>
@@ -138,9 +136,9 @@
                             <tr *ngFor="let objetivo of usuario.objetivos; let i=index">
                                 <td>{{i+1}}</td>
                                 <td>{{objetivo.descripcion}}</td>
-                                <td>
-                                    <button (click)="eliminarObjetivo(i)" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-trash"></i>
+                                <td class="d-flex justify-content-center">
+                                    <button (click)="eliminarObjetivo(i)" class="btn btn-light btn-sm">
+                                        <i class="bi bi-trash font-color"></i>
                                     </button>
                                 </td>
                             </tr>

@@ -13,6 +13,13 @@
   color: #496bb7;
   font-weight: bold;
 }
+.color-label{
+  color: #2b4a99;
+}
+.esp-image{
+  margin-top: -20%;
+  margin-bottom: -10%;
+}
 .separate{
     margin-right: 10px;
 }

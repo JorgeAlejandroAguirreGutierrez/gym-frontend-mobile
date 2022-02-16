@@ -13,12 +13,14 @@
   color: #496bb7;
   font-weight: bold;
 }
-.icon-search{
-  background-image : url(/assets/search.png);
-  background-size: cover;
-  display: inline-block;
-  height: 30px;
-  width: 30px;
+.color-label{
+  color: #2b4a99;
+}
+.color-button-search{
+  background-color: #496bb7;
+}
+.esp-icon-search{
+  font-size: 1.5rem; color: white;
 }
 .scrollcustom {
   max-height: 500px;

@@ -21,11 +21,13 @@ import { environment } from './../../../environments/environment';
 export class CrearEjercicioComponent implements OnInit {
 
   app=environment.app;
+  prefijoUrlImagenes = environment.prefijo_url_imagenes;
   
   ejercicio: Ejercicio = new Ejercicio();
   imagen: any = null;
   tiposMusculos: TipoMusculo[] = [];
   sesion: Sesion=null as any;
+  logo: Parametro[]=[new Parametro()];
 
 
   constructor(private ejercicioService: EjercicioService, private parametroService: ParametroService, private tipoMusculoService: TipoMusculoService,
@@ -34,6 +36,7 @@ export class CrearEjercicioComponent implements OnInit {
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
+    this.consultarLogo();
     this.consultarTiposMusculos();
   }
 
@@ -52,6 +55,17 @@ export class CrearEjercicioComponent implements OnInit {
           this.sesionService.cerrarSesion();
           this.navegarIndex();
         }
+      }
+    );
+  }
+
+  consultarLogo(){
+    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
+      res => {
+        this.logo=res;
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
   }

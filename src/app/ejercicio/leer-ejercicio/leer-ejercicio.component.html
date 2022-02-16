@@ -29,16 +29,16 @@
             </div>
             <div class="input-group mb-3">
                 <div class="form-floating col-10">
-                    <input type="text" [(ngModel)]="descripcion" placeholder="" class="form-control"
+                    <input type="text" [(ngModel)]="descripcion" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()"
                         id="floatingDescripcion">
-                    <label for="floatingDescripcion">Buscar Ejercicio</label>
+                    <label for="floatingDescripcion" class="color-label">Buscar Ejercicio</label>
                 </div>
-                <button type="button" class="btn btn-outline-info col-2"><i class="icon-search"></i></button>
+                <button type="button" class="btn btn-outline-info col-2 color-button-search"><i class="bi bi-search esp-icon-search"></i></button>
             </div>
             <div class="row">
                 <div class="col-sm-12 scrollcustom">
-                    <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-                        <thead class="table-active">
+                    <table class="table table-hover table-bordered" >
+                        <thead class="table-active font-color">
                             <tr>
                                 <th>No.</th>
                                 <th>DESCRIPCION</th>
@@ -46,20 +46,20 @@
                                 <th>OPC</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="font-size: 0.7rem" class="font-color">
                             <tr *ngFor="let ejercicio of ejercicios; let i=index">
                                 <td>{{i+1}}</td>
                                 <td>{{ejercicio.descripcion}}</td>
                                 <td>{{ejercicio.tipoMusculo.descripcion}}</td>
-                                <td>
-                                    <button (click)="editar(i)" class="btn btn-sm btn-primary separate">
+                                <td class="d-flex justify-content-center">
+                                    <button (click)="editar(i)" class="btn btn-light btn-sm separate">
                                         <i class="fa fa-edit"></i>
                                     </button>
                                     <button (click)="abrirModalLeerEjercicio(i)"
-                                        class="btn btn-sm btn-primary separate">
+                                        class="btn btn-light btn-sm separate">
                                         <i class="fa fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary separate" (click)="eliminar(i)">
+                                    <button class="btn btn-light btn-sm separate" (click)="eliminar(i)">
                                         <i class="fa fa-trash-alt"></i>
                                     </button>
                                 </td>

@@ -21,25 +21,26 @@
         </nav>
         <div class="container">
             <div class="row">
+                <img src="{{prefijoUrlImagenes+logo[0].valor}}" class="esp-image" alt="...">
+            </div>
+            <div class="row">
                 <div class="col" align="center">
-                    <hr>
-                    <h2 class="font-color font-size-tittle">CLIENTES</h2>
-                    <hr>
+                    <h2 class="color-label font-size-tittle">CLIENTES</h2>
                 </div>
             </div>
             <div class="input-group mb-3">
                 <div class="form-floating col-10">
                     <input type="text" [(ngModel)]="usuario" placeholder="" class="form-control"
                         id="floatingUsuario">
-                    <label for="floatingUsuario">Buscar por nombre o ID</label>
+                    <label for="floatingUsuario" class="color-label">Buscar por nombre o ID</label>
                 </div>
-                <button type="button" class="btn btn-outline-info col-2"><i class="icon-search"></i></button>
+                <button type="button" class="btn btn-outline-info col-2 color-button-search"><i class="bi bi-search esp-icon-search"></i></button>
             </div>
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <ng-container *ngFor="let usuario of usuarios; let i=index">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-heading{{i}}">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            <button class="accordion-button collapsed color-label" type="button" data-bs-toggle="collapse"
                                 attr.data-bs-target="#flush-collapse{{i}}" aria-expanded="false"
                                 attr.aria-controls="flush-collapse{{i}}">
                                 {{usuario.nombre}}
@@ -55,15 +56,15 @@
                                                 <input type="text" [(ngModel)]="usuario.identificacion" placeholder=""
                                                     [disabled]="true" class="form-control form-control-sm"
                                                     id="floatingIdentificacion">
-                                                <label for="floatingIdentificacion">Identificacion</label>
+                                                <label for="floatingIdentificacion" class="color-label">Identificacion</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-floating">
                                                 <input type="text" [(ngModel)]="usuario.talla" placeholder=""
                                                     [disabled]="true" class="form-control form-control-sm"
-                                                    id="floatingTalla">
-                                                <label for="floatingTalla">Talla</label>
+                                                    id="floatingEstatura">
+                                                <label for="floatingEstatura" class="color-label">Estatura</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
@@ -71,7 +72,7 @@
                                                 <input type="text" [(ngModel)]="usuario.edad" placeholder=""
                                                     [disabled]="true" class="form-control form-control-sm"
                                                     id="floatingEdad">
-                                                <label for="floatingEdad">Edad</label>
+                                                <label for="floatingEdad" class="color-label">Edad</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
@@ -129,7 +130,7 @@
                                                     <a type="button"
                                                         href="/crear-plan?identificacion={{usuario.identificacion}}"
                                                         class="btn btn-sm btn-primary btn-block color-button">
-                                                        VER PLAN DE ENTRENAMIENTO
+                                                        VER ENTRENAMIENTO PERSONALIZADO
                                                     </a>
                                                 </div>
                                             </div>
@@ -147,7 +148,7 @@
 
 <ng-template #modalActualizarSuscripciones let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">SUSCRIPCIONES</h4>
+        <h4 class="modal-title color-label" id="modal-basic-title">SUSCRIPCIONES</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -157,7 +158,7 @@
             <div class="col-12">
                 <div class="form-floating">
                     <input type="date" [(ngModel)]="suscripcionCrear.fecha" placeholder="" class="form-control form-control-sm" id="floatingSuscripcion">
-                    <label for="floatingSuscripcion">Fecha</label>
+                    <label for="floatingSuscripcion" class="color-label">Fecha</label>
                 </div>
             </div>
         </div>
@@ -169,21 +170,21 @@
             </div>
         </div>
         <br>
-        <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-            <thead class="table-active">
+        <table class="table table-hover table-bordered">
+            <thead class="table-active font-color">
                 <tr>
                     <th>No.</th>
                     <th>FECHA</th>
                     <th>OPC</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="font-color">
                 <tr *ngFor="let suscripcion of usuarioActualizar.suscripciones; let i=index">
                     <td>{{i+1}}</td>
                     <td>{{suscripcion.fecha | DateShortPipe}}</td>
-                    <td>
-                        <button (click)="suscripcionEliminar(i)" class="btn btn-primary form-control-sm">
-                            <i class="fa fa-trash"></i>
+                    <td class="d-flex justify-content-center">
+                        <button (click)="suscripcionEliminar(i)" class="btn btn-light btn-sm">
+                            <i class="bi bi-trash font-color"></i>
                         </button>
                     </td>
                 </tr>
@@ -198,7 +199,7 @@
 
 <ng-template #modalPesos let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">PESOS</h4>
+        <h4 class="modal-title color-label" id="modal-basic-title">PESOS</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -208,7 +209,7 @@
             <div class="col-12">
                 <div class="form-floating">
                     <input type="number" [(ngModel)]="pesoActualizar" placeholder="" class="form-control form-control-sm" id="floatingPeso">
-                    <label for="floatingPeso">Nuevo Peso</label>
+                    <label for="floatingPeso" class="color-label">Nuevo Peso</label>
                 </div>
             </div>
         </div>
@@ -219,8 +220,8 @@
             </div>
         </div>
         <br>
-        <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-            <thead class="table-active">
+        <table class="table table-hover table-bordered">
+            <thead class="table-active font-color">
                 <tr>
                     <th>No.</th>
                     <th>PESO</th>
@@ -228,14 +229,14 @@
                     <th>OPC</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="font-color">
                 <tr *ngFor="let peso of usuarioActualizar.pesos; let i=index">
                     <td>{{i+1}}</td>
                     <td>{{peso.valor}} KG</td>
                     <td>{{peso.fecha | DateShortPipe}}</td>
-                    <td>
-                        <button (click)="pesoEliminar(i)" class="btn btn-primary form-control-sm">
-                            <i class="fa fa-trash"></i>
+                    <td class="d-flex justify-content-center">
+                        <button (click)="pesoEliminar(i)" class="btn btn-light btn-sm">
+                            <i class="bi bi-trash font-color"></i>
                         </button>
                     </td>
                 </tr>
@@ -250,7 +251,7 @@
 
 <ng-template #modalObservaciones let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">OBSERVACIONES</h4>
+        <h4 class="modal-title color-label" id="modal-basic-title">OBSERVACIONES</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -260,7 +261,7 @@
             <div class="col-12">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="observacionActualizar" placeholder="" class="form-control form-control-sm" id="floatingObservacion">
-                    <label for="floatingObservacion">Nueva Observacion</label>
+                    <label for="floatingObservacion" class="color-label">Nueva Observacion</label>
                 </div>
             </div>
         </div>
@@ -272,21 +273,21 @@
             </div>
         </div>
         <br>
-        <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-            <thead class="table-active">
+        <table class="table table-hover table-bordered">
+            <thead class="table-active font-color">
                 <tr>
                     <th>No.</th>
                     <th>OBSERVACION</th>
                     <th>OPC</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="font-color">
                 <tr *ngFor="let observacion of usuarioActualizar.observaciones; let i=index">
                     <td>{{i+1}}</td>
                     <td>{{observacion.descripcion}}</td>
-                    <td>
-                        <button (click)="observacionEliminar(i)" class="btn btn-primary form-control-sm">
-                            <i class="fa fa-trash"></i>
+                    <td class="d-flex justify-content-center">
+                        <button (click)="observacionEliminar(i)" class="btn btn-light btn-sm">
+                            <i class="bi bi-trash font-color"></i>
                         </button>
                     </td>
                 </tr>
@@ -301,7 +302,7 @@
 
 <ng-template #modalObjetivos let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">OBJETIVOS</h4>
+        <h4 class="modal-title color-label" id="modal-basic-title">OBJETIVOS</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -311,7 +312,7 @@
             <div class="col-sm-12">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="objetivoActualizar" placeholder="" class="form-control form-control-sm" id="floatingObservacion">
-                    <label for="floatingObjetivo">Nuevo Objetivo</label>
+                    <label for="floatingObjetivo" class="color-label">Nuevo Objetivo</label>
                 </div>
             </div>
         </div>
@@ -323,21 +324,21 @@
             </div>
         </div>
         <br>
-        <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-            <thead class="table-active">
+        <table class="table table-hover table-bordered">
+            <thead class="table-active font-color">
                 <tr>
                     <th>No.</th>
                     <th>OBJETIVO</th>
                     <th>OPC</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="font-color">
                 <tr *ngFor="let objetivo of usuarioActualizar.objetivos; let i=index">
                     <td>{{i+1}}</td>
                     <td>{{objetivo.descripcion}}</td>
-                    <td>
-                        <button (click)="objetivoEliminar(i)" class="btn btn-primary form-control-sm">
-                            <i class="fa fa-trash"></i>
+                    <td class="d-flex justify-content-center">
+                        <button (click)="objetivoEliminar(i)" class="btn btn-light btn-sm">
+                            <i class="bi bi-trash font-color"></i>
                         </button>
                     </td>
                 </tr>
@@ -352,7 +353,7 @@
 
 <ng-template #modalUsuarioActualizar let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">DATOS BASICOS</h4>
+        <h4 class="modal-title color-label" id="modal-basic-title">DATOS BASICOS</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -362,7 +363,7 @@
             <div class="col-12 mb-3">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="usuarioActualizar.nombre" placeholder="" class="form-control form-control-sm" id="floatingNombre">
-                    <label for="floatingNombre">Nombre</label>
+                    <label for="floatingNombre" class="color-label">Nombre</label>
                 </div>
             </div>
         </div>
@@ -370,7 +371,7 @@
             <div class="col-12 mb-3">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="usuarioActualizar.identificacion" placeholder="" [disabled]="true" class="form-control form-control-sm" id="floatingIdentificacion">
-                    <label for="floatingIdentificacion">Identificacion</label>
+                    <label for="floatingIdentificacion" class="color-label">Identificacion</label>
                 </div>
             </div>
         </div>
@@ -378,7 +379,7 @@
             <div class="col-12 mb-3">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="usuarioActualizar.contrasena" placeholder="" class="form-control form-control-sm" id="floatingContrasena">
-                    <label for="floatingContrasena">Contraseña</label>
+                    <label for="floatingContrasena" class="color-label">Contraseña</label>
                 </div>
             </div>
         </div>
@@ -386,7 +387,7 @@
             <div class="col-12 mb-3">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="usuarioActualizar.talla" placeholder=""  class="form-control form-control-sm" id="floatingTalla">
-                    <label for="floatingTalla">Talla</label>
+                    <label for="floatingTalla" class="color-label">Talla</label>
                 </div>
             </div>
         </div>
@@ -395,7 +396,7 @@
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="usuarioActualizar.edad" placeholder="" class="form-control form-control-sm"
                         id="floatingEdad">
-                    <label for="floatingEdad">Edad</label>
+                    <label for="floatingEdad" class="color-label">Edad</label>
                 </div>
             </div>
         </div>

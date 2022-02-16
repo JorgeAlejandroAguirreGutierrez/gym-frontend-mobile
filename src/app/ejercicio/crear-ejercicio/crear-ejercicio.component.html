@@ -21,9 +21,11 @@
         </nav>
         <div class="container">
             <div class="row">
+                <img src="{{prefijoUrlImagenes+logo[0].valor}}" class="esp-image" alt="...">
+            </div>
+            <div class="row">
                 <div class="col" align="center">
-                    <h2 class="font-color font-size-tittle">EJERCICIO</h2>
-                    <hr>
+                    <h2 class="font-color font-size-tittle">CREAR EJERCICIO</h2>
                 </div>
             </div>
             <div class="row mb-3">
@@ -31,7 +33,7 @@
                     <div class="form-floating">
                         <input type="text" [(ngModel)]="ejercicio.descripcion" placeholder="" class="form-control"
                             oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
-                        <label for="floatingNombre">Nombre</label>
+                        <label for="floatingNombre" class="color-label">Nombre</label>
                     </div>
                 </div>
             </div>
@@ -41,12 +43,12 @@
                         <option *ngFor="let tipoMusculo of tiposMusculos; let i=index" [value]=tipoMusculo>
                             {{tipoMusculo.descripcion}}</option>
                     </select>
-                    <label for="floatingTipoMusculo">Tipo Musculo</label>
+                    <label for="floatingTipoMusculo" class="color-label">Tipo Musculo</label>
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="d-grid gap-1">
-                    <label style="text-align: center;">Imagen:</label>
+                    <label style="text-align: center;" class="color-label">Imagen:</label>
                     <input hidden type="file" #botonImagen id="imagen" name="imagen"
                         (change)="cargarImagen($event)">
                     <button (click)="botonImagen.click()" class="btn btn-primary">Cargar Imagen</button>

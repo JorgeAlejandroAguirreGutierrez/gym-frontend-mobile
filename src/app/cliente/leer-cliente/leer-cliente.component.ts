@@ -14,6 +14,8 @@ import { Peso } from 'src/app/modelos/peso';
 import { Suscripcion } from 'src/app/modelos/suscripcion';
 import { Sesion } from 'src/app/modelos/sesion';
 import * as util from '../../util';
+import { ParametroService } from 'src/app/servicios/parametro.service';
+import { Parametro } from 'src/app/modelos/parametro';
 
 @Component({
   selector: 'app-leer-cliente',
@@ -23,6 +25,7 @@ import * as util from '../../util';
 export class LeerClienteComponent implements OnInit {
 
   app=environment.app;
+  prefijoUrlImagenes = environment.prefijo_url_imagenes
 
   usuarios: Usuario[]=[];
   usuarioActualizar: Usuario=new Usuario();
@@ -37,6 +40,8 @@ export class LeerClienteComponent implements OnInit {
 
   sesion: Sesion=null as any;
 
+  logo: Parametro[]=[new Parametro()];
+
   cerrarModal: string="";
 
   @ViewChild('modalPesos', { static: false }) private modalPesos: any;
@@ -45,11 +50,13 @@ export class LeerClienteComponent implements OnInit {
   @ViewChild('modalUsuarioActualizar', { static: false }) private modalUsuarioActualizar: any;
   @ViewChild('modalActualizarSuscripciones', { static: false }) private modalActualizarSuscripciones: any;
 
-  constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private router: Router, private modalService: NgbModal) { }
+  constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private parametroService: ParametroService,
+    private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
+    this.consultarLogo();
     this.consultarClientes();
   }
 
@@ -60,6 +67,17 @@ export class LeerClienteComponent implements OnInit {
       },
       err => {
         Swal.fire(constantes.error, err.error.mensaje, constantes.error_swal)
+      }
+    );
+  }
+
+  consultarLogo(){
+    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
+      res => {
+        this.logo=res;
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
   }

@@ -70,13 +70,6 @@ export class CrearClienteComponent implements OnInit {
     );
   }
 
-  crearPeso() {
-    let peso: Peso = new Peso();
-    peso.valor = this.peso;
-    this.usuario.pesos.push(peso);
-    this.peso = 0;
-  }
-
   crearObservacion() {
     let observacion: Observacion = new Observacion();
     observacion.descripcion = this.observacion;
@@ -98,6 +91,9 @@ export class CrearClienteComponent implements OnInit {
 
   crear() {
     this.usuario.plan=null as any;
+    let peso=new Peso();
+    peso.valor=this.peso;
+    this.usuario.pesos.push(peso);
     this.usuarioService.crearCliente(this.usuario).subscribe(
       res => {
         Swal.fire(constantes.exito, constantes.exito_crear_usuario, constantes.exito_swal);
