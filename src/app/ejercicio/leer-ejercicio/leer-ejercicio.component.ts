@@ -11,6 +11,8 @@ import * as constantes from '../../constantes';
 import { environment } from '../../../environments/environment';
 import { Sesion } from 'src/app/modelos/sesion';
 import * as util from '../../util';
+import { ParametroService } from 'src/app/servicios/parametro.service';
+import { Parametro } from 'src/app/modelos/parametro';
 
 @Component({
   selector: 'app-leer-ejercicio',
@@ -20,6 +22,8 @@ import * as util from '../../util';
 export class LeerEjercicioComponent implements OnInit {
 
   app=environment.app;
+  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  logo: Parametro[]=[new Parametro()];
 
   ejercicios: Ejercicio[]=[];
   descripcion: string="";
@@ -39,7 +43,7 @@ export class LeerEjercicioComponent implements OnInit {
 
   @ViewChild('modalLeerEjercicio', { static: false }) private modalLeerEjercicio: any;
 
-  constructor(private ejercicioService: EjercicioService, private tipoMusculoService: TipoMusculoService,
+  constructor(private ejercicioService: EjercicioService, private tipoMusculoService: TipoMusculoService, private parametroService: ParametroService,
     private sesionService: SesionService, private router: Router, private modalService: NgbModal) { 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -47,6 +51,7 @@ export class LeerEjercicioComponent implements OnInit {
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
+    this.consultarLogo();
     this.consultarEjercicios();
     this.consultarTiposMuculo();
   }
@@ -88,6 +93,17 @@ export class LeerEjercicioComponent implements OnInit {
           this.sesionService.cerrarSesion();
           this.navegarIndex();
         }
+      }
+    );
+  }
+
+  consultarLogo(){
+    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
+      res => {
+        this.logo=res;
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
   }

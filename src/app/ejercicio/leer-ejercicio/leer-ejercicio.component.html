@@ -1,4 +1,4 @@
-<div class="d-flex myfont" id="wrapper">
+<div class="d-flex font-family" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">MENU </div>
         <hr>
@@ -21,24 +21,25 @@
         </nav>
         <div class="container">
             <div class="row">
+                <img src="{{prefijoUrlImagenes+logo[0].valor}}" class="esp-image" alt="...">
+            </div>
+            <div class="row">
                 <div class="col-12" align="center">
-                    <hr>
                     <h2 class="font-color font-size-tittle">EJERCICIOS</h2>
-                    <hr>
                 </div>
             </div>
             <div class="input-group mb-3">
                 <div class="form-floating col-10">
                     <input type="text" [(ngModel)]="descripcion" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()"
                         id="floatingDescripcion">
-                    <label for="floatingDescripcion" class="color-label">Buscar Ejercicio</label>
+                    <label for="floatingDescripcion" class="font-family color-label">Buscar Ejercicio</label>
                 </div>
                 <button type="button" class="btn btn-outline-info col-2 color-button-search"><i class="bi bi-search esp-icon-search"></i></button>
             </div>
             <div class="row">
                 <div class="col-sm-12 scrollcustom">
                     <table class="table table-hover table-bordered" >
-                        <thead class="table-active font-color">
+                        <thead class="table-active font-family font-color">
                             <tr>
                                 <th>No.</th>
                                 <th>DESCRIPCION</th>
@@ -46,21 +47,21 @@
                                 <th>OPC</th>
                             </tr>
                         </thead>
-                        <tbody style="font-size: 0.7rem" class="font-color">
+                        <tbody style="font-size: 0.7rem" class="font-family font-color">
                             <tr *ngFor="let ejercicio of ejercicios; let i=index">
                                 <td>{{i+1}}</td>
                                 <td>{{ejercicio.descripcion}}</td>
                                 <td>{{ejercicio.tipoMusculo.descripcion}}</td>
-                                <td class="d-flex justify-content-center">
+                                <td>
                                     <button (click)="editar(i)" class="btn btn-light btn-sm separate">
-                                        <i class="fa fa-edit"></i>
+                                        <i class="bi bi-pencil font-color"></i>
                                     </button>
                                     <button (click)="abrirModalLeerEjercicio(i)"
                                         class="btn btn-light btn-sm separate">
-                                        <i class="fa fa-eye"></i>
+                                        <i class="bi bi-eye font-color"></i>
                                     </button>
                                     <button class="btn btn-light btn-sm separate" (click)="eliminar(i)">
-                                        <i class="fa fa-trash-alt"></i>
+                                        <i class="bi bi-trash font-color"></i>
                                     </button>
                                 </td>
                             </tr>
@@ -74,17 +75,17 @@
 
 <ng-template #modalEjercicioActualizar let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">DATOS</h4>
+        <h4 class="modal-title color-label font-family" id="modal-basic-title">DATOS</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body font-family">
         <div class="row mb-3">
             <div class="col-12">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="ejercicioActualizar.descripcion" oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control" id="floatingDescripcion">
-                    <label for="floatingDescripcion">Descripcion</label>
+                    <label for="floatingDescripcion" class="font-color">Descripcion</label>
                 </div>
             </div>
         </div>
@@ -94,7 +95,7 @@
                     <option *ngFor="let tipoMusculo of tiposMusculos; let i=index" [value]=tipoMusculo>
                         {{tipoMusculo.descripcion}}</option>
                 </select>
-                <label for="floatingTipoMusculo">Tipo Musculo</label>
+                <label for="floatingTipoMusculo" class="font-color">Tipo Musculo</label>
             </div>
         </div>
     </div>
@@ -106,15 +107,15 @@
 
 <ng-template #modalLeerEjercicio let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">EJERCICIO</h4>
+        <h4 class="modal-title color-label font-family" id="modal-basic-title">EJERCICIO</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body font-family">
         <div class="form-group row">
             <div align="center" class="col-sm">
-                <label class="font-weight-bold">{{ejercicioLeer.descripcion}}</label>
+                <label class="font-color font-bold">{{ejercicioLeer.descripcion}}</label>
                 <img class="card-img-top" src="{{prefijoUrlEjercicios+ejercicioLeer.imagen}}" height="300px"
                     alt="Card image cap">
             </div>

@@ -1,4 +1,4 @@
-<div class="d-flex myfont" id="wrapper">
+<div class="d-flex font-family" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">MENU </div>
         <hr>
@@ -17,51 +17,46 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify">
             <button class="btn btn-ligth" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
             <span class="separate"></span>
-            <a class="navbar-brand" href="#">{{app}}</a>
+            <a class="navbar-brand" href="#"></a>
         </nav>
         <div class="container">
             <div class="row">
-                <div class="col-sm" align="center">
-                    <hr>
-                    <h2>PLAN DE ENTRENAMIENTO</h2>
-                    <hr>
-                </div>
+                <img src="{{prefijoUrlImagenes+logo[0].valor}}" class="esp-image" alt="...">
             </div>
             <div class="row">
-                <div class="col-sm-12">
-                    <label class="font-weight-bold">Usuario:</label>
-                    <input type="text" [(ngModel)]="usuario.nombre" class="form-control form-control-sm"
-                        [disabled]="true" oninput="this.value = this.value.toUpperCase()">
+                <div class="col-12" align="center">
+                    <h2 class="font-color font-size-tittle">PLAN DE ENTRENAMIENTO</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <label class="font-weight-bold">Identificacion:</label>
-                    <input type="text" [(ngModel)]="usuario.identificacion" class="form-control form-control-sm"
-                        [disabled]="true" oninput="this.value = this.value.toUpperCase()">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" [(ngModel)]="usuario.nombre" placeholder="" class="form-control" id="floatingNombre">
+                        <label for="floatingNombre" class="color-label">Nombre</label>
+                    </div>
                 </div>
             </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-10">
-                    <label class="font-weight-bold">Plantilla:</label>
-                    <select [(ngModel)]="plantillaPlanAsignar" [compareWith]="compareFn"
-                        class="form-control form-control-sm">
-                        <option [ngValue]="null"></option>
-                        <option *ngFor="let plantillaPlan of plantillasPlan" [ngValue]="plantillaPlan">
-                            {{plantillaPlan.nombre}} - {{plantillaPlan.somatotipo}}
-                        </option>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" [(ngModel)]="usuario.identificacion" placeholder="" class="form-control" id="floatingIdentificacion">
+                        <label for="floatingIdentificacion" class="color-label">Identificacion</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="form-floating">
+                    <select [(ngModel)]="plantillaPlanAsignar" id="floatingPlantilla" [compareWith]="compareFn" class="form-select">
+                        <option [value]="null"></option>
+                        <option *ngFor="let plantillaPlan of plantillasPlan; let i=index" [value]=plantillaPlan>
+                            {{plantillaPlan.nombre}} - {{plantillaPlan.somatotipo}}</option>
                     </select>
-                </div>
-                <div class="col-sm">
-                    <label>&nbsp;&nbsp;&nbsp;</label>
-                    <button class="btn btn-sm btn-primary btn-block" (click)="asignarPlantillaPlan()">Asignar</button>
+                    <label for="floatingPlantilla" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plantilla</label>
                 </div>
             </div>
-            <br>
-            <div class="row">
-                <div class="col-sm">
-                    <button (click)="crearPlan()" class="btn btn-sm btn-block btn-primary">Crear dia de
+            <div class="row mb-3">
+                <div class="d-grid gap-1">
+                    <button (click)="crearPlan()" class="btn btn-primary color-button">Crear dia de
                         Entrenamiento</button>
                 </div>
                 <hr>
@@ -168,21 +163,9 @@
                 </div>
             </ng-container>
             <br>
-            <div class="row">
-                <div class="col-sm">
-                    <button class="btn btn-sm btn-primary btn-block" (click)="abrirModalCrearPlantillaPlan()">Guardar
-                        como plantilla</button>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm">
-                    <footer class="text-muted">
-                        <div class="container">
-                            <p>{{app}}</p>
-                            <p>Todos los derechos reservados 2021.</p>
-                        </div>
-                    </footer>
+            <div class="mb-3">
+                <div class="d-grid gap-1">
+                    <button class="btn btn-primary color-button" (click)="abrirModalCrearPlantillaPlan()">Guardar como plantilla</button>
                 </div>
             </div>
         </div>

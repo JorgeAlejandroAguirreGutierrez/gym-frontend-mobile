@@ -1,9 +1,8 @@
 .color-button{
   background-color: #496bb7;
 }
-.font-size {
+.font-family {
   font-family: 'Baloo 2', cursive;
-  font-size: 18px;
 }
 .font-size-tittle {
   font-family: 'Baloo 2', cursive;
@@ -11,6 +10,8 @@
 }
 .font-color {
   color: #496bb7;
+}
+.font-bold {
   font-weight: bold;
 }
 .color-label{
@@ -18,6 +19,10 @@
 }
 .color-button-search{
   background-color: #496bb7;
+}
+.esp-image{
+  margin-top: -20%;
+  margin-bottom: -10%;
 }
 .esp-icon-search{
   font-size: 1.5rem; color: white;
@@ -32,10 +37,6 @@
 
 .justify {
   justify-content: start;
-}
-
-.myfont {
-    font-family: 'Raleway', sans-serif;
 }
 
 #wrapper {

@@ -29,6 +29,8 @@ import { RutinaService } from 'src/app/servicios/rutina.service';
 export class CrearPlanComponent implements OnInit {
 
   app = environment.app;
+  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  logo: Parametro[]=[new Parametro()];
 
   plantillaPlanCrear: PlantillaPlan = new PlantillaPlan();
   plantillasPlan: PlantillaPlan[] = [];
@@ -78,6 +80,7 @@ export class CrearPlanComponent implements OnInit {
     if (this.identificacion == null) {
       this.navegarIndex();
     }
+    this.consultarLogo();
     this.obtenerPorIdentificacion();
     this.consultarTiposMusculos();
     this.consultarMedidasPesos();
@@ -95,6 +98,17 @@ export class CrearPlanComponent implements OnInit {
       },
       err => {
         Swal.fire(constantes.error, constantes.error_obtener_usuario, constantes.error_swal)
+      }
+    );
+  }
+
+  consultarLogo(){
+    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
+      res => {
+        this.logo=res;
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
   }

@@ -1,13 +1,32 @@
+.color-button{
+  background-color: #496bb7;
+}
+.font-family {
+  font-family: 'Baloo 2', cursive;
+}
+.font-size-tittle {
+  font-family: 'Baloo 2', cursive;
+  font-size: 28px;
+}
+.font-color {
+  color: #496bb7;
+}
+.font-bold {
+  font-weight: bold;
+}
+.color-label{
+  color: #2b4a99;
+}
+.esp-image{
+  margin-top: -20%;
+  margin-bottom: -10%;
+}
 .separate{
     margin-right: 10px;
 }
 
 .justify {
   justify-content: start;
-}
-
-.myfont {
-    font-family: 'Raleway', sans-serif;
 }
 
 #wrapper {

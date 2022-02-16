@@ -1,9 +1,8 @@
 .color-button{
   background-color: #496bb7;
 }
-.font-size {
+.font-family {
   font-family: 'Baloo 2', cursive;
-  font-size: 18px;
 }
 .font-size-tittle {
   font-family: 'Baloo 2', cursive;
@@ -11,6 +10,8 @@
 }
 .font-color {
   color: #496bb7;
+}
+.font-bold {
   font-weight: bold;
 }
 .color-label{
