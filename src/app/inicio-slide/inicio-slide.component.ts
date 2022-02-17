@@ -27,6 +27,11 @@ export class InicioSlideComponent implements OnInit {
 
   constructor(private router: Router, private parametroService: ParametroService) { }
 
+  ngAfterViewInit() {
+    const carouselElem = this._carousel?.nativeElement;
+    const carousel = $(carouselElem).carousel();
+  }
+
   ngOnInit(): void {
     this.consultarInicioSlide();
     this.consultarConceptoSlide();

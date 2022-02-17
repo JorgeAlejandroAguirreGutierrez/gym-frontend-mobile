@@ -17,15 +17,15 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify">
             <button class="btn btn-ligth" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
             <span class="separate"></span>
-            <a class="navbar-brand" href="#">{{app}}</a>
+            <a class="navbar-brand" href="#"></a>
         </nav>
         <div class="container">
             <div class="row">
-                <img src="{{prefijoUrlImagenes+logo[0].valor}}" class="esp-image" alt="...">
+                <img src="{{prefijoUrlImagenes+logo}}" class="esp-image" alt="...">
             </div>
             <div class="row">
                 <div class="col-12" align="center">
-                    <h2>PLANTILLAS REGISTRADAS</h2>
+                    <h2 class="font-family color-label">PLANTILLAS REGISTRADAS</h2>
                 </div>
             </div>
             <div class="row mb-3">
@@ -45,13 +45,13 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <div class="d-grip gap-1">
+                <div class="d-grid gap-1">
                     <button class="btn btn-sm btn-primary color-button" (click)="buscar()">Buscar</button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 scrollcustom">
-                    <table class="table table-hover table-bordered" style="font-size: 0.7rem">
+                    <table class="table table-hover table-bordered">
                         <thead class="table-active font-color">
                             <tr>
                                 <th>No.</th>

@@ -40,7 +40,7 @@ export class LeerClienteComponent implements OnInit {
 
   sesion: Sesion=null as any;
 
-  logo: Parametro[]=[new Parametro()];
+  logo=constantes.logo1;
 
   cerrarModal: string="";
 
@@ -50,13 +50,12 @@ export class LeerClienteComponent implements OnInit {
   @ViewChild('modalUsuarioActualizar', { static: false }) private modalUsuarioActualizar: any;
   @ViewChild('modalActualizarSuscripciones', { static: false }) private modalActualizarSuscripciones: any;
 
-  constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private parametroService: ParametroService,
+  constructor(private usuarioService: UsuarioService, private sesionService: SesionService,
     private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
-    this.consultarLogo();
     this.consultarClientes();
   }
 
@@ -67,17 +66,6 @@ export class LeerClienteComponent implements OnInit {
       },
       err => {
         Swal.fire(constantes.error, err.error.mensaje, constantes.error_swal)
-      }
-    );
-  }
-
-  consultarLogo(){
-    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
-      res => {
-        this.logo=res;
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
   }
@@ -225,7 +213,7 @@ export class LeerClienteComponent implements OnInit {
   }
 
   navegarIndex() {
-    this.router.navigate(['/index']);
+    this.router.navigate(['/inicio']);
   }
 
   cerrarSesion(event: any) {

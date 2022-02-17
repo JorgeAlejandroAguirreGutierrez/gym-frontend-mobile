@@ -27,7 +27,7 @@ export class CrearPlantillaPlanComponent implements OnInit {
 
   app=environment.app;
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
-  logo: Parametro[]=[new Parametro()];
+  logo=constantes.logo1;
 
   plantillaPlan: PlantillaPlan=new PlantillaPlan();
   cerrarModal: string = "";
@@ -70,7 +70,6 @@ export class CrearPlantillaPlanComponent implements OnInit {
     if(plantillaPlanId!=null){
       this.obtenerPlantillaPlan(plantillaPlanId);
     }
-    this.consultarLogo();
     this.consultarTiposMusculos();
     this.consultarMedidasPesos();
     this.consultarMedidasTiempos();
@@ -91,17 +90,6 @@ export class CrearPlantillaPlanComponent implements OnInit {
         if(err.error.codigo==constantes.error_codigo_generico){
           Swal.fire(constantes.error, constantes.error_crear_plan, constantes.error_swal);
         }
-      }
-    );
-  }
-
-  consultarLogo(){
-    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
-      res => {
-        this.logo=res;
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
   }
@@ -412,7 +400,7 @@ export class CrearPlantillaPlanComponent implements OnInit {
   }
 
   navegarIndex() {
-    this.router.navigate(['/index']);
+    this.router.navigate(['/inicio']);
   }
 
   cerrarSesion(event: any) {

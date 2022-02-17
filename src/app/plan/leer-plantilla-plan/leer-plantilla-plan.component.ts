@@ -6,12 +6,9 @@ import Swal from 'sweetalert2';
 import * as constantes from '../../constantes';
 import { environment } from '../../../environments/environment';
 import * as util from '../../util';
-import { TipoMusculoService } from 'src/app/servicios/tipo-musculo.service';
 import { PlantillaPlan } from 'src/app/modelos/plantilla-plan';
 import { PlantillaPlanService } from 'src/app/servicios/plantilla-plan.service';
 import { Sesion } from 'src/app/modelos/sesion';
-import { Parametro } from 'src/app/modelos/parametro';
-import { ParametroService } from 'src/app/servicios/parametro.service';
 
 @Component({
   selector: 'app-leer-plantilla-plan',
@@ -22,7 +19,7 @@ export class LeerPlantillaPlanComponent implements OnInit {
 
   app=environment.app;
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
-  logo: Parametro[]=[new Parametro()];
+  logo=constantes.logo1;
 
   plantillasPlan: PlantillaPlan[]=[];
   nombre: string="";
@@ -34,7 +31,7 @@ export class LeerPlantillaPlanComponent implements OnInit {
 
   prefijoUrlEjercicios= environment.prefijo_url_ejercicios;
 
-  constructor(private plantillaPlanService: PlantillaPlanService, private parametroService: ParametroService,
+  constructor(private plantillaPlanService: PlantillaPlanService,
     private sesionService: SesionService, private router: Router, private modalService: NgbModal) { 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -42,19 +39,7 @@ export class LeerPlantillaPlanComponent implements OnInit {
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
-    this.consultarLogo();
     this.consultarPlantillasPlan();
-  }
-
-  consultarLogo(){
-    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
-      res => {
-        this.logo=res;
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
-      }
-    );
   }
 
   consultarPlantillasPlan(){
@@ -142,7 +127,7 @@ export class LeerPlantillaPlanComponent implements OnInit {
   }
 
   navegarIndex() {
-    this.router.navigate(['/index']);
+    this.router.navigate(['/inicio']);
   }
 
   cerrarSesion(event: any) {

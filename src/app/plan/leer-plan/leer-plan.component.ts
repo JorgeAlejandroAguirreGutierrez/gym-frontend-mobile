@@ -21,7 +21,7 @@ export class LeerPlanComponent implements OnInit {
 
   app=environment.app;
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
-  logo: Parametro[]=[new Parametro()];
+  logo=constantes.logo1;
 
   sesion: Sesion= null as any;
   usuario: Usuario=new Usuario();
@@ -39,23 +39,11 @@ export class LeerPlanComponent implements OnInit {
 
   ngOnInit(): void {
     util.loadScripts();
-    this.consultarLogo();
     this.sesion=this.sesionService.getSesion();
     if(this.sesion==null || this.sesion.usuario.perfil.descripcion!=constantes.perfil_cliente){
       this.navegarIndex();
     }
     this.obtenerPorIdentificacion();
-  }
-
-  consultarLogo(){
-    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
-      res => {
-        this.logo=res;
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
-      }
-    );
   }
 
   obtenerPorIdentificacion(){
@@ -96,7 +84,7 @@ export class LeerPlanComponent implements OnInit {
 
 
   navegarIndex() {
-    this.router.navigate(['/index']);
+    this.router.navigate(['/inicio']);
   }
 
   cerrarSesion(event: any) {

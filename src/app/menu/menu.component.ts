@@ -21,14 +21,13 @@ export class MenuComponent implements OnInit {
 
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
   fondoInicioSesion: Parametro[]=[new Parametro()];
-  logo: Parametro[]=[new Parametro()];
+  logo=constantes.logo1;
   sesion: Sesion=null as any;
   
-  constructor(private router: Router, private parametroService: ParametroService, private sesionService: SesionService) { }
+  constructor(private router: Router, private sesionService: SesionService) { }
 
   ngOnInit(): void {
     util.loadScripts();
-    this.consultarLogo();
     this.validarSesion();
   }
 
@@ -51,20 +50,8 @@ export class MenuComponent implements OnInit {
     );
   }
 
-  consultarLogo(){
-    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
-      res => {
-        this.logo=res;
-        console.log(this.logo);
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
-      }
-    );
-  }
-
   navegarIndex() {
-    this.router.navigateByUrl('/index');
+    this.router.navigateByUrl('/inicio');
   }
 
   navegarCrearCliente(){

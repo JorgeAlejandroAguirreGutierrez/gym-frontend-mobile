@@ -33,12 +33,11 @@ export class LeerMedidaComponent implements OnInit {
   @ViewChild('modalObjetivos', { static: false }) private modalObjetivos: any;
   @ViewChild('modalSuscripciones', { static: false }) private modalSuscripciones: any;
 
-  constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private parametroService: ParametroService, private router: Router, private modalService: NgbModal) { }
+  constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
-    this.consultarLogo();
   }
 
   validarSesion(){
@@ -57,17 +56,6 @@ export class LeerMedidaComponent implements OnInit {
           this.sesionService.cerrarSesion();
           this.navegarIndex();
         }
-      }
-    );
-  }
-
-  consultarLogo(){
-    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
-      res => {
-        this.logo=res;
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
   }
@@ -118,7 +106,7 @@ export class LeerMedidaComponent implements OnInit {
   }
 
   navegarIndex() {
-    this.router.navigate(['/index']);
+    this.router.navigate(['/inicio']);
   }
 
   cerrarSesion(event: any) {

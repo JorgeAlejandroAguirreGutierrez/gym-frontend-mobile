@@ -19,7 +19,7 @@ export class InicioSesionComponent implements OnInit {
 
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
   fondoInicioSesion: Parametro[]=[new Parametro()];
-  logo: Parametro[]=[new Parametro()];
+  logo=constantes.logo2;
 
   sesion: Sesion=new Sesion();
 
@@ -27,23 +27,12 @@ export class InicioSesionComponent implements OnInit {
 
   ngOnInit(): void {
     this.consultarFondoInicioSesion();
-    this.consultarLogo();
   }
 
   consultarFondoInicioSesion(){
     this.parametroService.consultarPorTipo(constantes.parametroFondoInicioSesion).subscribe(
       res => {
         this.fondoInicioSesion=res;
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
-      }
-    );
-  }
-  consultarLogo(){
-    this.parametroService.consultarPorTipo(constantes.parametroLogo2).subscribe(
-      res => {
-        this.logo=res;
       },
       err => {
         Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)

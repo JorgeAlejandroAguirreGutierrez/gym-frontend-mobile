@@ -27,16 +27,15 @@ export class CrearEjercicioComponent implements OnInit {
   imagen: any = null;
   tiposMusculos: TipoMusculo[] = [];
   sesion: Sesion=null as any;
-  logo: Parametro[]=[new Parametro()];
+  logo=constantes.logo1;
 
 
-  constructor(private ejercicioService: EjercicioService, private parametroService: ParametroService, private tipoMusculoService: TipoMusculoService,
+  constructor(private ejercicioService: EjercicioService, private tipoMusculoService: TipoMusculoService,
     private sesionService: SesionService, private router: Router) { }
 
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
-    this.consultarLogo();
     this.consultarTiposMusculos();
   }
 
@@ -55,17 +54,6 @@ export class CrearEjercicioComponent implements OnInit {
           this.sesionService.cerrarSesion();
           this.navegarIndex();
         }
-      }
-    );
-  }
-
-  consultarLogo(){
-    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
-      res => {
-        this.logo=res;
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
   }
@@ -127,7 +115,7 @@ export class CrearEjercicioComponent implements OnInit {
   }
 
   navegarIndex() {
-    this.router.navigate(['/index']);
+    this.router.navigate(['/inicio']);
   }
 
   cerrarSesion(event: any) {

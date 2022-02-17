@@ -1,12 +1,12 @@
 <div class="container font-size"
     style="background-image: url({{prefijoUrlImagenes+fondoInicioSesion[0].valor}}); width: 100%; height: 100%">
     <div class="row">
-        <img src="{{prefijoUrlImagenes+logo[0].valor}}" alt="...">
+        <img src="{{prefijoUrlImagenes+logo}}" alt="...">
     </div>
     <div class="row">
         <div class="col-12 mb-4">
             <div class="form-floating">
-                <input type="text" [(ngModel)]="sesion.usuario.identificacion"
+                <input type="number" [(ngModel)]="sesion.usuario.identificacion"
                     oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control"
                     id="floatingInput">
                 <label for="floatingInput" class="color-label">Identificacion</label>
