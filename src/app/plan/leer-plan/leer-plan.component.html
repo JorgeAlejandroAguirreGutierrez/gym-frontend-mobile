@@ -1,4 +1,4 @@
-<div class="d-flex myfont" id="wrapper">
+<div class="d-flex font-family" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">MENU </div>
         <hr>
@@ -12,18 +12,18 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify">
             <button class="btn btn-ligth" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
             <span class="separate"></span>
-            <a class="navbar-brand" href="#">{{app}}</a>
+            <a class="navbar-brand" href="#"></a>
         </nav>
         <div class="container">
             <div class="row">
+                <img src="{{prefijoUrlImagenes+logo[0].valor}}" class="esp-image" alt="...">
+            </div>
+            <div class="row">
                 <div class="col-sm" align="center">
-                    <hr>
-                    <h2>PLAN DE ENTRENAMIENTO</h2>
-                    <hr>
+                    <h2 class="color-label font-size-tittle">PLAN DE ENTRENAMIENTO</h2>
                 </div>
             </div>
-            <br>
-            <ng-container *ngIf="usuario.plan != null && usuario.plan.dias.length==0">
+            <ng-container *ngIf="usuario.plan == null || usuario.plan.dias.length==0">
                 <div class="row">
                     <div class="col-sm">
                         <div align="center" class="alert alert-warning font-weight-bold" role="alert">
@@ -105,17 +105,6 @@
                     </div>
                 </div>
             </ng-container>
-            <br>
-            <div class="row">
-                <div class="col-sm">
-                    <footer class="text-muted">
-                        <div class="container">
-                            <p>{{app}}</p>
-                            <p>Todos los derechos reservados 2021.</p>
-                        </div>
-                    </footer>
-                </div>
-            </div>
         </div>
     </div>
 </div>

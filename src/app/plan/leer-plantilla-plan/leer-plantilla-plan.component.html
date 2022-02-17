@@ -1,4 +1,4 @@
-<div class="d-flex myfont" id="wrapper">
+<div class="d-flex font-family" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">MENU </div>
         <hr>
@@ -21,33 +21,38 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div class="col-sm" align="center">
-                    <hr>
+                <img src="{{prefijoUrlImagenes+logo[0].valor}}" class="esp-image" alt="...">
+            </div>
+            <div class="row">
+                <div class="col-12" align="center">
                     <h2>PLANTILLAS REGISTRADAS</h2>
-                    <hr>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" [(ngModel)]="nombre" placeholder="" class="form-control" id="floatingNombre">
+                        <label for="floatingNombre" class="color-label">Nombre</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" [(ngModel)]="somatotipo" placeholder="" class="form-control" id="floatingNombre">
+                        <label for="floatingNombre" class="color-label">Somatotipo</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="d-grip gap-1">
+                    <button class="btn btn-sm btn-primary color-button" (click)="buscar()">Buscar</button>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5">
-                    <label>Nombre:</label>
-                    <input type="text" [(ngModel)]="nombre" class="form-control form-control-sm"
-                        oninput="this.value = this.value.toUpperCase()">
-                </div>
-                <div class="col-sm-5">
-                    <label>Somatotipo:</label>
-                    <input type="text" [(ngModel)]="somatotipo" class="form-control form-control-sm"
-                        oninput="this.value = this.value.toUpperCase()">
-                </div>
-                <div class="col-sm-2">
-                    <label>&nbsp;</label>
-                    <button class="btn btn-sm btn-block btn-primary" (click)="buscar()">Buscar</button>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-12 scrollcustom">
+                <div class="col-12 scrollcustom">
                     <table class="table table-hover table-bordered" style="font-size: 0.7rem">
-                        <thead class="table-active">
+                        <thead class="table-active font-color">
                             <tr>
                                 <th>No.</th>
                                 <th>NOMBRE</th>
@@ -55,32 +60,22 @@
                                 <th>OPC</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="font-color">
                             <tr *ngFor="let plantillaPlan of plantillasPlan; let i=index">
                                 <td>{{i+1}}</td>
                                 <td>{{plantillaPlan.nombre}}</td>
                                 <td>{{plantillaPlan.somatotipo}}</td>
                                 <td>
-                                    <a type="button" href="/crear-plantilla-plan?id={{plantillaPlan.id}}" class="btn btn-sm btn-primary separate">
-                                        <i class="fa fa-edit"></i></a>
-                                    <button class="btn btn-sm btn-primary separate" (click)="eliminar(i)">
-                                        <i class="fa fa-trash-alt"></i>
+                                    <a type="button" href="/crear-plantilla-plan?id={{plantillaPlan.id}}" class="btn btn-sm btn-light separate">
+                                        <i class="bi bi-pencil font-color"></i>
+                                    </a>
+                                    <button class="btn btn-sm btn-light separate" (click)="eliminar(i)">
+                                        <i class="bi bi-trash font-color"></i>
                                     </button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm">
-                    <footer class="text-muted">
-                        <div class="container">
-                            <p>{{app}}</p>
-                            <p>Todos los derechos reservados 2021.</p>
-                        </div>
-                    </footer>
                 </div>
             </div>
         </div>

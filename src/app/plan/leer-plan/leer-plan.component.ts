@@ -9,6 +9,8 @@ import { environment } from '../../../environments/environment';
 import * as util from '../../util';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Sesion } from 'src/app/modelos/sesion';
+import { Parametro } from 'src/app/modelos/parametro';
+import { ParametroService } from 'src/app/servicios/parametro.service';
 
 @Component({
   selector: 'app-leer-plan',
@@ -18,6 +20,8 @@ import { Sesion } from 'src/app/modelos/sesion';
 export class LeerPlanComponent implements OnInit {
 
   app=environment.app;
+  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  logo: Parametro[]=[new Parametro()];
 
   sesion: Sesion= null as any;
   usuario: Usuario=new Usuario();
@@ -31,10 +35,11 @@ export class LeerPlanComponent implements OnInit {
   @ViewChild('modalLeerEjercicio', { static: false }) private modalLeerEjercicio: any;
 
   constructor(private sesionService: SesionService, private usuarioService: UsuarioService, private route: ActivatedRoute,
-    private modalService: NgbModal, private router: Router) { }
+    private parametroService: ParametroService, private modalService: NgbModal, private router: Router) { }
 
   ngOnInit(): void {
     util.loadScripts();
+    this.consultarLogo();
     this.sesion=this.sesionService.getSesion();
     if(this.sesion==null || this.sesion.usuario.perfil.descripcion!=constantes.perfil_cliente){
       this.navegarIndex();
@@ -42,10 +47,22 @@ export class LeerPlanComponent implements OnInit {
     this.obtenerPorIdentificacion();
   }
 
+  consultarLogo(){
+    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
+      res => {
+        this.logo=res;
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
+      }
+    );
+  }
+
   obtenerPorIdentificacion(){
     this.usuarioService.obtenerPorIdentificacion(this.sesion.usuario.identificacion).subscribe(
       res => {
         this.usuario=res;
+        console.log(this.usuario);
       },
       err => {
         Swal.fire(constantes.error, constantes.error_obtener_usuario, constantes.error_swal)

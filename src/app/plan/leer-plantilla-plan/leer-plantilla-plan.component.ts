@@ -10,6 +10,8 @@ import { TipoMusculoService } from 'src/app/servicios/tipo-musculo.service';
 import { PlantillaPlan } from 'src/app/modelos/plantilla-plan';
 import { PlantillaPlanService } from 'src/app/servicios/plantilla-plan.service';
 import { Sesion } from 'src/app/modelos/sesion';
+import { Parametro } from 'src/app/modelos/parametro';
+import { ParametroService } from 'src/app/servicios/parametro.service';
 
 @Component({
   selector: 'app-leer-plantilla-plan',
@@ -19,6 +21,8 @@ import { Sesion } from 'src/app/modelos/sesion';
 export class LeerPlantillaPlanComponent implements OnInit {
 
   app=environment.app;
+  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  logo: Parametro[]=[new Parametro()];
 
   plantillasPlan: PlantillaPlan[]=[];
   nombre: string="";
@@ -30,7 +34,7 @@ export class LeerPlantillaPlanComponent implements OnInit {
 
   prefijoUrlEjercicios= environment.prefijo_url_ejercicios;
 
-  constructor(private plantillaPlanService: PlantillaPlanService, private tipoMusculoService: TipoMusculoService,
+  constructor(private plantillaPlanService: PlantillaPlanService, private parametroService: ParametroService,
     private sesionService: SesionService, private router: Router, private modalService: NgbModal) { 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -38,7 +42,19 @@ export class LeerPlantillaPlanComponent implements OnInit {
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
+    this.consultarLogo();
     this.consultarPlantillasPlan();
+  }
+
+  consultarLogo(){
+    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
+      res => {
+        this.logo=res;
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
+      }
+    );
   }
 
   consultarPlantillasPlan(){

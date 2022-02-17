@@ -83,11 +83,11 @@ export class MenuComponent implements OnInit {
   }
 
   navegarCrearPlantilla(){
-    this.router.navigateByUrl('/crear-plantilla');
+    this.router.navigateByUrl('/crear-plantilla-plan');
   }
 
   navegarVerPlantillas(){
-    this.router.navigateByUrl('/leer-plantilla');
+    this.router.navigateByUrl('/leer-plantilla-plan');
   }
 
   cerrarSesion(event: any) {

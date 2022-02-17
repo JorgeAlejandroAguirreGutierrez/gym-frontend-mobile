@@ -9,6 +9,8 @@ import * as constantes from '../../constantes';
 import Swal from 'sweetalert2';
 import * as util from '../../util';
 import { environment } from '../../../environments/environment';
+import { ParametroService } from 'src/app/servicios/parametro.service';
+import { Parametro } from 'src/app/modelos/parametro';
 
 @Component({
   selector: 'app-leer-medida',
@@ -18,6 +20,8 @@ import { environment } from '../../../environments/environment';
 export class LeerMedidaComponent implements OnInit {
 
   app=environment;
+  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  logo: Parametro[]=[new Parametro()];
 
   usuario: Usuario=new Usuario();
   sesion: Sesion=null as any;
@@ -29,11 +33,12 @@ export class LeerMedidaComponent implements OnInit {
   @ViewChild('modalObjetivos', { static: false }) private modalObjetivos: any;
   @ViewChild('modalSuscripciones', { static: false }) private modalSuscripciones: any;
 
-  constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private router: Router, private modalService: NgbModal) { }
+  constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private parametroService: ParametroService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     util.loadScripts();
     this.validarSesion();
+    this.consultarLogo();
   }
 
   validarSesion(){
@@ -54,7 +59,17 @@ export class LeerMedidaComponent implements OnInit {
         }
       }
     );
-    
+  }
+
+  consultarLogo(){
+    this.parametroService.consultarPorTipo(constantes.parametroLogo1).subscribe(
+      res => {
+        this.logo=res;
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
+      }
+    );
   }
 
   obtenerPorIdentificacion(identificacion: string){
