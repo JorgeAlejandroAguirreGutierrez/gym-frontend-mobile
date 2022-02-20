@@ -1,15 +1,15 @@
-<div class="d-flex font-family" id="wrapper">
+<div class="d-flex" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">MENU </div>
+        <div class="sidebar-heading color-label">MENU </div>
         <hr>
         <div class="list-group list-group-flush">
-            <a href="/crear-cliente" class="list-group-item list-group-item-action bg-light">CREAR CLIENTE</a>
-            <a href="/leer-cliente" class="list-group-item list-group-item-action bg-light">VER CLIENTES</a>
-            <a href="/crear-ejercicio" class="list-group-item list-group-item-action bg-light">CREAR EJERCICIO</a>
-            <a href="/leer-ejercicio" class="list-group-item list-group-item-action bg-light">VER EJERCICIOS</a>
-            <a href="/crear-plantilla-plan" class="list-group-item list-group-item-action bg-light">CREAR PLANTILLA</a>
-            <a href="/leer-plantilla-plan" class="list-group-item list-group-item-action bg-light">VER PLANTILLAS</a>
-            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light">CERRAR
+            <a href="/crear-cliente" class="list-group-item list-group-item-action bg-light color-label">CREAR CLIENTE</a>
+            <a href="/leer-cliente" class="list-group-item list-group-item-action bg-light color-label">VER CLIENTES</a>
+            <a href="/crear-ejercicio" class="list-group-item list-group-item-action bg-light color-label">CREAR EJERCICIO</a>
+            <a href="/leer-ejercicio" class="list-group-item list-group-item-action bg-light color-label">VER EJERCICIOS</a>
+            <a href="/crear-plantilla-plan" class="list-group-item list-group-item-action bg-light color-label">CREAR PLANTILLA</a>
+            <a href="/leer-plantilla-plan" class="list-group-item list-group-item-action bg-light color-label">VER PLANTILLAS</a>
+            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light color-label">CERRAR
                 SESION</a>
         </div>
     </div>
@@ -32,14 +32,14 @@
                 <div class="form-floating col-10">
                     <input type="text" [(ngModel)]="descripcion" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()"
                         id="floatingDescripcion">
-                    <label for="floatingDescripcion" class="font-family color-label">Buscar Ejercicio</label>
+                    <label for="floatingDescripcion" class="color-label">Buscar Ejercicio</label>
                 </div>
                 <button type="button" class="btn btn-outline-info col-2 color-button-search"><i class="bi bi-search esp-icon-search"></i></button>
             </div>
             <div class="row">
                 <div class="col-sm-12 scrollcustom">
                     <table class="table table-hover table-bordered" >
-                        <thead class="table-active font-family font-color">
+                        <thead class="table-active font-color">
                             <tr>
                                 <th>No.</th>
                                 <th>DESCRIPCION</th>
@@ -47,7 +47,7 @@
                                 <th>OPC</th>
                             </tr>
                         </thead>
-                        <tbody style="font-size: 0.7rem" class="font-family font-color">
+                        <tbody style="font-size: 0.7rem" class="font-color">
                             <tr *ngFor="let ejercicio of ejercicios; let i=index">
                                 <td>{{i+1}}</td>
                                 <td>{{ejercicio.descripcion}}</td>
@@ -75,12 +75,10 @@
 
 <ng-template #modalEjercicioActualizar let-modal>
     <div class="modal-header">
-        <h4 class="modal-title color-label font-family" id="modal-basic-title">DATOS</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">DATOS</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
-    <div class="modal-body font-family">
+    <div class="modal-body">
         <div class="row mb-3">
             <div class="col-12">
                 <div class="form-floating">
@@ -107,12 +105,10 @@
 
 <ng-template #modalLeerEjercicio let-modal>
     <div class="modal-header">
-        <h4 class="modal-title color-label font-family" id="modal-basic-title">EJERCICIO</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">EJERCICIO</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
-    <div class="modal-body font-family">
+    <div class="modal-body">
         <div class="form-group row">
             <div align="center" class="col-sm">
                 <label class="font-color font-bold">{{ejercicioLeer.descripcion}}</label>

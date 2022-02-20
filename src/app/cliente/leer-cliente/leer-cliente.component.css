@@ -24,13 +24,6 @@
   margin-top: -20%;
   margin-bottom: -10%;
 }
-.icon-search{
-  background-image : url(/assets/search.png);
-  background-size: cover;
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-}
 .scrollcustom {
   max-height: 500px;
   overflow-y: scroll;

@@ -15,11 +15,10 @@ declare var $: any; // used to access jQuery
 export class InicioSlideComponent implements OnInit {
 
   @ViewChild('carousel') _carousel!: ElementRef;
-  bandera=false;
 
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
 
-  inicioSlide: Parametro[]=[new Parametro(), new Parametro(), new Parametro(), new Parametro()];
+  inicioSlide: String[]=["inicioslide1.jpg", "inicioslide2.jpg", "inicioslide3.jpg", "inicioslide4.jpg"];
 
   conceptoSlide: Parametro[]=[new Parametro(), new Parametro(), new Parametro(), new Parametro()];
   tituloSlide: String[]=[new String(), new String(), new String(), new String()];
@@ -33,21 +32,9 @@ export class InicioSlideComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.consultarInicioSlide();
     this.consultarConceptoSlide();
   }
 
-  consultarInicioSlide(){
-    this.parametroService.consultarPorTipo(constantes.parametroInicioSlide).subscribe(
-      res => {
-        this.inicioSlide=res;
-        this.bandera=true;
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_consultar_inicio_slide, constantes.error_swal)
-      }
-    );
-  }
   consultarConceptoSlide(){
     this.parametroService.consultarPorTipo(constantes.parametroConceptoSlide).subscribe(
       res => {

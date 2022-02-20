@@ -7,8 +7,7 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --configuration=${environment}"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +18,7 @@
     "@angular/core": "~13.2.0",
     "@angular/forms": "~13.2.0",
     "@angular/localize": "~13.2.0",
-    "@angular/material": "^13.2.1",
+    "@angular/material": "^13.2.3",
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
@@ -52,9 +51,5 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.5.2"
-  },
-  "engines": {
-    "node": "12.17.0",
-    "npm": "6.14.4"
   }
 }

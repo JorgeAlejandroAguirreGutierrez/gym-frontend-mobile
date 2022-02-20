@@ -1,10 +1,10 @@
-<div class="d-flex font-family" id="wrapper">
+<div class="d-flex" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">MENU </div>
+        <div class="sidebar-heading color-label">MENU </div>
         <hr>
         <div class="list-group list-group-flush">
-            <a href="/leer-plan" class="list-group-item list-group-item-action bg-light">VER PLAN</a>
-            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light" >CERRAR SESION</a>
+            <a href="/leer-plan" class="list-group-item list-group-item-action bg-light color-label">VER PLAN</a>
+            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light color-label" >CERRAR SESION</a>
         </div>
     </div>
     <div id="page-content-wrapper">
@@ -93,20 +93,18 @@
 
 <ng-template #modalSuscripciones let-modal>
     <div class="modal-header">
-        <h4 class="modal-title font-family color-label" id="modal-basic-title">SUSCRIPCIONES</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">SUSCRIPCIONES</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <table class="table table-hover table-bordered">
-            <thead class="table-active font-family font-color">
+            <thead class="table-active font-color">
                 <tr>
                     <th>No.</th>
                     <th>FECHA</th>
                 </tr>
             </thead>
-            <tbody class="font-family font-color">
+            <tbody class="font-color">
                 <tr *ngFor="let suscripcion of usuario.suscripciones; let i=index">
                     <td>{{i+1}}</td>
                     <td>{{suscripcion.fecha | DateShortPipe}}</td>
@@ -121,21 +119,19 @@
 
 <ng-template #modalPesos let-modal>
     <div class="modal-header">
-        <h4 class="modal-title font family color-label" id="modal-basic-title">PESOS</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">PESOS</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <table class="table table-hover table-bordered">
-            <thead class="table-active font-family font-color">
+            <thead class="table-active font-color">
                 <tr>
                     <th>No.</th>
                     <th>PESO</th>
                     <th>FECHA</th>
                 </tr>
             </thead>
-            <tbody class="font-family font-color">
+            <tbody class="font-color">
                 <tr *ngFor="let peso of usuario.pesos; let i=index">
                     <td>{{i+1}}</td>
                     <td>{{peso.valor}} KG</td>
@@ -151,20 +147,18 @@
 
 <ng-template #modalObservaciones let-modal>
     <div class="modal-header">
-        <h4 class="modal-title font-family color-label" id="modal-basic-title">OBSERVACIONES</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">OBSERVACIONES</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <table class="table table-hover table-bordered">
-            <thead class="table-active font-family font-color">
+            <thead class="table-active font-color">
                 <tr>
                     <th>No.</th>
                     <th>OBSERVACION</th>
                 </tr>
             </thead>
-            <tbody class="font-family font-color">
+            <tbody class="font-color">
                 <tr *ngFor="let observacion of usuario.observaciones; let i=index">
                     <td>{{i+1}}</td>
                     <td>{{observacion.descripcion}}</td>
@@ -179,20 +173,18 @@
 
 <ng-template #modalObjetivos let-modal>
     <div class="modal-header">
-        <h4 class="modal-title font-family color-label" id="modal-basic-title">OBJETIVOS</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">OBJETIVOS</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <table class="table table-hover table-bordered">
-            <thead class="table-active font-family font-color">
+            <thead class="table-active font-color">
                 <tr>
                     <th>No.</th>
                     <th>OBJETIVO</th>
                 </tr>
             </thead>
-            <tbody class="font-family font-color">
+            <tbody class="font-color">
                 <tr *ngFor="let objetivo of usuario.objetivos; let i=index">
                     <td>{{i+1}}</td>
                     <td>{{objetivo.descripcion}}</td>

@@ -99,3 +99,7 @@ export const hitboxFuncional="HIT BOX FUNCIONAL";
 //IMAGENES FRONT
 export const logo1="logo1.png";
 export const logo2="logo2.png";
+export const inicioSlide1="inicioslide1.png";
+export const inicioSlide2="inicioslide2.png";
+export const inicioSlide3="inicioslide3.png";
+export const inicioSlide4="inicioslide4.png";

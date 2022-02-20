@@ -1,10 +1,10 @@
-<div class="d-flex font-family" id="wrapper">
+<div class="d-flex" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">MENU </div>
+        <div class="sidebar-heading color-label">MENU </div>
         <hr>
         <div class="list-group list-group-flush">
-            <a href="/leer-medida" class="list-group-item list-group-item-action bg-light">MEDIDAS</a>
-            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light">CERRAR
+            <a href="/leer-medida" class="list-group-item list-group-item-action bg-light color-label">MEDIDAS</a>
+            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light color-label">CERRAR
                 SESION</a>
         </div>
     </div>
@@ -110,10 +110,8 @@
 </div>
 <ng-template #modalLeerEjercicio let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">RUTINA</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">RUTINA</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <div class="form-group row">

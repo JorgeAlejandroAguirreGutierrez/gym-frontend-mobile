@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from 'src/app/servicios/usuario.service';
+import { UsuarioService } from '../../servicios/usuario.service';
 import { Usuario } from '../../modelos/usuario';
 import Swal from 'sweetalert2';
 import * as constantes from '../../constantes';
@@ -14,8 +14,6 @@ import { Peso } from 'src/app/modelos/peso';
 import { Suscripcion } from 'src/app/modelos/suscripcion';
 import { Sesion } from 'src/app/modelos/sesion';
 import * as util from '../../util';
-import { ParametroService } from 'src/app/servicios/parametro.service';
-import { Parametro } from 'src/app/modelos/parametro';
 
 @Component({
   selector: 'app-leer-cliente',

@@ -1,15 +1,15 @@
-<div class="d-flex font-family" id="wrapper">
+<div class="d-flex" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">MENU </div>
+        <div class="sidebar-heading color-label">MENU </div>
         <hr>
         <div class="list-group list-group-flush">
-            <a href="/crear-cliente" class="list-group-item list-group-item-action bg-light">CREAR CLIENTE</a>
-            <a href="/leer-cliente" class="list-group-item list-group-item-action bg-light">VER CLIENTES</a>
-            <a href="/crear-ejercicio" class="list-group-item list-group-item-action bg-light">CREAR EJERCICIO</a>
-            <a href="/leer-ejercicio" class="list-group-item list-group-item-action bg-light">VER EJERCICIOS</a>
-            <a href="/crear-plantilla-plan" class="list-group-item list-group-item-action bg-light">CREAR PLANTILLA</a>
-            <a href="/leer-plantilla-plan" class="list-group-item list-group-item-action bg-light">VER PLANTILLAS</a>
-            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light">CERRAR
+            <a href="/crear-cliente" class="list-group-item list-group-item-action bg-light color-label">CREAR CLIENTE</a>
+            <a href="/leer-cliente" class="list-group-item list-group-item-action bg-light color-label">VER CLIENTES</a>
+            <a href="/crear-ejercicio" class="list-group-item list-group-item-action bg-light color-label">CREAR EJERCICIO</a>
+            <a href="/leer-ejercicio" class="list-group-item list-group-item-action bg-light color-label">VER EJERCICIOS</a>
+            <a href="/crear-plantilla-plan" class="list-group-item list-group-item-action bg-light color-label">CREAR PLANTILLA</a>
+            <a href="/leer-plantilla-plan" class="list-group-item list-group-item-action bg-light color-label">VER PLANTILLAS</a>
+            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light color-label">CERRAR
                 SESION</a>
         </div>
     </div>
@@ -167,10 +167,8 @@
 
 <ng-template #modalCrearRutina let-modal>
     <div class="modal-header">
-        <h4 class="modal-title font-family color-label" id="modal-basic-title">RUTINA</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">RUTINA</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body font family">
         <div class="row mb-3">
@@ -280,10 +278,8 @@
 
 <ng-template #modalActualizarRutina let-modal>
     <div class="modal-header">
-        <h4 class="modal-title font-family color-label" id="modal-basic-title">RUTINA</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">RUTINA</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body font family">
         <div class="row mb-3">
@@ -353,7 +349,7 @@
                 <div class="form-floating">
                     <select [(ngModel)]="rutinaActualizar.medidaPeso" id="floatingMedidaPeso" [compareWith]="compareFn" class="form-select">
                         <option [value]="null"></option>
-                        <option *ngFor="let medidaPeso of medidasPesos" [ngValue]="medidaPeso.valor">
+                        <option *ngFor="let medidaPeso of medidasPesos" [ngValue]="medidaPeso">
                             {{medidaPeso.valor}}
                         </option>
                     </select>
@@ -376,7 +372,7 @@
                 <div class="form-floating">
                     <select [(ngModel)]="rutinaActualizar.medidaTiempo" id="floatingMedidaTiempo" [compareWith]="compareFn" class="form-select">
                         <option [value]="null"></option>
-                        <option *ngFor="let medidaTiempo of medidasTiempos" [ngValue]="medidaTiempo.valor">
+                        <option *ngFor="let medidaTiempo of medidasTiempos" [ngValue]="medidaTiempo">
                             {{medidaTiempo.valor}}
                         </option>
                     </select>
@@ -393,16 +389,13 @@
 
 <ng-template #modalLeerEjercicio let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">RUTINA</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">RUTINA</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <div class="form-group row">
             <div align="center" class="col-sm">
-                <label
-                    class="font-family font-color font-bold">{{usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.descripcion}}</label>
+                <label class="font-color font-bold">{{usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.descripcion}}</label>
                 <ng-container *ngIf="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen!=null">
                     <img class="card-img-top"
                     src="{{prefijoUrlEjercicios+usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen}}"
@@ -422,10 +415,8 @@
 
 <ng-template #modalCrearPlantillaPlan let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">PLANTILLA PLAN</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title color-label" id="modal-basic-title">PLANTILLA PLAN</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <div class="row mb-3">
