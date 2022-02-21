@@ -32,7 +32,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="text" [(ngModel)]="usuario.nombre" placeholder="" class="form-control" id="floatingNombre">
-                        <label for="floatingNombre" class="color-label">Nombre</label>
+                        <label for="floatingNombre" class="color-label font-bold">Nombre</label>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="text" [(ngModel)]="usuario.identificacion" placeholder="" class="form-control" id="floatingIdentificacion">
-                        <label for="floatingIdentificacion" class="color-label">Identificacion</label>
+                        <label for="floatingIdentificacion" class="color-label font-bold">Identificacion</label>
                     </div>
                 </div>
             </div>
@@ -51,12 +51,12 @@
                         <option *ngFor="let plantillaPlan of plantillasPlan; let i=index" [value]=plantillaPlan>
                             {{plantillaPlan.nombre}} - {{plantillaPlan.somatotipo}}</option>
                     </select>
-                    <label for="floatingPlantilla" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plantilla</label>
+                    <label for="floatingPlantilla" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plantilla</label>
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="d-grid gap-1">
-                    <button (click)="crearPlan()" class="btn btn-primary color-button">Crear dia de
+                    <button (click)="crearPlan()" class="btn btn-primary color-button">Crear día de
                         Entrenamiento</button>
                 </div>
                 <hr>
@@ -179,7 +179,7 @@
                         {{tipoMusculo.descripcion}}
                     </option>
                 </select>
-                <label for="floatingTipoMusculo" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zona Muscular</label>
+                <label for="floatingTipoMusculo" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zona Muscular</label>
             </div>
         </div>
         <div class="row mb-3">
@@ -190,7 +190,7 @@
                         {{ejercicio.descripcion}}
                     </option>
                 </select>
-                <label for="floatingEjercicio" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejercicio</label>
+                <label for="floatingEjercicio" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejercicio</label>
             </div>
         </div>
         <ng-container *ngIf="campoDetalle">
@@ -198,7 +198,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <textarea rows="3" [(ngModel)]="rutinaCrear.ejercicio.detalle" placeholder="" class="form-control" [disabled]="true" id="floatingDetalle"></textarea>
-                        <label for="floatingDetalle" class="color-label">Detalle</label>
+                        <label for="floatingDetalle" class="color-label font-bold">Detalle</label>
                     </div>
                 </div>
             </div>
@@ -208,7 +208,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaCrear.repeticiones" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingRepeticiones">
-                        <label for="floatingRepeticiones" class="color-label">Repeticiones</label>
+                        <label for="floatingRepeticiones" class="color-label font-bold">Repeticiones</label>
                     </div>
                 </div>
             </div>
@@ -218,7 +218,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaCrear.series" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingSeries">
-                        <label for="floatingSeries" class="color-label">Series</label>
+                        <label for="floatingSeries" class="color-label font-bold">Series</label>
                     </div>
                 </div>
             </div>
@@ -228,7 +228,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaCrear.valorPeso" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingValorPeso">
-                        <label for="floatingValorPeso" class="color-label">Valor Peso</label>
+                        <label for="floatingValorPeso" class="color-label font-bold">Valor Peso</label>
                     </div>
                 </div>
             </div>
@@ -242,7 +242,7 @@
                             {{medidaPeso.valor}}
                         </option>
                     </select>
-                    <label for="floatingMedidaPeso" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida Peso</label>
+                    <label for="floatingMedidaPeso" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida Peso</label>
                 </div>
             </div>
         </ng-container>
@@ -251,7 +251,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaCrear.valorTiempo" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingTiempo">
-                        <label for="floatingTiempo" class="color-label">Tiempo</label>
+                        <label for="floatingTiempo" class="color-label font-bold">Tiempo</label>
                     </div>
                 </div>
             </div>
@@ -290,7 +290,7 @@
                         {{tipoMusculo.descripcion}}
                     </option>
                 </select>
-                <label for="floatingTipoMusculo" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zona Muscular</label>
+                <label for="floatingTipoMusculo" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zona Muscular</label>
             </div>
         </div>
         <div class="row mb-3">
@@ -301,7 +301,7 @@
                         {{ejercicio.descripcion}}
                     </option>
                 </select>
-                <label for="floatingEjercicio" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejercicio</label>
+                <label for="floatingEjercicio" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejercicio</label>
             </div>
         </div>
         <ng-container *ngIf="campoDetalle">
@@ -309,7 +309,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <textarea rows="3" [(ngModel)]="rutinaActualizar.ejercicio.detalle" placeholder="" class="form-control" [disabled]="true" id="floatingDetalle"></textarea>
-                        <label for="floatingDetalle" class="color-label">Detalle</label>
+                        <label for="floatingDetalle" class="color-label font-bold">Detalle</label>
                     </div>
                 </div>
             </div>
@@ -319,7 +319,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaActualizar.repeticiones" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingRepeticiones">
-                        <label for="floatingRepeticiones" class="color-label">Repeticiones</label>
+                        <label for="floatingRepeticiones" class="color-label font-bold">Repeticiones</label>
                     </div>
                 </div>
             </div>
@@ -329,7 +329,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaActualizar.series" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingSeries">
-                        <label for="floatingSeries" class="color-label">Series</label>
+                        <label for="floatingSeries" class="color-label font-bold">Series</label>
                     </div>
                 </div>
             </div>
@@ -339,7 +339,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaActualizar.valorPeso" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingValorPeso">
-                        <label for="floatingValorPeso" class="color-label">Peso</label>
+                        <label for="floatingValorPeso" class="color-label font-bold">Peso</label>
                     </div>
                 </div>
             </div>
@@ -353,7 +353,7 @@
                             {{medidaPeso.valor}}
                         </option>
                     </select>
-                    <label for="floatingMedidaPeso" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida del Peso</label>
+                    <label for="floatingMedidaPeso" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida del Peso</label>
                 </div>
             </div>
         </ng-container>
@@ -362,7 +362,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaActualizar.valorTiempo" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingTiempo">
-                        <label for="floatingTiempo" class="color-label">Tiempo</label>
+                        <label for="floatingTiempo" class="color-label font-bold">Tiempo</label>
                     </div>
                 </div>
             </div>
@@ -376,7 +376,7 @@
                             {{medidaTiempo.valor}}
                         </option>
                     </select>
-                    <label for="floatingMedidaTiempo" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida del Tiempo</label>
+                    <label for="floatingMedidaTiempo" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida del Tiempo</label>
                 </div>
             </div>
         </ng-container>
@@ -423,7 +423,7 @@
             <div class="col-12">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="plantillaPlanCrear.nombre" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
-                    <label for="floatingNombre" class="color-label">Nombre</label>
+                    <label for="floatingNombre" class="color-label font-bold">Nombre</label>
                 </div>
             </div>
         </div>
@@ -431,7 +431,7 @@
             <div class="col-12">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="plantillaPlanCrear.somatotipo" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingSomatotipo">
-                    <label for="floatingSomatotipo" class="color-label">Somatotipo</label>
+                    <label for="floatingSomatotipo" class="color-label font-bold">Somatotipo</label>
                 </div>
             </div>
         </div>

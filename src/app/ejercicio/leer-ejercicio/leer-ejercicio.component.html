@@ -32,12 +32,12 @@
                 <div class="form-floating col-10">
                     <input type="text" [(ngModel)]="descripcion" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()"
                         id="floatingDescripcion">
-                    <label for="floatingDescripcion" class="color-label">Buscar Ejercicio</label>
+                    <label for="floatingDescripcion" class="color-label font-bold">Buscar Ejercicio</label>
                 </div>
                 <button type="button" class="btn btn-outline-info col-2 color-button-search"><i class="bi bi-search esp-icon-search"></i></button>
             </div>
             <div class="row">
-                <div class="col-sm-12 scrollcustom">
+                <div class="col-12 scrollcustom">
                     <table class="table table-hover table-bordered" >
                         <thead class="table-active font-color">
                             <tr>
@@ -47,7 +47,7 @@
                                 <th>OPC</th>
                             </tr>
                         </thead>
-                        <tbody style="font-size: 0.7rem" class="font-color">
+                        <tbody style="font-size: 0.9rem;" class="font-color">
                             <tr *ngFor="let ejercicio of ejercicios; let i=index">
                                 <td>{{i+1}}</td>
                                 <td>{{ejercicio.descripcion}}</td>
@@ -83,7 +83,7 @@
             <div class="col-12">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="ejercicioActualizar.descripcion" oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control" id="floatingDescripcion">
-                    <label for="floatingDescripcion" class="font-color">Descripcion</label>
+                    <label for="floatingDescripcion" class="font-color font-bold">Descripcion</label>
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@
     </div>
     <div class="modal-body">
         <div class="form-group row">
-            <div align="center" class="col-sm">
+            <div align="center" class="col-12">
                 <label class="font-color font-bold">{{ejercicioLeer.descripcion}}</label>
                 <img class="card-img-top" src="{{prefijoUrlEjercicios+ejercicioLeer.imagen}}" height="300px"
                     alt="Card image cap">

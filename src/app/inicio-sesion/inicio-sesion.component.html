@@ -1,5 +1,4 @@
-<div class="container font-size"
-    style="background-image: url({{prefijoUrlImagenes+fondoInicioSesion[0].valor}}); width: 100%; height: 100%">
+<div class="container font-size" style="background-image: url({{prefijoUrlImagenes+fondoInicioSesion[0].valor}}); width: 100%; height: 100%">
     <div class="row">
         <img src="{{prefijoUrlImagenes+logo}}" alt="...">
     </div>
@@ -7,7 +6,7 @@
         <div class="col-12 mb-4">
             <div class="form-floating">
                 <input type="number" [(ngModel)]="sesion.usuario.identificacion" placeholder="" class="form-control" id="floatingInput">
-                <label for="floatingInput" class="color-label">Identificacion</label>
+                <label for="floatingInput" class="color-label font-bold">Identificacion</label>
             </div>
         </div>
     </div>
@@ -16,7 +15,7 @@
             <div class="form-floating">
                 <input type="password" [(ngModel)]="sesion.usuario.contrasena" placeholder=""
                     class="form-control form-control-sm" id="floatingInput">
-                <label for="floatingInput" class="color-label">Contraseña</label>
+                <label for="floatingInput" class="color-label font-bold">Contraseña</label>
             </div>
         </div>
     </div>
@@ -28,9 +27,6 @@
         </div>
         <div class="col-3"></div>
     </div>
-    <br>
-    <br>
-    <br>
     <br>
     <br>
     <div class="row">

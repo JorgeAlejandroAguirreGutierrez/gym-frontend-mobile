@@ -33,7 +33,7 @@
                     <div class="form-floating">
                         <input type="text" [(ngModel)]="ejercicio.descripcion" placeholder="" class="form-control"
                             oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
-                        <label for="floatingNombre" class="color-label">Nombre</label>
+                        <label for="floatingNombre" class="color-label font-bold">Nombre</label>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                         <option *ngFor="let tipoMusculo of tiposMusculos; let i=index" [value]=tipoMusculo>
                             {{tipoMusculo.descripcion}}</option>
                     </select>
-                    <label for="floatingTipoMusculo" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tipo Musculo</label>
+                    <label for="floatingTipoMusculo" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tipo Musculo</label>
                 </div>
             </div>
             <div class="row mb-3">
