@@ -188,4 +188,13 @@ export class LeerEjercicioComponent implements OnInit {
     this.navegarIndex();
   }
 
+  menu(){
+    if(this.sesion.usuario.perfil.descripcion==constantes.perfil_admin){
+      this.router.navigateByUrl('/menu');
+    }
+    if(this.sesion.usuario.perfil.descripcion==constantes.perfil_cliente){
+      this.router.navigateByUrl('/menu-cliente');
+    }
+  }
+
 }

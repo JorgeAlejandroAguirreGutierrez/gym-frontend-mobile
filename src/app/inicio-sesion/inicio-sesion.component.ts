@@ -69,7 +69,7 @@ export class InicioSesionComponent implements OnInit {
   }
 
   navegarCliente() {
-    this.router.navigate(['/leer-plan']);
+    this.router.navigate(['/menu-cliente']);
   }
 
   navegarFallido() {

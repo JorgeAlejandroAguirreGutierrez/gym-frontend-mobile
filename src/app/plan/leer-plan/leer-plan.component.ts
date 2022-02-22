@@ -9,8 +9,6 @@ import { environment } from '../../../environments/environment';
 import * as util from '../../util';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Sesion } from 'src/app/modelos/sesion';
-import { Parametro } from 'src/app/modelos/parametro';
-import { ParametroService } from 'src/app/servicios/parametro.service';
 
 @Component({
   selector: 'app-leer-plan',
@@ -35,7 +33,7 @@ export class LeerPlanComponent implements OnInit {
   @ViewChild('modalLeerEjercicio', { static: false }) private modalLeerEjercicio: any;
 
   constructor(private sesionService: SesionService, private usuarioService: UsuarioService, private route: ActivatedRoute,
-    private parametroService: ParametroService, private modalService: NgbModal, private router: Router) { }
+    private modalService: NgbModal, private router: Router) { }
 
   ngOnInit(): void {
     util.loadScripts();
@@ -43,6 +41,7 @@ export class LeerPlanComponent implements OnInit {
     if(this.sesion==null || this.sesion.usuario.perfil.descripcion!=constantes.perfil_cliente){
       this.navegarIndex();
     }
+    this.validarSesion();
     this.obtenerPorIdentificacion();
   }
 
@@ -54,6 +53,25 @@ export class LeerPlanComponent implements OnInit {
       },
       err => {
         Swal.fire(constantes.error, constantes.error_obtener_usuario, constantes.error_swal)
+      }
+    );
+  }
+
+  validarSesion(){
+    this.sesion=this.sesionService.getSesion();
+    this.sesionService.validar(this.sesion.id).subscribe(
+      res => {
+        this.sesion=res;
+      },
+      err => {
+        if(err.error.codigo==constantes.error_codigo_sesion_invalida){
+          this.sesionService.cerrarSesion();
+          this.navegarIndex();
+        }
+        if(err.error.codigo==constantes.error_codigo_modelo_no_existente){
+          this.sesionService.cerrarSesion();
+          this.navegarIndex();
+        }
       }
     );
   }
@@ -92,6 +110,15 @@ export class LeerPlanComponent implements OnInit {
       event.preventDefault();
     this.sesionService.cerrarSesion();
     this.navegarIndex();
+  }
+
+  menu(){
+    if(this.sesion.usuario.perfil.descripcion==constantes.perfil_admin){
+      this.router.navigateByUrl('/menu');
+    }
+    if(this.sesion.usuario.perfil.descripcion==constantes.perfil_cliente){
+      this.router.navigateByUrl('/menu-cliente');
+    }
   }
 
 }

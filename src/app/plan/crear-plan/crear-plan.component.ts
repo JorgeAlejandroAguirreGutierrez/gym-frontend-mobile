@@ -20,6 +20,7 @@ import { Plan } from 'src/app/modelos/plan';
 import { PlantillaPlan } from 'src/app/modelos/plantilla-plan';
 import { PlantillaPlanService } from 'src/app/servicios/plantilla-plan.service';
 import { RutinaService } from 'src/app/servicios/rutina.service';
+import { Sesion } from 'src/app/modelos/sesion';
 
 @Component({
   selector: 'app-crear-plan',
@@ -32,6 +33,7 @@ export class CrearPlanComponent implements OnInit {
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
   logo=constantes.logo1;
 
+  sesion: Sesion=null as any;
   plantillaPlanCrear: PlantillaPlan = new PlantillaPlan();
   plantillasPlan: PlantillaPlan[] = [];
   plantillaPlanAsignar: PlantillaPlan = null as any;
@@ -80,11 +82,31 @@ export class CrearPlanComponent implements OnInit {
     if (this.identificacion == null) {
       this.navegarIndex();
     }
+    this.validarSesion();
     this.obtenerPorIdentificacion();
     this.consultarTiposMusculos();
     this.consultarMedidasPesos();
     this.consultarMedidasTiempos();
     this.consultarPlantillasPlan();
+  }
+
+  validarSesion() {
+    this.sesion=this.sesionService.getSesion();
+    this.sesionService.validar(this.sesion.id).subscribe(
+      res => {
+        this.sesion=res;
+      },
+      err => {
+        if(err.error.codigo==constantes.error_codigo_sesion_invalida){
+          this.sesionService.cerrarSesion();
+          this.navegarIndex();
+        }
+        if(err.error.codigo==constantes.error_codigo_modelo_no_existente){
+          this.sesionService.cerrarSesion();
+          this.navegarIndex();
+        }
+      }
+    );
   }
 
   obtenerPorIdentificacion() {
@@ -484,6 +506,15 @@ export class CrearPlanComponent implements OnInit {
       event.preventDefault();
     this.sesionService.cerrarSesion();
     this.navegarIndex();
+  }
+
+  menu(){
+    if(this.sesion.usuario.perfil.descripcion==constantes.perfil_admin){
+      this.router.navigateByUrl('/menu');
+    }
+    if(this.sesion.usuario.perfil.descripcion==constantes.perfil_cliente){
+      this.router.navigateByUrl('/menu-cliente');
+    }
   }
 
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom d-flex justify-content-center">
-            <a class="btn btn-ligth" href="/menu"><i class="bi bi-list" style="font-size: 1.5rem"></i></a>
+            <button class="btn btn-ligth" (click)="menu()"><i class="bi bi-list" style="font-size: 1.5rem"></i></button>
         </nav>
     </div>
     <div class="row">
@@ -36,7 +36,7 @@
         <div class="d-grid gap-1">
             <label style="text-align: center;" class="color-label">Imagen:</label>
             <input hidden type="file" #botonImagen id="imagen" name="imagen" (change)="cargarImagen($event)">
-            <button (click)="botonImagen.click()" class="btn btn-primary">Cargar Imagen</button>
+            <button (click)="botonImagen.click()" class="btn btn-primary color-button">Cargar Imagen</button>
         </div>
     </div>
     <div class="row mb-3">

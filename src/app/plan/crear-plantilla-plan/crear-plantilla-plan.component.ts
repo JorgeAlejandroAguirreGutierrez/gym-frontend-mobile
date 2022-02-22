@@ -17,6 +17,7 @@ import { PlantillaPlan } from 'src/app/modelos/plantilla-plan';
 import { Dia } from 'src/app/modelos/dia';
 import { PlantillaPlanService } from 'src/app/servicios/plantilla-plan.service';
 import { RutinaService } from 'src/app/servicios/rutina.service';
+import { Sesion } from 'src/app/modelos/sesion';
 
 @Component({
   selector: 'app-crear-plantilla-plan',
@@ -29,6 +30,7 @@ export class CrearPlantillaPlanComponent implements OnInit {
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
   logo=constantes.logo1;
 
+  sesion: Sesion=null as any;
   plantillaPlan: PlantillaPlan=new PlantillaPlan();
   cerrarModal: string = "";
   diaCrear: Dia=new Dia();
@@ -70,9 +72,29 @@ export class CrearPlantillaPlanComponent implements OnInit {
     if(plantillaPlanId!=null){
       this.obtenerPlantillaPlan(plantillaPlanId);
     }
+    this.validarSesion();
     this.consultarTiposMusculos();
     this.consultarMedidasPesos();
     this.consultarMedidasTiempos();
+  }
+
+  validarSesion() {
+    this.sesion=this.sesionService.getSesion();
+    this.sesionService.validar(this.sesion.id).subscribe(
+      res => {
+        this.sesion=res;
+      },
+      err => {
+        if(err.error.codigo==constantes.error_codigo_sesion_invalida){
+          this.sesionService.cerrarSesion();
+          this.navegarIndex();
+        }
+        if(err.error.codigo==constantes.error_codigo_modelo_no_existente){
+          this.sesionService.cerrarSesion();
+          this.navegarIndex();
+        }
+      }
+    );
   }
 
   obtenerPlantillaPlan(plantillaPlanId:number){
@@ -408,6 +430,15 @@ export class CrearPlantillaPlanComponent implements OnInit {
       event.preventDefault();
     this.sesionService.cerrarSesion();
     this.navegarIndex();
+  }
+
+  menu(){
+    if(this.sesion.usuario.perfil.descripcion==constantes.perfil_admin){
+      this.router.navigateByUrl('/menu');
+    }
+    if(this.sesion.usuario.perfil.descripcion==constantes.perfil_cliente){
+      this.router.navigateByUrl('/menu-cliente');
+    }
   }
 
 }

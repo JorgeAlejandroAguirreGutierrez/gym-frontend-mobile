@@ -29,6 +29,7 @@ import { LeerPlantillaPlanComponent } from './plan/leer-plantilla-plan/leer-plan
 import { InicioComponent } from './inicio/inicio.component';
 import { InicioSlideComponent } from './inicio-slide/inicio-slide.component';
 import { MenuComponent } from './menu/menu.component';
+import { MenuClienteComponent } from './menu-cliente/menu-cliente.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { MenuComponent } from './menu/menu.component';
     LeerPlantillaPlanComponent,
     InicioComponent,
     InicioSlideComponent,
-    MenuComponent
+    MenuComponent,
+    MenuClienteComponent
   ],
   imports: [
     BrowserModule,
