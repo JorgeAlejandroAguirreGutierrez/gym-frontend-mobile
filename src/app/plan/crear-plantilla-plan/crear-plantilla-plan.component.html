@@ -1,150 +1,136 @@
-<div class="d-flex" id="wrapper">
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading color-label">MENU </div>
-        <hr>
-        <div class="list-group list-group-flush">
-            <a href="/crear-cliente" class="list-group-item list-group-item-action bg-light color-label">CREAR CLIENTE</a>
-            <a href="/leer-cliente" class="list-group-item list-group-item-action bg-light color-label">VER CLIENTES</a>
-            <a href="/crear-ejercicio" class="list-group-item list-group-item-action bg-light color-label">CREAR EJERCICIO</a>
-            <a href="/leer-ejercicio" class="list-group-item list-group-item-action bg-light color-label">VER EJERCICIOS</a>
-            <a href="/crear-plantilla-plan" class="list-group-item list-group-item-action bg-light color-label">CREAR PLANTILLA</a>
-            <a href="/leer-plantilla-plan" class="list-group-item list-group-item-action bg-light color-label">VER PLANTILLAS</a>
-            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light color-label">CERRAR
-                SESION</a>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom d-flex justify-content-center">
+            <a class="btn btn-ligth" href="/menu"><i class="bi bi-list" style="font-size: 1.5rem"></i></a>
+        </nav>
+    </div>
+    <div class="row">
+        <img src="{{prefijoUrlImagenes+logo}}" class="esp-image" alt="...">
+    </div>
+    <div class="row">
+        <div class="col-12" align="center">
+            <h2 class="color-label font-size-tittle">PLANTILLA PLAN DE ENTRENAMIENTO</h2>
         </div>
     </div>
-    <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify">
-            <button class="btn btn-ligth" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
-            <span class="separate"></span>
-            <a class="navbar-brand" href="#"></a>
-        </nav>
-        <div class="container">
-            <div class="row">
-                <img src="{{prefijoUrlImagenes+logo}}" class="esp-image" alt="...">
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" [(ngModel)]="plantillaPlan.nombre" oninput="this.value = this.value.toUpperCase()"
+                    placeholder="" class="form-control" id="floatingNombre">
+                <label for="floatingNombre" class="color-label font-bold">Nombre Plantilla</label>
             </div>
-            <div class="row">
-                <div class="col-12" align="center">
-                    <h2 class="color-label font-size-tittle">PLANTILLA PLAN DE ENTRENAMIENTO</h2>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" [(ngModel)]="plantillaPlan.somatotipo"
+                    oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control"
+                    id="floatingSomatotipo">
+                <label for="floatingSomatotipo" class="color-label font-bold">Somatotipo</label>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row mb-3">
+        <div class="d-grid gap-1">
+            <button (click)="crearPlantillaPlan()" class="btn btn-primary color-button">Crear día de
+                Entrenamiento</button>
+        </div>
+    </div>
+    <ng-container *ngIf="plantillaPlan.plan.dias.length==0">
+        <div class="row">
+            <div class="col-sm">
+                <div align="center" class="alert alert-warning font-weight-bold" role="alert">
+                    NO EXISTE PLAN DE ENTRENAMIENTO
                 </div>
             </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input type="text" [(ngModel)]="plantillaPlan.nombre" oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control" id="floatingNombre">
-                        <label for="floatingNombre" class="color-label font-bold">Nombre Plantilla</label>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="plantillaPlan.plan.dias.length!=0">
+        <div class="accordion" id="accordionExample">
+            <ng-container *ngFor="let dia of plantillaPlan.plan.dias; let i=index">
+                <div class="accordion-item">
+                    <div class="accordion-header" id="heading{{i+1}}">
+                        <button class="accordion-button collapsed color-label" type="button" data-bs-toggle="collapse"
+                            attr.data-bs-target="#collapse{{i+1}}" aria-expanded="false"
+                            attr.aria-controls="collapse{{i+1}}">
+                            DIA {{i+1}} ({{dia.nombre}})
+                        </button>
                     </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input type="text" [(ngModel)]="plantillaPlan.somatotipo" oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control" id="floatingSomatotipo">
-                        <label for="floatingSomatotipo" class="color-label font-bold">Somatotipo</label>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row mb-3">
-                <div class="d-grid gap-1">
-                    <button (click)="crearPlantillaPlan()" class="btn btn-primary color-button">Crear día de Entrenamiento</button>
-                </div>
-            </div>
-            <ng-container *ngIf="plantillaPlan.plan.dias.length==0">
-                <div class="row">
-                    <div class="col-sm">
-                        <div align="center" class="alert alert-warning font-weight-bold" role="alert">
-                            NO EXISTE PLAN DE ENTRENAMIENTO
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
-            <ng-container *ngIf="plantillaPlan.plan.dias.length!=0">
-                <div class="accordion" id="accordionExample">
-                    <ng-container *ngFor="let dia of plantillaPlan.plan.dias; let i=index">
-                        <div class="accordion-item">
-                            <div class="accordion-header" id="heading{{i+1}}">
-                                <button class="accordion-button collapsed color-label" type="button" data-bs-toggle="collapse"
-                                    attr.data-bs-target="#collapse{{i+1}}" aria-expanded="false"
-                                    attr.aria-controls="collapse{{i+1}}">
-                                    DIA {{i+1}} ({{dia.nombre}})
-                                </button>
-                            </div>
-                            <div id="collapse{{i+1}}" class="accordion-collapse collapse {{dia.show}}"
-                                attr.aria-labelledby="heading{{i+1}}" data-bs-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="d-grid gap-1">
-                                            <button class="btn btn-sm btn-primary color-button"
-                                                (click)="abrirModalCrearRutina(i)">Crear
-                                                Rutina</button>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <ng-container *ngIf="dia.rutinas.length>0">
-                                        <div class="row">
-                                            <div class="col-sm table-responsive">
-                                                <table class="table table-sm table-hover table-bordered">
-                                                    <thead>
-                                                        <tr class="menor-fuente font-color">
-                                                            <th scope="col">°</th>
-                                                            <th scope="col">EJERCICIO</th>
-                                                            <th scope="col">REP</th>
-                                                            <th scope="col">SER</th>
-                                                            <th scope="col">PESO&nbsp;&nbsp;</th>
-                                                            <th scope="col">TIEMPO</th>
-                                                            <th scope="col">OPC</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr class="menor-fuente font-color"
-                                                            *ngFor="let rutina of dia.rutinas; let j=index">
-                                                            <td>{{j+1}}</td>
-                                                            <td>
-                                                                {{rutina.ejercicio.descripcion}}
-                                                            </td>
-                                                            <td>
-                                                                {{rutina.repeticiones}}
-                                                            </td>
-                                                            <td>
-                                                                {{rutina.series}}
-                                                            </td>
-                                                            <td>
-                                                                {{rutina.valorPeso}}&nbsp;
-                                                                {{rutina.medidaPeso}}
-                                                            </td>
-                                                            <td>
-                                                                {{rutina.valorTiempo}}&nbsp;
-                                                                {{rutina.medidaTiempo}}
-                                                            </td>
-                                                            <td>
-                                                                <button class="btn btn-sm btn-light separate"
-                                                                    (click)="abrirModalLeerEjercicio(i, j)">
-                                                                    <i class="bi bi-eye font-color"></i>
-                                                                </button>
-                                                                <button class="btn btn-sm btn-light separate"
-                                                                    (click)="abrirModalActualizarRutina(i, j)">
-                                                                    <i class="bi bi-pencil font-color"></i>
-                                                                </button>
-                                                                <button class="btn btn-sm btn-light separate"
-                                                                    (click)="eliminarRutina(i, j)">
-                                                                    <i class="bi bi-trash font-color"></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </ng-container>
+                    <div id="collapse{{i+1}}" class="accordion-collapse collapse {{dia.show}}"
+                        attr.aria-labelledby="heading{{i+1}}" data-bs-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="d-grid gap-1">
+                                    <button class="btn btn-sm btn-primary color-button"
+                                        (click)="abrirModalCrearRutina(i)">Crear
+                                        Rutina</button>
                                 </div>
                             </div>
+                            <br>
+                            <ng-container *ngIf="dia.rutinas.length>0">
+                                <div class="row">
+                                    <div class="col-sm table-responsive">
+                                        <table class="table table-sm table-hover table-bordered">
+                                            <thead>
+                                                <tr class="menor-fuente font-color">
+                                                    <th scope="col">°</th>
+                                                    <th scope="col">EJERCICIO</th>
+                                                    <th scope="col">REP</th>
+                                                    <th scope="col">SER</th>
+                                                    <th scope="col">PESO&nbsp;&nbsp;</th>
+                                                    <th scope="col">TIEMPO</th>
+                                                    <th scope="col">OPC</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="menor-fuente font-color"
+                                                    *ngFor="let rutina of dia.rutinas; let j=index">
+                                                    <td>{{j+1}}</td>
+                                                    <td>
+                                                        {{rutina.ejercicio.descripcion}}
+                                                    </td>
+                                                    <td>
+                                                        {{rutina.repeticiones}}
+                                                    </td>
+                                                    <td>
+                                                        {{rutina.series}}
+                                                    </td>
+                                                    <td>
+                                                        {{rutina.valorPeso}}&nbsp;
+                                                        {{rutina.medidaPeso}}
+                                                    </td>
+                                                    <td>
+                                                        {{rutina.valorTiempo}}&nbsp;
+                                                        {{rutina.medidaTiempo}}
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-light separate"
+                                                            (click)="abrirModalLeerEjercicio(i, j)">
+                                                            <i class="bi bi-eye font-color"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-light separate"
+                                                            (click)="abrirModalActualizarRutina(i, j)">
+                                                            <i class="bi bi-pencil font-color"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-light separate"
+                                                            (click)="eliminarRutina(i, j)">
+                                                            <i class="bi bi-trash font-color"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </ng-container>
                         </div>
-                    </ng-container>
+                    </div>
                 </div>
             </ng-container>
         </div>
-    </div>
+    </ng-container>
 </div>
 
 
@@ -156,31 +142,36 @@
     <div class="modal-body">
         <div class="row mb-3">
             <div class="form-floating">
-                <select [(ngModel)]="rutinaCrear.ejercicio.tipoMusculo" id="floatingTipoMusculo" (change)="cargarEjerciciosCrearRutina()" [compareWith]="compareFn" class="form-select">
+                <select [(ngModel)]="rutinaCrear.ejercicio.tipoMusculo" id="floatingTipoMusculo"
+                    (change)="cargarEjerciciosCrearRutina()" [compareWith]="compareFn" class="form-select">
                     <option [value]="null"></option>
                     <option *ngFor="let tipoMusculo of tiposMusculos" [ngValue]="tipoMusculo">
                         {{tipoMusculo.descripcion}}
                     </option>
                 </select>
-                <label for="floatingTipoMusculo" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zona Muscular</label>
+                <label for="floatingTipoMusculo" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zona
+                    Muscular</label>
             </div>
         </div>
         <div class="row mb-3">
             <div class="form-floating">
-                <select [(ngModel)]="rutinaCrear.ejercicio" id="floatingEjercicio" [compareWith]="compareFn" class="form-select">
+                <select [(ngModel)]="rutinaCrear.ejercicio" id="floatingEjercicio" [compareWith]="compareFn"
+                    class="form-select">
                     <option [value]="null"></option>
                     <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio">
                         {{ejercicio.descripcion}}
                     </option>
                 </select>
-                <label for="floatingEjercicio" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejercicio</label>
+                <label for="floatingEjercicio"
+                    class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejercicio</label>
             </div>
         </div>
         <ng-container *ngIf="campoDetalle">
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <textarea rows="3" [(ngModel)]="rutinaCrear.ejercicio.detalle" placeholder="" class="form-control" [disabled]="true" id="floatingDetalle"></textarea>
+                        <textarea rows="3" [(ngModel)]="rutinaCrear.ejercicio.detalle" placeholder=""
+                            class="form-control" [disabled]="true" id="floatingDetalle"></textarea>
                         <label for="floatingDetalle" class="color-label font-bold">Detalle</label>
                     </div>
                 </div>
@@ -190,7 +181,8 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="number" [(ngModel)]="rutinaCrear.repeticiones" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingRepeticiones">
+                        <input type="number" [(ngModel)]="rutinaCrear.repeticiones" placeholder="" class="form-control"
+                            oninput="this.value = this.value.toUpperCase()" id="floatingRepeticiones">
                         <label for="floatingRepeticiones" class="color-label font-bold">Repeticiones</label>
                     </div>
                 </div>
@@ -200,7 +192,8 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="number" [(ngModel)]="rutinaCrear.series" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingSeries">
+                        <input type="number" [(ngModel)]="rutinaCrear.series" placeholder="" class="form-control"
+                            oninput="this.value = this.value.toUpperCase()" id="floatingSeries">
                         <label for="floatingSeries" class="color-label font-bold">Series</label>
                     </div>
                 </div>
@@ -210,7 +203,8 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="number" [(ngModel)]="rutinaCrear.valorPeso" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingValorPeso">
+                        <input type="number" [(ngModel)]="rutinaCrear.valorPeso" placeholder="" class="form-control"
+                            oninput="this.value = this.value.toUpperCase()" id="floatingValorPeso">
                         <label for="floatingValorPeso" class="color-label font-bold">Valor Peso</label>
                     </div>
                 </div>
@@ -219,13 +213,15 @@
         <ng-container *ngIf="campoMedidaPeso">
             <div class="row mb-3">
                 <div class="form-floating">
-                    <select [(ngModel)]="rutinaCrear.medidaPeso" id="floatingMedidaPeso" [compareWith]="compareFn" class="form-select">
+                    <select [(ngModel)]="rutinaCrear.medidaPeso" id="floatingMedidaPeso" [compareWith]="compareFn"
+                        class="form-select">
                         <option [value]="null"></option>
                         <option *ngFor="let medidaPeso of medidasPesos" [ngValue]="medidaPeso">
                             {{medidaPeso.valor}}
                         </option>
                     </select>
-                    <label for="floatingMedidaPeso" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida Peso</label>
+                    <label for="floatingMedidaPeso" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida
+                        Peso</label>
                 </div>
             </div>
         </ng-container>
@@ -233,7 +229,8 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="number" [(ngModel)]="rutinaCrear.valorTiempo" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingTiempo">
+                        <input type="number" [(ngModel)]="rutinaCrear.valorTiempo" placeholder="" class="form-control"
+                            oninput="this.value = this.value.toUpperCase()" id="floatingTiempo">
                         <label for="floatingTiempo" class="color-label font-bold">Tiempo</label>
                     </div>
                 </div>
@@ -242,13 +239,15 @@
         <ng-container *ngIf="campoMedidaTiempo">
             <div class="row mb-3">
                 <div class="form-floating">
-                    <select [(ngModel)]="rutinaCrear.medidaTiempo" id="floatingMedidaTiempo" [compareWith]="compareFn" class="form-select">
+                    <select [(ngModel)]="rutinaCrear.medidaTiempo" id="floatingMedidaTiempo" [compareWith]="compareFn"
+                        class="form-select">
                         <option [value]="null"></option>
                         <option *ngFor="let medidaTiempo of medidasTiempos" [ngValue]="medidaTiempo">
                             {{medidaTiempo.valor}}
                         </option>
                     </select>
-                    <label for="floatingMedidaTiempo" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida Tiempo</label>
+                    <label for="floatingMedidaTiempo" class="color-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida
+                        Tiempo</label>
                 </div>
             </div>
         </ng-container>
@@ -267,31 +266,36 @@
     <div class="modal-body">
         <div class="row mb-3">
             <div class="form-floating">
-                <select [(ngModel)]="rutinaActualizar.ejercicio.tipoMusculo" id="floatingTipoMusculo" (change)="cargarEjerciciosActualizarRutinaChange()" [compareWith]="compareFn" class="form-select">
+                <select [(ngModel)]="rutinaActualizar.ejercicio.tipoMusculo" id="floatingTipoMusculo"
+                    (change)="cargarEjerciciosActualizarRutinaChange()" [compareWith]="compareFn" class="form-select">
                     <option [value]="null"></option>
                     <option *ngFor="let tipoMusculo of tiposMusculos" [ngValue]="tipoMusculo">
                         {{tipoMusculo.descripcion}}
                     </option>
                 </select>
-                <label for="floatingTipoMusculo" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zona Muscular</label>
+                <label for="floatingTipoMusculo" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zona
+                    Muscular</label>
             </div>
         </div>
         <div class="row mb-3">
             <div class="form-floating">
-                <select [(ngModel)]="rutinaActualizar.ejercicio" id="floatingEjercicio" [compareWith]="compareFn" class="form-select">
+                <select [(ngModel)]="rutinaActualizar.ejercicio" id="floatingEjercicio" [compareWith]="compareFn"
+                    class="form-select">
                     <option [value]="null"></option>
                     <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio">
                         {{ejercicio.descripcion}}
                     </option>
                 </select>
-                <label for="floatingEjercicio" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejercicio</label>
+                <label for="floatingEjercicio"
+                    class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejercicio</label>
             </div>
         </div>
         <ng-container *ngIf="campoDetalle">
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <textarea rows="3" [(ngModel)]="rutinaActualizar.ejercicio.detalle" placeholder="" class="form-control" [disabled]="true" id="floatingDetalle"></textarea>
+                        <textarea rows="3" [(ngModel)]="rutinaActualizar.ejercicio.detalle" placeholder=""
+                            class="form-control" [disabled]="true" id="floatingDetalle"></textarea>
                         <label for="floatingDetalle" class="color-label font-bold">Detalle</label>
                     </div>
                 </div>
@@ -301,7 +305,9 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="number" [(ngModel)]="rutinaActualizar.repeticiones" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingRepeticiones">
+                        <input type="number" [(ngModel)]="rutinaActualizar.repeticiones" placeholder=""
+                            class="form-control" oninput="this.value = this.value.toUpperCase()"
+                            id="floatingRepeticiones">
                         <label for="floatingRepeticiones" class="color-label font-bold">Repeticiones</label>
                     </div>
                 </div>
@@ -311,7 +317,8 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="number" [(ngModel)]="rutinaActualizar.series" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingSeries">
+                        <input type="number" [(ngModel)]="rutinaActualizar.series" placeholder="" class="form-control"
+                            oninput="this.value = this.value.toUpperCase()" id="floatingSeries">
                         <label for="floatingSeries" class="color-label font-bold">Series</label>
                     </div>
                 </div>
@@ -321,7 +328,8 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="number" [(ngModel)]="rutinaActualizar.valorPeso" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingValorPeso">
+                        <input type="number" [(ngModel)]="rutinaActualizar.valorPeso" placeholder=""
+                            class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingValorPeso">
                         <label for="floatingValorPeso" class="color-label font-bold">Peso</label>
                     </div>
                 </div>
@@ -330,13 +338,15 @@
         <ng-container *ngIf="campoMedidaPeso">
             <div class="row mb-3">
                 <div class="form-floating">
-                    <select [(ngModel)]="rutinaActualizar.medidaPeso" id="floatingMedidaPeso" [compareWith]="compareFn" class="form-select">
+                    <select [(ngModel)]="rutinaActualizar.medidaPeso" id="floatingMedidaPeso" [compareWith]="compareFn"
+                        class="form-select">
                         <option [value]="null"></option>
                         <option *ngFor="let medidaPeso of medidasPesos" [ngValue]="medidaPeso">
                             {{medidaPeso.valor}}
                         </option>
                     </select>
-                    <label for="floatingMedidaPeso" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida del Peso</label>
+                    <label for="floatingMedidaPeso" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medida
+                        del Peso</label>
                 </div>
             </div>
         </ng-container>
@@ -344,7 +354,8 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        <input type="number" [(ngModel)]="rutinaActualizar.valorTiempo" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingTiempo">
+                        <input type="number" [(ngModel)]="rutinaActualizar.valorTiempo" placeholder=""
+                            class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingTiempo">
                         <label for="floatingTiempo" class="color-label font-bold">Tiempo</label>
                     </div>
                 </div>
@@ -353,13 +364,15 @@
         <ng-container *ngIf="campoMedidaTiempo">
             <div class="row mb-3">
                 <div class="form-floating">
-                    <select [(ngModel)]="rutinaActualizar.medidaTiempo" id="floatingMedidaTiempo" [compareWith]="compareFn" class="form-select">
+                    <select [(ngModel)]="rutinaActualizar.medidaTiempo" id="floatingMedidaTiempo"
+                        [compareWith]="compareFn" class="form-select">
                         <option [value]="null"></option>
                         <option *ngFor="let medidaTiempo of medidasTiempos" [ngValue]="medidaTiempo">
                             {{medidaTiempo.valor}}
                         </option>
                     </select>
-                    <label for="floatingMedidaTiempo" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo</label>
+                    <label for="floatingMedidaTiempo"
+                        class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo</label>
                 </div>
             </div>
         </ng-container>
@@ -378,16 +391,18 @@
     <div class="modal-body">
         <div class="form-group row">
             <div align="center" class="col-sm">
-                <label class="font-weight-bold">{{plantillaPlan.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.descripcion}}</label>
+                <label
+                    class="font-weight-bold">{{plantillaPlan.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.descripcion}}</label>
                 <br>
                 <ng-container *ngIf="plantillaPlan.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen!=null">
                     <img class="card-img-top"
-                    src="{{prefijoUrlEjercicios+plantillaPlan.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen}}"
-                    height="300px" alt="Card image cap">
+                        src="{{prefijoUrlEjercicios+plantillaPlan.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen}}"
+                        height="300px" alt="Card image cap">
                 </ng-container>
                 <ng-container *ngIf="plantillaPlan.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen==null">
-                    <textarea rows="3" [disabled]="true" [(ngModel)]="plantillaPlan.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.detalle"
-                            oninput="this.value = this.value.toUpperCase()" class="form-control form-control-sm"></textarea>
+                    <textarea rows="3" [disabled]="true"
+                        [(ngModel)]="plantillaPlan.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.detalle"
+                        oninput="this.value = this.value.toUpperCase()" class="form-control form-control-sm"></textarea>
                 </ng-container>
             </div>
         </div>

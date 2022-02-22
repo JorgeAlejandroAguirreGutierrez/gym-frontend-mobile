@@ -1,156 +1,139 @@
-<div class="d-flex" id="wrapper">
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading color-label">MENU </div>
-        <hr>
-        <div class="list-group list-group-flush">
-            <a href="/crear-cliente" class="list-group-item list-group-item-action bg-light color-label">CREAR CLIENTE</a>
-            <a href="/leer-cliente" class="list-group-item list-group-item-action bg-light color-label">VER CLIENTES</a>
-            <a href="/crear-ejercicio" class="list-group-item list-group-item-action bg-light color-label">CREAR EJERCICIO</a>
-            <a href="/leer-ejercicio" class="list-group-item list-group-item-action bg-light color-label">VER EJERCICIOS</a>
-            <a href="/crear-plantilla-plan" class="list-group-item list-group-item-action bg-light color-label">CREAR PLANTILLA</a>
-            <a href="/leer-plantilla-plan" class="list-group-item list-group-item-action bg-light color-label">VER PLANTILLAS</a>
-            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light color-label">CERRAR
-                SESION</a>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom d-flex justify-content-center">
+            <a class="btn btn-ligth" href="/menu"><i class="bi bi-list" style="font-size: 1.5rem"></i></a>
+        </nav>
+    </div>
+    <div class="row">
+        <img src="{{prefijoUrlImagenes+logo}}" class="esp-image" alt="...">
+    </div>
+    <div class="row">
+        <div class="col" align="center">
+            <h2 class="color-label font-size-tittle">CREAR CLIENTE</h2>
         </div>
     </div>
-    <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify">
-            <button class="btn btn-ligth" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
-            <span class="separate"></span>
-            <a class="navbar-brand" href="#"></a>
-        </nav>
-        <div class="container">
-            <div class="row">
-                <img src="{{prefijoUrlImagenes+logo}}" class="esp-image" alt="...">
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" [(ngModel)]="usuario.nombre" placeholder="" class="form-control"
+                    oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
+                <label for="floatingNombre" class="color-label font-bold">Nombre</label>
             </div>
-            <div class="row">
-                <div class="col" align="center">
-                    <h2 class="color-label font-size-tittle">CREAR CLIENTE</h2>
-                </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" [(ngModel)]="usuario.identificacion" placeholder="" class="form-control"
+                    id="floatingIdentificacion">
+                <label for="floatingIdentificacion" class="color-label font-bold">Identificacion</label>
             </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input type="text" [(ngModel)]="usuario.nombre" placeholder="" class="form-control"
-                            oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
-                        <label for="floatingNombre" class="color-label font-bold">Nombre</label>
-                    </div>
-                </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="number" [(ngModel)]="usuario.talla" placeholder="" class="form-control"
+                    id="floatingEstatura">
+                <label for="floatingEstatura" class="color-label font-bold">Estatura</label>
             </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input type="text" [(ngModel)]="usuario.identificacion" placeholder="" class="form-control"
-                            id="floatingIdentificacion">
-                        <label for="floatingIdentificacion" class="color-label font-bold">Identificacion</label>
-                    </div>
-                </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="number" [(ngModel)]="usuario.edad" placeholder="" class="form-control" id="floatingEdad">
+                <label for="floatingEdad" class="color-label font-bold">Edad</label>
             </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input type="number" [(ngModel)]="usuario.talla" placeholder="" class="form-control"
-                            id="floatingEstatura">
-                        <label for="floatingEstatura" class="color-label font-bold">Estatura</label>
-                    </div>
-                </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="number" [(ngModel)]="peso" placeholder="" class="form-control" id="floatingPeso">
+                <label for="floatingPeso" class="color-label font-bold">Peso</label>
             </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input type="number" [(ngModel)]="usuario.edad" placeholder="" class="form-control"
-                            id="floatingEdad">
-                        <label for="floatingEdad" class="color-label font-bold">Edad</label>
-                    </div>
-                </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" [(ngModel)]="observacion" placeholder="" class="form-control"
+                    oninput="this.value = this.value.toUpperCase()" id="floatingObservacion">
+                <label for="floatingObservacion" class="color-label font-bold">Observacion</label>
             </div>
-            <div class="row mb-4">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input type="number" [(ngModel)]="peso" placeholder="" class="form-control" id="floatingPeso">
-                        <label for="floatingPeso" class="color-label font-bold">Peso</label>
-                    </div>
-                </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="d-grid gap-1">
+            <button class="btn btn-primary color-button" (click)="crearObservacion()">Agregar Observacion</button>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <table class="table table-hover table-bordered">
+                <thead class="table-active font-color">
+                    <tr>
+                        <th>No.</th>
+                        <th>OBSERVACION</th>
+                        <th>OPC</th>
+                    </tr>
+                </thead>
+                <tbody class="font-color">
+                    <tr *ngFor="let observacion of usuario.observaciones; let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{observacion.descripcion}}</td>
+                        <td class="d-flex justify-content-center">
+                            <button (click)="eliminarObservacion(i)" class="btn btn-light btn-sm">
+                                <i class="bi bi-trash font-color"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" [(ngModel)]="objetivo" placeholder="" class="form-control"
+                    oninput="this.value = this.value.toUpperCase()" id="floatingObjetivo">
+                <label for="floatingObjetivo" class="color-label font-bold">Objetivo</label>
             </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input type="text" [(ngModel)]="observacion" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingObservacion">
-                        <label for="floatingObservacion" class="color-label font-bold">Observacion</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="d-grid gap-1">
-                    <button class="btn btn-primary color-button" (click)="crearObservacion()">Agregar Observacion</button>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <table class="table table-hover table-bordered">
-                        <thead class="table-active font-color">
-                            <tr>
-                                <th>No.</th>
-                                <th>OBSERVACION</th>
-                                <th>OPC</th>
-                            </tr>
-                        </thead>
-                        <tbody class="font-color">
-                            <tr *ngFor="let observacion of usuario.observaciones; let i=index">
-                                <td>{{i+1}}</td>
-                                <td>{{observacion.descripcion}}</td>
-                                <td class="d-flex justify-content-center">
-                                    <button (click)="eliminarObservacion(i)" class="btn btn-light btn-sm">
-                                        <i class="bi bi-trash font-color"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input type="text" [(ngModel)]="objetivo" placeholder="" class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingObjetivo">
-                        <label for="floatingObjetivo" class="color-label font-bold">Objetivo</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="d-grid gap-1">
-                    <button class="btn btn-primary color-button" (click)="crearObjetivo()">Agregar Objetivo</button>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class= "col-12">
-                    <table class="table table-hover table-bordered">
-                        <thead class="table-active font-color">
-                            <tr>
-                                <th>No.</th>
-                                <th>OBJETIVO</th>
-                                <th>OPC</th>
-                            </tr>
-                        </thead>
-                        <tbody class="font-color">
-                            <tr *ngFor="let objetivo of usuario.objetivos; let i=index">
-                                <td>{{i+1}}</td>
-                                <td>{{objetivo.descripcion}}</td>
-                                <td class="d-flex justify-content-center">
-                                    <button (click)="eliminarObjetivo(i)" class="btn btn-light btn-sm">
-                                        <i class="bi bi-trash font-color"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="d-grid gap-1">
-                    <button type="button" (click)="crear()" class="btn btn-success">Guardar</button>
-                </div>
-            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="d-grid gap-1">
+            <button class="btn btn-primary color-button" (click)="crearObjetivo()">Agregar Objetivo</button>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <table class="table table-hover table-bordered">
+                <thead class="table-active font-color">
+                    <tr>
+                        <th>No.</th>
+                        <th>OBJETIVO</th>
+                        <th>OPC</th>
+                    </tr>
+                </thead>
+                <tbody class="font-color">
+                    <tr *ngFor="let objetivo of usuario.objetivos; let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{objetivo.descripcion}}</td>
+                        <td class="d-flex justify-content-center">
+                            <button (click)="eliminarObjetivo(i)" class="btn btn-light btn-sm">
+                                <i class="bi bi-trash font-color"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="d-grid gap-1">
+            <button type="button" (click)="crear()" class="btn btn-success">Guardar</button>
         </div>
     </div>
 </div>

@@ -1,91 +1,78 @@
-<div class="d-flex" id="wrapper">
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading color-label">MENU </div>
-        <hr>
-        <div class="list-group list-group-flush">
-            <a href="/leer-plan" class="list-group-item list-group-item-action bg-light color-label">VER PLAN</a>
-            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light color-label" >CERRAR SESION</a>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom d-flex justify-content-center">
+            <a class="btn btn-ligth" href="/menu"><i class="bi bi-list" style="font-size: 1.5rem"></i></a>
+        </nav>
+    </div>
+    <div class="row">
+        <img src="{{prefijoUrlImagenes+logo}}" class="esp-image" alt="...">
+    </div>
+    <div class="row">
+        <div class="col-12" align="center">
+            <h2 class="color-label font-size-tittle">MEDIDAS</h2>
         </div>
     </div>
-    <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify">
-            <button class="btn btn-ligth" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
-            <span class="separate"></span>
-            <a class="navbar-brand" href="#"></a>
-        </nav>
-        <div class="container">
-            <div class="row">
-                <img src="{{prefijoUrlImagenes+logo}}" class="esp-image" alt="...">
-            </div>
-            <div class="row">
-                <div class="col-12" align="center">
-                    <h2 class="color-label font-size-tittle">MEDIDAS</h2>
+    <div class="row">
+        <div class="card-group col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title color-label d-flex justify-content-center">{{usuario.nombre}}</h2>
                 </div>
-            </div>
-            <div class="row">
-                <div class="card-group col-sm">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 class="card-title color-label d-flex justify-content-center">{{usuario.nombre}}</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item font-color d-flex justify-content-center">
+                        IDENTIFICACION: {{usuario.identificacion}}
+                    </li>
+                    <li class="list-group-item font-color d-flex justify-content-center">
+                        TALLA: {{usuario.talla}}
+                    </li>
+                    <li class="list-group-item font-color d-flex justify-content-center">
+                        EDAD: {{usuario.edad}}
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="d-grid gap-1" style="text-align: center;">
+                                <button (click)="suscripcionesVer()" class="btn btn-sm btn-primary color-button">VER
+                                    SUSCRIPCIONES</button>
+                            </div>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item font-color d-flex justify-content-center">
-                                    IDENTIFICACION: {{usuario.identificacion}}
-                            </li>
-                            <li class="list-group-item font-color d-flex justify-content-center">
-                                TALLA: {{usuario.talla}}
-                            </li>
-                            <li class="list-group-item font-color d-flex justify-content-center">
-                                    EDAD: {{usuario.edad}}
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="d-grid gap-1" style="text-align: center;">
-                                        <button (click)="suscripcionesVer()"
-                                            class="btn btn-sm btn-primary color-button">VER SUSCRIPCIONES</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="d-grid gap-1" style="text-align: center;">
-                                        <button (click)="pesosVer()" class="btn btn-sm btn-primary color-button">
-                                            VER PESOS
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="d-grid gap-1" style="text-align: center;">
-                                        <button (click)="observacionesVer()" class="btn btn-sm btn-primary color-button">
-                                            VER OBSERVACIONES
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="d-grid gap-1" style="text-align: center;">
-                                        <button (click)="objetivosVer()" class="btn btn-sm btn-primary color-button">
-                                            VER OBJETIVOS
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="d-grid gap-1" style="text-align: center;">
-                                        <a type="button" href="/leer-plan"
-                                            class="btn btn-sm btn-primary color-button">
-                                            VER PLAN DE ENTRENAMIENTO
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="d-grid gap-1" style="text-align: center;">
+                                <button (click)="pesosVer()" class="btn btn-sm btn-primary color-button">
+                                    VER PESOS
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="d-grid gap-1" style="text-align: center;">
+                                <button (click)="observacionesVer()" class="btn btn-sm btn-primary color-button">
+                                    VER OBSERVACIONES
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="d-grid gap-1" style="text-align: center;">
+                                <button (click)="objetivosVer()" class="btn btn-sm btn-primary color-button">
+                                    VER OBJETIVOS
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="d-grid gap-1" style="text-align: center;">
+                                <a type="button" href="/leer-plan" class="btn btn-sm btn-primary color-button">
+                                    VER PLAN DE ENTRENAMIENTO
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

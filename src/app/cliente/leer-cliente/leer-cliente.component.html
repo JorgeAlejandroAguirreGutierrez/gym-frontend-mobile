@@ -1,148 +1,129 @@
-<div class="d-flex" id="wrapper">
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading color-label">MENU </div>
-        <hr>
-        <div class="list-group list-group-flush">
-            <a href="/crear-cliente" class="list-group-item list-group-item-action bg-light color-label">CREAR CLIENTE</a>
-            <a href="/leer-cliente" class="list-group-item list-group-item-action bg-light color-label">VER CLIENTES</a>
-            <a href="/crear-ejercicio" class="list-group-item list-group-item-action bg-light color-label">CREAR EJERCICIO</a>
-            <a href="/leer-ejercicio" class="list-group-item list-group-item-action bg-light color-label">VER EJERCICIOS</a>
-            <a href="/crear-plantilla-plan" class="list-group-item list-group-item-action bg-light color-label">CREAR PLANTILLA</a>
-            <a href="/leer-plantilla-plan" class="list-group-item list-group-item-action bg-light color-label">VER PLANTILLAS</a>
-            <a href="#" (click)="cerrarSesion($event)" class="list-group-item list-group-item-action bg-light color-label">CERRAR
-                SESION</a>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom d-flex justify-content-center">
+            <a class="btn btn-ligth" href="/menu"><i class="bi bi-list" style="font-size: 1.5rem"></i></a>
+        </nav>
+    </div>
+    <div class="row">
+        <img src="{{prefijoUrlImagenes+logo}}" class="esp-image" alt="...">
+    </div>
+    <div class="row">
+        <div class="col" align="center">
+            <h2 class="color-label font-size-tittle">CLIENTES</h2>
         </div>
     </div>
-    <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify">
-            <button class="btn btn-ligth" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
-            <span class="separate"></span>
-            <a class="navbar-brand" href="#"></a>
-        </nav>
-        <div class="container">
-            <div class="row">
-                <img src="{{prefijoUrlImagenes+logo}}" class="esp-image" alt="...">
-            </div>
-            <div class="row">
-                <div class="col" align="center">
-                    <h2 class="color-label font-size-tittle">CLIENTES</h2>
-                </div>
-            </div>
-            <div class="input-group mb-3">
-                <div class="form-floating col-10">
-                    <input type="text" [(ngModel)]="usuario" placeholder="" class="form-control"
-                        id="floatingUsuario">
-                    <label for="floatingUsuario" class="color-label">Buscar por nombre o ID</label>
-                </div>
-                <button type="button" class="btn btn-outline-info col-2 color-button-search"><i class="bi bi-search esp-icon-search"></i></button>
-            </div>
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <ng-container *ngFor="let usuario of usuarios; let i=index">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-heading{{i}}">
-                            <button class="accordion-button collapsed color-label" type="button" data-bs-toggle="collapse"
-                                attr.data-bs-target="#flush-collapse{{i}}" aria-expanded="false"
-                                attr.aria-controls="flush-collapse{{i}}">
-                                {{usuario.nombre}}
-                            </button>
-                        </h2>
-                        <div id="flush-collapse{{i}}" class="accordion-collapse collapse"
-                            attr.aria-labelledby="flush-heading{{i}}" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <div class="card">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <div class="form-floating">
-                                                <input type="text" [(ngModel)]="usuario.identificacion" placeholder=""
-                                                    [disabled]="true" class="form-control form-control-sm"
-                                                    id="floatingIdentificacion">
-                                                <label for="floatingIdentificacion" class="color-label font-bold">Identificacion</label>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="form-floating">
-                                                <input type="text" [(ngModel)]="usuario.talla" placeholder=""
-                                                    [disabled]="true" class="form-control form-control-sm"
-                                                    id="floatingEstatura">
-                                                <label for="floatingEstatura" class="color-label font-bold">Estatura</label>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="form-floating">
-                                                <input type="text" [(ngModel)]="usuario.edad" placeholder=""
-                                                    [disabled]="true" class="form-control form-control-sm"
-                                                    id="floatingEdad">
-                                                <label for="floatingEdad" class="color-label font-bold">Edad</label>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="d-grid gap-1" style="text-align: center;">
-                                                    <button (click)="editar(usuario)"
-                                                        class="btn btn-sm btn-block btn-primary color-button">ACTUALIZAR
-                                                        DATOS DEL CLIENTE</button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="d-grid gap-1" style="text-align: center;">
-                                                    <button (click)="actualizarSuscripciones(usuario)"
-                                                        class="btn btn-sm btn-block btn-primary color-button">
-                                                        ACTUALIZAR SUSCRIPCIONES
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="d-grid gap-1" style="text-align: center;">
-                                                    <button (click)="pesosVer(usuario)"
-                                                        class="btn btn-sm btn-block btn-primary color-button">
-                                                        VER PESOS
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="d-grid gap-1" style="text-align: center;">
-                                                    <button (click)="observacionesVer(usuario)"
-                                                        class="btn btn-sm btn-block btn-primary color-button">
-                                                        VER OBSERVACIONES
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="d-grid gap-1" style="text-align: center;">
-                                                    <button (click)="objetivosVer(usuario)"
-                                                        class="btn btn-sm btn-block btn-primary color-button">
-                                                        VER OBJETIVOS
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="d-grid gap-1" style="text-align: center;">
-                                                    <a type="button"
-                                                        href="/crear-plan?identificacion={{usuario.identificacion}}"
-                                                        class="btn btn-sm btn-primary btn-block color-button">
-                                                        VER ENTRENAMIENTO PERSONALIZADO
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+    <div class="input-group mb-3">
+        <div class="form-floating col-10">
+            <input type="text" [(ngModel)]="usuario" placeholder="" class="form-control" id="floatingUsuario">
+            <label for="floatingUsuario" class="color-label font-bold">Buscar por nombre o ID</label>
+        </div>
+        <button type="button" class="btn btn-outline-info col-2 color-button-search"><i
+                class="bi bi-search esp-icon-search"></i></button>
+    </div>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <ng-container *ngFor="let usuario of usuarios; let i=index">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading{{i}}">
+                    <button class="accordion-button collapsed color-label" type="button" data-bs-toggle="collapse"
+                        attr.data-bs-target="#flush-collapse{{i}}" aria-expanded="false"
+                        attr.aria-controls="flush-collapse{{i}}">
+                        {{usuario.nombre}}
+                    </button>
+                </h2>
+                <div id="flush-collapse{{i}}" class="accordion-collapse collapse"
+                    attr.aria-labelledby="flush-heading{{i}}" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="card">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="form-floating">
+                                        <input type="text" [(ngModel)]="usuario.identificacion" placeholder=""
+                                            [disabled]="true" class="form-control form-control-sm"
+                                            id="floatingIdentificacion">
+                                        <label for="floatingIdentificacion"
+                                            class="color-label font-bold">Identificacion</label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-floating">
+                                        <input type="text" [(ngModel)]="usuario.talla" placeholder="" [disabled]="true"
+                                            class="form-control form-control-sm" id="floatingEstatura">
+                                        <label for="floatingEstatura" class="color-label font-bold">Estatura</label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-floating">
+                                        <input type="text" [(ngModel)]="usuario.edad" placeholder="" [disabled]="true"
+                                            class="form-control form-control-sm" id="floatingEdad">
+                                        <label for="floatingEdad" class="color-label font-bold">Edad</label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="d-grid gap-1" style="text-align: center;">
+                                            <button (click)="editar(usuario)"
+                                                class="btn btn-sm btn-block btn-primary color-button">ACTUALIZAR
+                                                DATOS DEL CLIENTE</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="d-grid gap-1" style="text-align: center;">
+                                            <button (click)="actualizarSuscripciones(usuario)"
+                                                class="btn btn-sm btn-block btn-primary color-button">
+                                                ACTUALIZAR SUSCRIPCIONES
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="d-grid gap-1" style="text-align: center;">
+                                            <button (click)="pesosVer(usuario)"
+                                                class="btn btn-sm btn-block btn-primary color-button">
+                                                VER PESOS
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="d-grid gap-1" style="text-align: center;">
+                                            <button (click)="observacionesVer(usuario)"
+                                                class="btn btn-sm btn-block btn-primary color-button">
+                                                VER OBSERVACIONES
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="d-grid gap-1" style="text-align: center;">
+                                            <button (click)="objetivosVer(usuario)"
+                                                class="btn btn-sm btn-block btn-primary color-button">
+                                                VER OBJETIVOS
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="d-grid gap-1" style="text-align: center;">
+                                            <a type="button"
+                                                href="/crear-plan?identificacion={{usuario.identificacion}}"
+                                                class="btn btn-sm btn-primary btn-block color-button">
+                                                VER ENTRENAMIENTO PERSONALIZADO
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </ng-container>
+                </div>
             </div>
-        </div>
+        </ng-container>
     </div>
 </div>
 
@@ -155,7 +136,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-floating">
-                    <input type="date" [(ngModel)]="suscripcionCrear.fecha" placeholder="" class="form-control form-control-sm" id="floatingSuscripcion">
+                    <input type="date" [(ngModel)]="suscripcionCrear.fecha" placeholder=""
+                        class="form-control form-control-sm" id="floatingSuscripcion">
                     <label for="floatingSuscripcion" class="color-label font-bold">Fecha</label>
                 </div>
             </div>
@@ -204,7 +186,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-floating">
-                    <input type="number" [(ngModel)]="pesoActualizar" placeholder="" class="form-control form-control-sm" id="floatingPeso">
+                    <input type="number" [(ngModel)]="pesoActualizar" placeholder=""
+                        class="form-control form-control-sm" id="floatingPeso">
                     <label for="floatingPeso" class="color-label font-bold">Nuevo Peso</label>
                 </div>
             </div>
@@ -254,7 +237,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="observacionActualizar" placeholder="" class="form-control form-control-sm" id="floatingObservacion">
+                    <input type="text" [(ngModel)]="observacionActualizar" placeholder=""
+                        class="form-control form-control-sm" id="floatingObservacion">
                     <label for="floatingObservacion" class="color-label font-bold">Nueva Observacion</label>
                 </div>
             </div>
@@ -303,7 +287,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="objetivoActualizar" placeholder="" class="form-control form-control-sm" id="floatingObservacion">
+                    <input type="text" [(ngModel)]="objetivoActualizar" placeholder=""
+                        class="form-control form-control-sm" id="floatingObservacion">
                     <label for="floatingObjetivo" class="color-label font-bold">Nuevo Objetivo</label>
                 </div>
             </div>
@@ -352,7 +337,8 @@
         <div class="row">
             <div class="col-12 mb-3">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="usuarioActualizar.nombre" placeholder="" class="form-control form-control-sm" id="floatingNombre">
+                    <input type="text" [(ngModel)]="usuarioActualizar.nombre" placeholder=""
+                        class="form-control form-control-sm" id="floatingNombre">
                     <label for="floatingNombre" class="color-label font-bold">Nombre</label>
                 </div>
             </div>
@@ -360,7 +346,8 @@
         <div class="row">
             <div class="col-12 mb-3">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="usuarioActualizar.identificacion" placeholder="" [disabled]="true" class="form-control form-control-sm" id="floatingIdentificacion">
+                    <input type="text" [(ngModel)]="usuarioActualizar.identificacion" placeholder="" [disabled]="true"
+                        class="form-control form-control-sm" id="floatingIdentificacion">
                     <label for="floatingIdentificacion" class="color-label font-bold">Identificacion</label>
                 </div>
             </div>
@@ -368,7 +355,8 @@
         <div class="row">
             <div class="col-12 mb-3">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="usuarioActualizar.contrasena" placeholder="" class="form-control form-control-sm" id="floatingContrasena">
+                    <input type="text" [(ngModel)]="usuarioActualizar.contrasena" placeholder=""
+                        class="form-control form-control-sm" id="floatingContrasena">
                     <label for="floatingContrasena" class="color-label font-bold">Contraseña</label>
                 </div>
             </div>
@@ -376,7 +364,8 @@
         <div class="row">
             <div class="col-12 mb-3">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="usuarioActualizar.talla" placeholder=""  class="form-control form-control-sm" id="floatingTalla">
+                    <input type="text" [(ngModel)]="usuarioActualizar.talla" placeholder=""
+                        class="form-control form-control-sm" id="floatingTalla">
                     <label for="floatingTalla" class="color-label font-bold">Talla</label>
                 </div>
             </div>
@@ -384,8 +373,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="usuarioActualizar.edad" placeholder="" class="form-control form-control-sm"
-                        id="floatingEdad">
+                    <input type="text" [(ngModel)]="usuarioActualizar.edad" placeholder=""
+                        class="form-control form-control-sm" id="floatingEdad">
                     <label for="floatingEdad" class="color-label font-bold">Edad</label>
                 </div>
             </div>
