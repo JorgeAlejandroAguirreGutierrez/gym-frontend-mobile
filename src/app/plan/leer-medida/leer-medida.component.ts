@@ -9,8 +9,6 @@ import * as constantes from '../../constantes';
 import Swal from 'sweetalert2';
 import * as util from '../../util';
 import { environment } from '../../../environments/environment';
-import { ParametroService } from 'src/app/servicios/parametro.service';
-import { Parametro } from 'src/app/modelos/parametro';
 
 @Component({
   selector: 'app-leer-medida',
@@ -21,7 +19,7 @@ export class LeerMedidaComponent implements OnInit {
 
   app=environment;
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
-  logo: Parametro[]=[new Parametro()];
+  logo=constantes.logo1;
 
   usuario: Usuario=new Usuario();
   sesion: Sesion=null as any;
