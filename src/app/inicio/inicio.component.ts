@@ -16,6 +16,7 @@ import { Parametro } from '../modelos/parametro';
 export class InicioComponent implements OnInit {
 
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  
   bandera=false;
 
   inicio: Parametro[]=[new Parametro()];

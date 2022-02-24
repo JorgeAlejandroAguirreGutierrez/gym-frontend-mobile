@@ -7,11 +7,14 @@ export class Sesion {
     fechaCierre: Date;
     usuario: Usuario;
 
+    empresa: string;
+
     constructor() { 
         this.id=0;
         this.estado=true;
         this.fechaApertura=new Date();
         this.fechaCierre=null as any;
         this.usuario=new Usuario();  
+        this.empresa="";
     }
 }

@@ -41,7 +41,7 @@ export class CrearEjercicioComponent implements OnInit {
 
   validarSesion() {
     this.sesion=this.sesionService.getSesion();
-    this.sesionService.validar(this.sesion.id).subscribe(
+    this.sesionService.validar(this.sesion).subscribe(
       res => {
         this.sesion=res;
       },

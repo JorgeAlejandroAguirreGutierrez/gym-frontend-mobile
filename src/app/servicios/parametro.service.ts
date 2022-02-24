@@ -45,7 +45,7 @@ export class ParametroService {
   }
 
   buscar(parametro: Parametro): Observable<Parametro[]> {
-    return this.http.put(environment.host+util.ruta+util.parametro+util.buscar, parametro, util.options).pipe(
+    return this.http.put(environment.host + util.ruta+util.parametro+util.buscar, parametro, util.options).pipe(
       map(response => response as Parametro[])
     );
   }

@@ -2,6 +2,7 @@
 import {HttpHeaders} from '@angular/common/http';
 
 export const ruta: string='/gym';
+export const auth: string='/auth';
 export const usuario: string='/usuario';
 export const sesion: string='/sesion';
 export const ejercicio: string='/ejercicio';
@@ -20,6 +21,7 @@ export const consultarAdmins: string='/consultarAdmins';
 export const crearCliente: string='/crearCliente';
 export const crearAdmin: string='/crearAdmin';
 export const obtenerPorIdentificacion: string='/obtenerPorIdentificacion';
+export const obtenerPorIdentificacionContrasena: string='/obtenerPorIdentificacionContrasena';
 
 export const validar: string='/validar';
 

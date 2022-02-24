@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Parametro } from '../modelos/parametro';
 import { environment } from '../../environments/environment';
-import { ParametroService } from '../servicios/parametro.service';
 import { SesionService } from '../servicios/sesion.service';
 import * as constantes from '../constantes';
-import Swal from 'sweetalert2';
 import * as util from '../util';
 import { Sesion } from '../modelos/sesion';
 import { Router } from '@angular/router';
@@ -32,7 +30,7 @@ export class MenuClienteComponent implements OnInit {
 
   validarSesion() {
     this.sesion=this.sesionService.getSesion();
-    this.sesionService.validar(this.sesion.id).subscribe(
+    this.sesionService.validar(this.sesion).subscribe(
       res => {
         this.sesion=res;
       },
