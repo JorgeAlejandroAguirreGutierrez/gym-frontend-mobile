@@ -5,6 +5,8 @@ import { delay } from "rxjs/operators";
 import { ParametroService } from '../servicios/parametro.service';
 import * as constantes from '../constantes';
 import { environment } from 'src/environments/environment';
+import { Parametro } from '../modelos/parametro';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-inicio',
@@ -14,7 +16,8 @@ import { environment } from 'src/environments/environment';
 export class InicioComponent implements OnInit {
 
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
-  inicio=constantes.inicio; 
+  inicio: Parametro[]=[new Parametro()];
+  bandera=false; 
 
   constructor(private router: Router, private parametroService: ParametroService) { }
 
@@ -23,11 +26,20 @@ export class InicioComponent implements OnInit {
   }
 
   consultarInicio(){
-    of(1).pipe(
-    delay(5000))
-    .subscribe(
-      () => {
-        this.navegarSlide();
+    this.parametroService.consultarPorTipo(constantes.parametroInicio).subscribe(
+      res => {
+        this.inicio=res;
+        this.bandera=true;
+        of(1).pipe(
+        delay(5000))
+        .subscribe(
+          () => {
+            this.navegarSlide();
+          }
+        );
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
       }
     );
   }

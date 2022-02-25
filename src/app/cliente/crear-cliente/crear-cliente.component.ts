@@ -11,6 +11,8 @@ import * as util from '../../util';
 import { Peso } from 'src/app/modelos/peso';
 import { Sesion } from 'src/app/modelos/sesion';
 import { environment } from 'src/environments/environment';
+import { Auth } from 'src/app/modelos/auth';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-crear-cliente',
@@ -29,7 +31,7 @@ export class CrearClienteComponent implements OnInit {
   sesion: Sesion=null as any;
   logo=constantes.logo1;
 
-  constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     util.loadScripts();
@@ -79,10 +81,26 @@ export class CrearClienteComponent implements OnInit {
     let peso=new Peso();
     peso.valor=this.peso;
     this.usuario.pesos.push(peso);
-    this.usuarioService.crearCliente(this.usuario).subscribe(
+    let auth: Auth=new Auth();
+    auth.identificacion=this.usuario.identificacion;
+    auth.identificacion=this.usuario.contrasena;
+    auth.empresa=this.sesion.empresa;
+    this.authService.crear(auth).subscribe(
       res => {
-        Swal.fire(constantes.exito, constantes.exito_crear_usuario, constantes.exito_swal);
-        this.navegarLeerCliente();
+        this.usuarioService.crearCliente(this.usuario).subscribe(
+          res => {
+            Swal.fire(constantes.exito, constantes.exito_crear_usuario, constantes.exito_swal);
+            this.navegarLeerCliente();
+          },
+          err => {
+            if(err.error.codigo==constantes.error_codigo_datos_invalidos){
+              Swal.fire(constantes.error, constantes.error_datos_invalidos, constantes.error_swal);
+            }
+            if(err.error.codigo==constantes.error_codigo_generico){
+              Swal.fire(constantes.error, constantes.error_crear_usuario, constantes.error_swal);
+            }
+          }
+        );
       },
       err => {
         if(err.error.codigo==constantes.error_codigo_datos_invalidos){
@@ -93,6 +111,7 @@ export class CrearClienteComponent implements OnInit {
         }
       }
     );
+    
   }
 
   eliminarPeso(i: number) {

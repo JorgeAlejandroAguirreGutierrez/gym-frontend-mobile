@@ -21,38 +21,26 @@ export class EjercicioService {
 
   crear(ejercicio: Ejercicio): Observable<Ejercicio> {
     return this.http.post(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.ejercicio, ejercicio, util.options).pipe(
-      map(response => response as Ejercicio),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Ejercicio)
     );
   }
 
   consultar(): Observable<Ejercicio[]> {
     return this.http.get<Ejercicio[]>(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.ejercicio, util.options).pipe(
-      map(response => response as Ejercicio[]),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Ejercicio[])
     );
   }
 
   consultarPorTipoMusculo(tipoMusculoId: string): Observable<Ejercicio[]> {
     let params = new HttpParams().set("tipoMusculoId", tipoMusculoId);
     return this.http.get(environment.empresas.get(this.sesion.empresa)! + util.ruta+util.ejercicio+util.consultarPorTipoMusculo, {params: params, headers: util.options.headers}).pipe(
-      map(response => response as Ejercicio[]),
-      catchError(err => {
-        return throwError(err);
-      })
+      map(response => response as Ejercicio[])
     );
   }
 
   obtener(ejercicio_id: number): Observable<Ejercicio> {
     return this.http.get<Ejercicio>(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.ejercicio + '/' + ejercicio_id, util.options).pipe(
-      map(response => response as Ejercicio),
-      catchError(err => {
-        return throwError(err);
-      }));
+      map(response => response as Ejercicio));
   }
 
   actualizar(ejercicio: Ejercicio): Observable<Ejercicio> {

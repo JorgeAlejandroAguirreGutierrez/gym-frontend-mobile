@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import * as constantes from '../constantes';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
-import { ParametroService } from '../servicios/parametro.service';
 import { AuthService } from '../servicios/auth.service';
 import { Auth } from '../modelos/auth';
 

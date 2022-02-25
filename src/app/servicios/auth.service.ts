@@ -21,4 +21,10 @@ export class AuthService {
       map(response => response as Auth)
       );
   }
+
+  crear(auth: Auth): Observable<Auth> {
+    return this.http.post(environment.host + util.ruta + util.auth, auth, util.options).pipe(
+      map(response => response as Auth)
+    );
+  }
 }
