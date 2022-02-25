@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   host: 'http://localhost:5001',
-  prefijo_url_imagenes: 'http://localhost:5000/img/',
+  prefijo_url_imagenes: '/assets/',
   prefijo_url_ejercicios: 'http://localhost:5000/imgejercicio/',
   app: "GymUp",
   empresas : new Map([

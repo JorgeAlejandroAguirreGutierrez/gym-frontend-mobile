@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { of } from "rxjs";
-import { delay, map,  tap } from "rxjs/operators";
-import { environment } from '../../environments/environment';
+import { delay } from "rxjs/operators";
 import { ParametroService } from '../servicios/parametro.service';
 import * as constantes from '../constantes';
-import Swal from 'sweetalert2';
-import { Parametro } from '../modelos/parametro';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-inicio',
@@ -16,10 +14,7 @@ import { Parametro } from '../modelos/parametro';
 export class InicioComponent implements OnInit {
 
   prefijoUrlImagenes = environment.prefijo_url_imagenes;
-  
-  bandera=false;
-
-  inicio: Parametro[]=[new Parametro()];
+  inicio=constantes.inicio; 
 
   constructor(private router: Router, private parametroService: ParametroService) { }
 
@@ -28,20 +23,11 @@ export class InicioComponent implements OnInit {
   }
 
   consultarInicio(){
-    this.parametroService.consultarPorTipo(constantes.parametroInicio).subscribe(
-      res => {
-        this.inicio=res;
-        this.bandera=true;
-        of(1).pipe(
-        delay(5000))
-        .subscribe(
-          () => {
-            this.navegarSlide();
-          }
-        );
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_consultar_inicio, constantes.error_swal)
+    of(1).pipe(
+    delay(5000))
+    .subscribe(
+      () => {
+        this.navegarSlide();
       }
     );
   }
