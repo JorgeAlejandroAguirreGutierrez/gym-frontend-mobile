@@ -39,7 +39,6 @@ export class InicioSlideComponent implements OnInit {
     this.parametroService.consultarPorTipo(constantes.parametroConceptoSlide).subscribe(
       res => {
         this.conceptoSlide=res;
-        console.log(this.conceptoSlide);
         for (let i=0; i<this.conceptoSlide.length; i++){
           let concepto=this.conceptoSlide[i].valor.split("_");
           this.tituloSlide[i]=concepto[0];

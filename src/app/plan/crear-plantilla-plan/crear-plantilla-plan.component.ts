@@ -67,7 +67,6 @@ export class CrearPlantillaPlanComponent implements OnInit {
     private route: ActivatedRoute, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    util.loadScripts();
     let plantillaPlanId=this.route.snapshot.queryParamMap.get('id') || null as any;
     if(plantillaPlanId!=null){
       this.obtenerPlantillaPlan(plantillaPlanId);

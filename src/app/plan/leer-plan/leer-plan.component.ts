@@ -36,7 +36,6 @@ export class LeerPlanComponent implements OnInit {
     private modalService: NgbModal, private router: Router) { }
 
   ngOnInit(): void {
-    util.loadScripts();
     this.sesion=this.sesionService.getSesion();
     if(this.sesion==null || this.sesion.usuario.perfil.descripcion!=constantes.perfil_cliente){
       this.navegarIndex();

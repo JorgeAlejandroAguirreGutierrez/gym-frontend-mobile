@@ -34,7 +34,6 @@ export class LeerMedidaComponent implements OnInit {
   constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    util.loadScripts();
     this.validarSesion();
   }
 

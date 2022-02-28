@@ -22,8 +22,9 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6 d-grid gap-1">
-            <button type="button" class="btn btn-primary font-button font-color-button color-button"
-                (click)="iniciarSesion()">Entrar</button>
+            <button type="button" class="btn btn-primary font-button font-color-button color-button" (click)="iniciarSesion()">
+                <span *ngIf="bandera" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Entrar</button>
         </div>
         <div class="col-3"></div>
     </div>

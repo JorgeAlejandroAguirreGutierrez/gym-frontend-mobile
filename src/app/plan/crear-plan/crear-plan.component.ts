@@ -77,7 +77,6 @@ export class CrearPlanComponent implements OnInit {
     private route: ActivatedRoute, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    util.loadScripts();
     this.identificacion = this.route.snapshot.queryParamMap.get('identificacion') || null as any;
     if (this.identificacion == null) {
       this.navegarIndex();

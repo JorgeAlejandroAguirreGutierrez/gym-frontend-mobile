@@ -34,7 +34,6 @@ export class CrearClienteComponent implements OnInit {
   constructor(private usuarioService: UsuarioService, private sesionService: SesionService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    util.loadScripts();
     this.validarSesion();
   }
 

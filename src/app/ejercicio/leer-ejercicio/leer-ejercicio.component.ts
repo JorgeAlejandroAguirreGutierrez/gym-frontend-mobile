@@ -49,7 +49,6 @@ export class LeerEjercicioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    util.loadScripts();
     this.validarSesion();
     this.consultarEjercicios();
     this.consultarTiposMuculo();

@@ -24,7 +24,6 @@ export class MenuClienteComponent implements OnInit {
   constructor(private router: Router, private sesionService: SesionService) { }
 
   ngOnInit(): void {
-    util.loadScripts();
     this.validarSesion();
   }
 

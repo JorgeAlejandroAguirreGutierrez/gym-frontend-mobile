@@ -34,7 +34,6 @@ export class CrearEjercicioComponent implements OnInit {
     private sesionService: SesionService, private router: Router) { }
 
   ngOnInit(): void {
-    util.loadScripts();
     this.validarSesion();
     this.consultarTiposMusculos();
   }

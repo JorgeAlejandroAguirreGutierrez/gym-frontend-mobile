@@ -37,7 +37,6 @@ export class LeerPlantillaPlanComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    util.loadScripts();
     this.validarSesion();
     this.consultarPlantillasPlan();
   }

@@ -52,7 +52,6 @@ export class LeerClienteComponent implements OnInit {
     private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    util.loadScripts();
     this.validarSesion();
     this.consultarClientes();
   }

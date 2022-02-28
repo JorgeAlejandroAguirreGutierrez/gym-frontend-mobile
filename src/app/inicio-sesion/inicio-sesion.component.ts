@@ -21,6 +21,7 @@ export class InicioSesionComponent implements OnInit {
   fondoInicioSesion=constantes.fondoInicioSesion;
   logo=constantes.logo2;
 
+  bandera=false;
   sesion: Sesion=new Sesion();
 
   constructor(private router: Router, private sesionService: SesionService, private authService: AuthService) { }
@@ -29,6 +30,7 @@ export class InicioSesionComponent implements OnInit {
   }
 
   iniciarSesion() {
+    this.bandera=true;
     this.authService.obtenerPorIdentificacionContrasena(this.sesion.usuario.identificacion,this.sesion.usuario.contrasena ).subscribe(
       res => {
         let auth: Auth=res;
@@ -36,6 +38,7 @@ export class InicioSesionComponent implements OnInit {
         this.sesionService.setSesion(this.sesion);
         this.sesionService.crear(this.sesion).subscribe(
           res => {
+            this.bandera=false;
             this.sesion=res;
             this.sesionService.setSesion(this.sesion);
             Swal.fire(constantes.exito, constantes.exito_iniciar_sesion, constantes.exito_swal);
@@ -59,6 +62,7 @@ export class InicioSesionComponent implements OnInit {
         );
       },
       err => {
+        console.log(err);
         if(err.error.codigo==constantes.error_codigo_modelo_no_existente){
           Swal.fire(constantes.error, constantes.error_iniciar_sesion, constantes.error_swal);
         }
