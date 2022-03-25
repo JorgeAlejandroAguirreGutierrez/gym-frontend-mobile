@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">gym-frontend-mobile</string>
-    <string name="title_activity_main">gym-frontend-mobile</string>
+    <string name="app_name">GymUp</string>
+    <string name="title_activity_main">GymUp</string>
     <string name="package_name">com.co.gymfrontendmobile.app</string>
     <string name="custom_url_scheme">com.co.gymfrontendmobile.app</string>
 </resources>
