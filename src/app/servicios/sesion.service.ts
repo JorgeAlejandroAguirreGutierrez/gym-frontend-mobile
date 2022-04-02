@@ -21,7 +21,7 @@ export class SesionService {
   }
 
   validar(sesion: Sesion): Observable<Sesion> {
-    return this.http.get<Sesion>(environment.empresas.get(sesion.empresa)! + util.ruta + util.sesion+util.validar + '/' + sesion.id, util.options).pipe(
+    return this.http.post<Sesion>(environment.empresas.get(sesion.empresa)! + util.ruta + util.sesion+util.validar, sesion, util.options).pipe(
       map(response => response as Sesion)
       );
   }

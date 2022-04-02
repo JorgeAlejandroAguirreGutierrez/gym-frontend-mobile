@@ -18,12 +18,12 @@ import { Sesion } from 'src/app/modelos/sesion';
 export class LeerPlanComponent implements OnInit {
 
   app=environment.app;
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
   logo=constantes.logo1;
 
   sesion: Sesion= null as any;
   usuario: Usuario=new Usuario();
-  prefijoUrlEjercicios= environment.prefijo_url_ejercicios;
+  prefijoUrlEjercicios= environment.prefijoUrlEjercicios;
   seleccionPE: number=-1;
   seleccionRE: number=-1;
 

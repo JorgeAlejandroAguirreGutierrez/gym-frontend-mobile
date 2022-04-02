@@ -27,7 +27,7 @@
                 <thead class="table-active font-color">
                     <tr>
                         <th>No.</th>
-                        <th>DESCRIPCION</th>
+                        <th>NOMBRE</th>
                         <th>TIPO</th>
                         <th>OPC</th>
                     </tr>
@@ -35,7 +35,14 @@
                 <tbody style="font-size: 0.9rem;" class="font-color">
                     <tr *ngFor="let ejercicio of ejercicios; let i=index">
                         <td>{{i+1}}</td>
-                        <td>{{ejercicio.descripcion}}</td>
+                        <td>
+                            <ng-container *ngIf="ejercicio.nombrePersonalizado==''">
+                                {{ejercicio.nombre}}
+                            </ng-container>
+                            <ng-container *ngIf="ejercicio.nombrePersonalizado!=''">
+                                {{ejercicio.nombrePersonalizado}}
+                            </ng-container>
+                        </td>
                         <td>{{ejercicio.tipoMusculo.descripcion}}</td>
                         <td>
                             <button (click)="editar(i)" class="btn btn-light btn-sm separate">
@@ -64,10 +71,20 @@
         <div class="row mb-3">
             <div class="col-12">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="ejercicioActualizar.descripcion"
+                    <input type="text" [(ngModel)]="ejercicioActualizar.nombre"
                         oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control"
-                        id="floatingDescripcion">
-                    <label for="floatingDescripcion" class="font-color font-bold">Descripcion</label>
+                        id="floatingNombre">
+                    <label for="floatingNombre" class="font-color font-bold">Nombre</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="form-floating">
+                    <input type="text" [(ngModel)]="ejercicioActualizar.nombrePersonalizado"
+                        oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control"
+                        id="floatingNombrePersonalizado">
+                    <label for="floatingNombrePersonalizado" class="font-color font-bold">Nombre Personalizado</label>
                 </div>
             </div>
         </div>
@@ -96,8 +113,14 @@
     <div class="modal-body">
         <div class="form-group row">
             <div align="center" class="col-12">
-                <label class="font-color font-bold">{{ejercicioLeer.descripcion}}</label>
-                <img class="card-img-top" src="{{prefijoUrlEjercicios+ejercicioLeer.imagen}}" height="300px"
+                <ng-container *ngIf="ejercicioLeer.nombrePersonalizado==''">
+                    <label class="font-color font-bold">{{ejercicioLeer.nombre}}</label>
+                </ng-container>
+                <ng-container *ngIf="ejercicioLeer.nombrePersonalizado!=''">
+                    <label class="font-color font-bold">{{ejercicioLeer.nombrePersonalizado}}</label>
+                </ng-container>
+                
+                <img class="card-img-top" src="{{host+prefijoUrlEjercicios+ejercicioLeer.imagen}}" height="300px"
                     alt="Card image cap">
             </div>
         </div>

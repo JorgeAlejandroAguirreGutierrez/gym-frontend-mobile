@@ -21,7 +21,7 @@ import { environment } from './../../../environments/environment';
 export class CrearEjercicioComponent implements OnInit {
 
   app=environment.app;
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
   
   ejercicio: Ejercicio = new Ejercicio();
   imagen: any = null;

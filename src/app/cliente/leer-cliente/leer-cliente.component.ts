@@ -23,7 +23,7 @@ import * as util from '../../util';
 export class LeerClienteComponent implements OnInit {
 
   app=environment.app;
-  prefijoUrlImagenes = environment.prefijo_url_imagenes
+  prefijoUrlImagenes = environment.prefijoUrlImagenes
 
   usuarios: Usuario[]=[];
   usuarioActualizar: Usuario=new Usuario();

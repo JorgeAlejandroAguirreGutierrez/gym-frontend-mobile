@@ -18,7 +18,7 @@ import { Sesion } from 'src/app/modelos/sesion';
 export class LeerPlantillaPlanComponent implements OnInit {
 
   app=environment.app;
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
   logo=constantes.logo1;
 
   plantillasPlan: PlantillaPlan[]=[];
@@ -29,7 +29,7 @@ export class LeerPlantillaPlanComponent implements OnInit {
 
   cerrarModal: string="";
 
-  prefijoUrlEjercicios= environment.prefijo_url_ejercicios;
+  prefijoUrlEjercicios= environment.prefijoUrlEjercicios;
 
   constructor(private plantillaPlanService: PlantillaPlanService,
     private sesionService: SesionService, private router: Router, private modalService: NgbModal) { 

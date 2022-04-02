@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
 
   app=environment.app;
 
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
   fondoInicioSesion: Parametro[]=[new Parametro()];
   logo=constantes.logo1;
   sesion: Sesion=null as any;

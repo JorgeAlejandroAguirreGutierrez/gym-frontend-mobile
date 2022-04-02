@@ -18,7 +18,7 @@ import { environment } from '../../../environments/environment';
 export class LeerMedidaComponent implements OnInit {
 
   app=environment;
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
   logo=constantes.logo1;
 
   usuario: Usuario=new Usuario();

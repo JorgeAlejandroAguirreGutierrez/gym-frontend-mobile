@@ -22,7 +22,9 @@ import { Parametro } from 'src/app/modelos/parametro';
 export class LeerEjercicioComponent implements OnInit {
 
   app=environment.app;
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  host="";
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
+  prefijoUrlEjercicios= environment.prefijoUrlEjercicios;
   logo=constantes.logo1;
 
   ejercicios: Ejercicio[]=[];
@@ -37,8 +39,6 @@ export class LeerEjercicioComponent implements OnInit {
 
   cerrarModal: string="";
 
-  prefijoUrlEjercicios= environment.prefijo_url_ejercicios;
-
   @ViewChild('modalEjercicioActualizar', { static: false }) private modalEjercicioActualizar: any;
 
   @ViewChild('modalLeerEjercicio', { static: false }) private modalLeerEjercicio: any;
@@ -52,6 +52,29 @@ export class LeerEjercicioComponent implements OnInit {
     this.validarSesion();
     this.consultarEjercicios();
     this.consultarTiposMuculo();
+  }
+
+  validarSesion(){
+    this.sesion=this.sesionService.getSesion();
+    console.log(this.sesion);
+    this.sesionService.validar(this.sesion).subscribe(
+      res => {
+        this.sesion=res;
+        console.log(this.sesion);
+        this.host=environment.empresas.get(this.sesion.empresa)!;
+        console.log(this.host);
+      },
+      err => {
+        if(err.error.codigo==constantes.error_codigo_sesion_invalida){
+          this.sesionService.cerrarSesion();
+          this.navegarIndex();
+        }
+        if(err.error.codigo==constantes.error_codigo_modelo_no_existente){
+          this.sesionService.cerrarSesion();
+          this.navegarIndex();
+        }
+      }
+    );
   }
 
   consultarTiposMuculo(){
@@ -76,24 +99,7 @@ export class LeerEjercicioComponent implements OnInit {
     );
   }
 
-  validarSesion(){
-    this.sesion=this.sesionService.getSesion();
-    this.sesionService.validar(this.sesion).subscribe(
-      res => {
-        this.sesion=res;
-      },
-      err => {
-        if(err.error.codigo==constantes.error_codigo_sesion_invalida){
-          this.sesionService.cerrarSesion();
-          this.navegarIndex();
-        }
-        if(err.error.codigo==constantes.error_codigo_modelo_no_existente){
-          this.sesionService.cerrarSesion();
-          this.navegarIndex();
-        }
-      }
-    );
-  }
+  
 
   editar(i: number){
     this.ejercicioActualizar={ ... this.ejercicios[i]};

@@ -15,9 +15,18 @@
     <div class="row mb-3">
         <div class="col-12">
             <div class="form-floating">
-                <input type="text" [(ngModel)]="ejercicio.descripcion" placeholder="" class="form-control"
+                <input type="text" [(ngModel)]="ejercicio.nombre" placeholder="" class="form-control"
                     oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
                 <label for="floatingNombre" class="color-label font-bold">Nombre</label>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" [(ngModel)]="ejercicio.nombrePersonalizado" placeholder="" class="form-control"
+                    oninput="this.value = this.value.toUpperCase()" id="floatingNombrePersonalizado">
+                <label for="floatingNombrePersonalizado" class="color-label font-bold">Nombre Personalizado</label>
             </div>
         </div>
     </div>

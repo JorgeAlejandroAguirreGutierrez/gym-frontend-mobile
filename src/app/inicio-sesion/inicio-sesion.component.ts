@@ -17,7 +17,7 @@ export class InicioSesionComponent implements OnInit {
 
   app=environment.app;
 
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
   fondoInicioSesion=constantes.fondoInicioSesion;
   logo=constantes.logo2;
 
@@ -58,6 +58,7 @@ export class InicioSesionComponent implements OnInit {
               this.sesionService.cerrarSesion();
               Swal.fire(constantes.error, constantes.error_suscripcion_invalida, constantes.error_swal);
             }
+            this.bandera=false;
           }
         );
       },
@@ -66,6 +67,7 @@ export class InicioSesionComponent implements OnInit {
         if(err.error.codigo==constantes.error_codigo_modelo_no_existente){
           Swal.fire(constantes.error, constantes.error_iniciar_sesion, constantes.error_swal);
         }
+        this.bandera=false;
       }
     );
   }

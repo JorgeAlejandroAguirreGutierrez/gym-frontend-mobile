@@ -22,7 +22,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 export class CrearClienteComponent implements OnInit {
 
   app=environment.app;
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
   
   usuario: Usuario = new Usuario();
   observacion: string = ""

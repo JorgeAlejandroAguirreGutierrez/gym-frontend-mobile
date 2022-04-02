@@ -16,7 +16,7 @@ export class InicioSlideComponent implements OnInit {
 
   @ViewChild('carousel') _carousel!: ElementRef;
 
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
 
   inicioSlide: String[]=["inicioslide1.jpg", "inicioslide2.jpg", "inicioslide3.jpg", "inicioslide4.jpg"];
 

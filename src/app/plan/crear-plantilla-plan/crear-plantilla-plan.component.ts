@@ -27,7 +27,8 @@ import { Sesion } from 'src/app/modelos/sesion';
 export class CrearPlantillaPlanComponent implements OnInit {
 
   app=environment.app;
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
+  prefijoUrlEjercicios= environment.prefijoUrlEjercicios;
   logo=constantes.logo1;
 
   sesion: Sesion=null as any;
@@ -43,8 +44,6 @@ export class CrearPlantillaPlanComponent implements OnInit {
   ejercicios: Ejercicio[]=[];
   medidasPesos: Parametro[]=[];
   medidasTiempos: Parametro[]=[];
-
-  prefijoUrlEjercicios= environment.prefijo_url_ejercicios;
 
   tipoMusculoFuncional=constantes.parametroTipoMusculoFuncional;
   vacio=constantes.parametroVacio;
@@ -262,7 +261,8 @@ export class CrearPlantillaPlanComponent implements OnInit {
     this.ejercicios=[];
     if(this.rutinaCrear.ejercicio.tipoMusculo!=null){
       this.rutinaCrear.ejercicio.id=0;
-      this.rutinaCrear.ejercicio.descripcion="";
+      this.rutinaCrear.ejercicio.nombre="";
+      this.rutinaCrear.ejercicio.nombrePersonalizado="";
       this.rutinaCrear.ejercicio.detalle="";
       this.rutinaCrear.ejercicio.imagen="";
       this.rutinaCrear.repeticiones=null as any;
@@ -281,7 +281,8 @@ export class CrearPlantillaPlanComponent implements OnInit {
     this.ejercicios=[];
     if(this.rutinaActualizar.ejercicio.tipoMusculo!=null){
       this.rutinaActualizar.ejercicio.id=0;
-      this.rutinaActualizar.ejercicio.descripcion="";
+      this.rutinaActualizar.ejercicio.nombre="";
+      this.rutinaActualizar.ejercicio.nombrePersonalizado="";
       this.rutinaActualizar.ejercicio.detalle="";
       this.rutinaActualizar.ejercicio.imagen="";
       this.rutinaActualizar.repeticiones=null as any;

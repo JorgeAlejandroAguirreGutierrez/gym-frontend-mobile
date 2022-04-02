@@ -99,7 +99,12 @@
                                                     *ngFor="let rutina of dia.rutinas; let j=index">
                                                     <td>{{j+1}}</td>
                                                     <td>
-                                                        {{rutina.ejercicio.descripcion}}
+                                                        <ng-container *ngIf="rutina.ejercicio.nombrePersonalizado==''">
+                                                            {{rutina.ejercicio.nombre}}
+                                                        </ng-container>
+                                                        <ng-container *ngIf="rutina.ejercicio.nombrePersonalizado!=''">
+                                                            {{rutina.ejercicio.nombrePersonalizado}}
+                                                        </ng-container>
                                                     </td>
                                                     <td>
                                                         {{rutina.repeticiones}}
@@ -175,7 +180,12 @@
                     class="form-select">
                     <option [value]="null"></option>
                     <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio">
-                        {{ejercicio.descripcion}}
+                        <ng-container *ngIf="ejercicio.nombrePersonalizado==''">
+                            {{ejercicio.nombre}}
+                        </ng-container>
+                        <ng-container *ngIf="ejercicio.nombrePersonalizado!=''">
+                            {{ejercicio.nombrePersonalizado}}
+                        </ng-container>
                     </option>
                 </select>
                 <label for="floatingEjercicio"
@@ -299,7 +309,13 @@
                     class="form-select">
                     <option [value]="null"></option>
                     <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio">
-                        {{ejercicio.descripcion}}
+                        <ng-container *ngIf="ejercicio.nombrePersonalizado==''">
+                            {{ejercicio.nombre}}
+                        </ng-container>
+                        <ng-container *ngIf="ejercicio.nombrePersonalizado!=''">
+                            {{ejercicio.nombrePersonalizado}}
+                        </ng-container>
+                        
                     </option>
                 </select>
                 <label for="floatingEjercicio"
@@ -407,8 +423,13 @@
     <div class="modal-body">
         <div class="form-group row">
             <div align="center" class="col-sm">
-                <label
-                    class="font-color font-bold">{{usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.descripcion}}</label>
+                <ng-container *ngIf="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.nombrePersonalizado==''">
+                    <label class="font-color font-bold">{{usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.nombre}}</label>
+                </ng-container>
+                <ng-container *ngIf="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.nombrePersonalizado!=''">
+                    <label class="font-color font-bold">{{usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.nombrePersonalizado}}</label>
+                </ng-container>
+                
                 <ng-container *ngIf="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen!=null">
                     <img class="card-img-top"
                         src="{{prefijoUrlEjercicios+usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen}}"

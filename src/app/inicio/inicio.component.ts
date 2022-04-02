@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class InicioComponent implements OnInit {
 
-  prefijoUrlImagenes = environment.prefijo_url_imagenes;
+  prefijoUrlImagenes = environment.prefijoUrlImagenes;
   inicio: Parametro[]=[new Parametro()];
   bandera=false; 
 
