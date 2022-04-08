@@ -9,7 +9,7 @@ export const environment = {
   prefijoUrlEjercicios: '/imgejercicio/',
   app: "GymUp",
   empresas : new Map([
-    ["demo", "http://localhost:5000"],
+    ["dev", "http://localhost:5000"],
   ])
 };
 

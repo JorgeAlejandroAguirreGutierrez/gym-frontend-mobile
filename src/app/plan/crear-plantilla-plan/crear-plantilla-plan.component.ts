@@ -27,6 +27,7 @@ import { Sesion } from 'src/app/modelos/sesion';
 export class CrearPlantillaPlanComponent implements OnInit {
 
   app=environment.app;
+  host="";
   prefijoUrlImagenes = environment.prefijoUrlImagenes;
   prefijoUrlEjercicios= environment.prefijoUrlEjercicios;
   logo=constantes.logo1;
@@ -81,6 +82,7 @@ export class CrearPlantillaPlanComponent implements OnInit {
     this.sesionService.validar(this.sesion).subscribe(
       res => {
         this.sesion=res;
+        this.host=environment.empresas.get(this.sesion.empresa)!;
       },
       err => {
         if(err.error.codigo==constantes.error_codigo_sesion_invalida){
@@ -181,7 +183,8 @@ export class CrearPlantillaPlanComponent implements OnInit {
   }
 
   crearRutina(){
-    this.plantillaPlan.plan.dias[this.seleccionPE].rutinas.push({... this.rutinaCrear})
+    this.plantillaPlan.plan.dias[this.seleccionPE].rutinas.push({... this.rutinaCrear});
+    console.log(this.plantillaPlan);
     this.plantillaPlanService.actualizar(this.plantillaPlan).subscribe(
       res => {
         this.plantillaPlan=res;
@@ -202,7 +205,8 @@ export class CrearPlantillaPlanComponent implements OnInit {
   }
 
   actualizarRutina(){
-    this.plantillaPlan.plan.dias[this.seleccionPE].rutinas[this.seleccionRE]=({... this.rutinaActualizar})
+    this.plantillaPlan.plan.dias[this.seleccionPE].rutinas[this.seleccionRE]=({... this.rutinaActualizar});
+    console.log(this.plantillaPlan);
     this.plantillaPlanService.actualizar(this.plantillaPlan).subscribe(
       res => {
         this.plantillaPlan=res;

@@ -30,6 +30,7 @@ import { Sesion } from 'src/app/modelos/sesion';
 export class CrearPlanComponent implements OnInit {
 
   app = environment.app;
+  host="";
   prefijoUrlImagenes = environment.prefijoUrlImagenes;
   prefijoUrlEjercicios = environment.prefijoUrlEjercicios;
   logo=constantes.logo1;
@@ -93,6 +94,7 @@ export class CrearPlanComponent implements OnInit {
     this.sesionService.validar(this.sesion).subscribe(
       res => {
         this.sesion=res;
+        this.host=environment.empresas.get(this.sesion.empresa)!;
       },
       err => {
         if(err.error.codigo==constantes.error_codigo_sesion_invalida){
@@ -135,6 +137,7 @@ export class CrearPlanComponent implements OnInit {
   }
 
   asignarPlantillaPlan() {
+    console.log(this.plantillaPlanAsignar);
     if (this.plantillaPlanAsignar != null) {
       this.convertirParaAsignar();
       this.usuario.plan.dias = this.plantillaPlanAsignar.plan.dias;

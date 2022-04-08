@@ -61,9 +61,9 @@ export class EjercicioService {
     );
   }
 
-  consultarPorDescripcion(descripcion: string): Observable<Ejercicio[]> {
-    let params = new HttpParams().set("descripcion", descripcion);
-    return this.http.get(environment.empresas.get(this.sesion.empresa)! + util.ruta+util.ejercicio+util.consultarPorDescripcion, {params: params, headers: util.options.headers}).pipe(
+  consultarPorNombre(nombre: string): Observable<Ejercicio[]> {
+    let params = new HttpParams().set("nombre", nombre);
+    return this.http.get(environment.empresas.get(this.sesion.empresa)! + util.ruta+util.ejercicio+util.consultarPorNombre, {params: params, headers: util.options.headers}).pipe(
       map(response => response as Ejercicio[])
     );
   }

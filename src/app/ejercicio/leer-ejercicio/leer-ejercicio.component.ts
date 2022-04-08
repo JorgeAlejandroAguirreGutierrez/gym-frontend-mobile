@@ -28,7 +28,7 @@ export class LeerEjercicioComponent implements OnInit {
   logo=constantes.logo1;
 
   ejercicios: Ejercicio[]=[];
-  descripcion: string="";
+  nombre: string="";
   ejercicioActualizar: Ejercicio=new Ejercicio();
 
   sesion: Sesion=null as any;
@@ -60,9 +60,7 @@ export class LeerEjercicioComponent implements OnInit {
     this.sesionService.validar(this.sesion).subscribe(
       res => {
         this.sesion=res;
-        console.log(this.sesion);
         this.host=environment.empresas.get(this.sesion.empresa)!;
-        console.log(this.host);
       },
       err => {
         if(err.error.codigo==constantes.error_codigo_sesion_invalida){
@@ -140,8 +138,8 @@ export class LeerEjercicioComponent implements OnInit {
     );
   }
 
-  consultarPorDescripcion(){
-    this.ejercicioService.consultarPorDescripcion(this.descripcion).subscribe(
+  consultarPorNombre(){
+    this.ejercicioService.consultarPorNombre(this.nombre).subscribe(
       res => {
         this.ejercicios=res;
       },

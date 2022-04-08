@@ -31,10 +31,9 @@
     </div>
     <div class="row mb-3">
         <div class="form-floating">
-            <select [(ngModel)]="plantillaPlanAsignar" id="floatingPlantilla" [compareWith]="compareFn"
-                class="form-select">
+            <select [(ngModel)]="plantillaPlanAsignar" id="floatingPlantilla" [compareWith]="compareFn" (change)="asignarPlantillaPlan()" class="form-select">
                 <option [value]="null"></option>
-                <option *ngFor="let plantillaPlan of plantillasPlan; let i=index" [value]=plantillaPlan>
+                <option *ngFor="let plantillaPlan of plantillasPlan; let i=index" [ngValue]=plantillaPlan>
                     {{plantillaPlan.nombre}} - {{plantillaPlan.somatotipo}}</option>
             </select>
             <label for="floatingPlantilla" class="color-label font-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plantilla</label>
@@ -432,7 +431,7 @@
                 
                 <ng-container *ngIf="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen!=null">
                     <img class="card-img-top"
-                        src="{{prefijoUrlEjercicios+usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen}}"
+                        src="{{host+prefijoUrlEjercicios+usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen}}"
                         height="300px" alt="Card image cap">
                 </ng-container>
                 <ng-container *ngIf="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen==null">

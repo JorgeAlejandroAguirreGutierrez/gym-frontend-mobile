@@ -76,16 +76,17 @@ export class CrearClienteComponent implements OnInit {
   }
 
   crear() {
+    console.log(this.usuario);
     this.usuario.plan=null as any;
     let peso=new Peso();
     peso.valor=this.peso;
     this.usuario.pesos.push(peso);
     let auth: Auth=new Auth();
     auth.identificacion=this.usuario.identificacion;
-    auth.identificacion=this.usuario.contrasena;
     auth.empresa=this.sesion.empresa;
     this.authService.crear(auth).subscribe(
       res => {
+        this.usuario.contrasena=res.contrasena;
         this.usuarioService.crearCliente(this.usuario).subscribe(
           res => {
             Swal.fire(constantes.exito, constantes.exito_crear_usuario, constantes.exito_swal);

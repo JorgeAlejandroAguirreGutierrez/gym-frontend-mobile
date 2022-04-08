@@ -14,11 +14,11 @@
     </div>
     <div class="input-group mb-3">
         <div class="form-floating col-10">
-            <input type="text" [(ngModel)]="descripcion" placeholder="" class="form-control"
-                oninput="this.value = this.value.toUpperCase()" id="floatingDescripcion">
-            <label for="floatingDescripcion" class="color-label font-bold">Buscar Ejercicio</label>
+            <input type="text" [(ngModel)]="nombre" placeholder="" class="form-control"
+                oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
+            <label for="floatingNombre" class="color-label font-bold">Buscar Ejercicio</label>
         </div>
-        <button type="button" class="btn btn-outline-info col-2 color-button-search"><i
+        <button type="button" (click)="consultarPorNombre()" class="btn btn-outline-info col-2 color-button-search"><i
                 class="bi bi-search esp-icon-search"></i></button>
     </div>
     <div class="row">
@@ -95,7 +95,7 @@
                     <option *ngFor="let tipoMusculo of tiposMusculos; let i=index" [value]=tipoMusculo>
                         {{tipoMusculo.descripcion}}</option>
                 </select>
-                <label for="floatingTipoMusculo" class="font-color">Tipo Musculo</label>
+                <label for="floatingTipoMusculo" class="font-color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tipo Musculo</label>
             </div>
         </div>
     </div>
