@@ -14,10 +14,10 @@
     </div>
     <div class="input-group mb-3">
         <div class="form-floating col-10">
-            <input type="text" [(ngModel)]="usuario" placeholder="" class="form-control" id="floatingUsuario">
+            <input type="text" [(ngModel)]="usuario" oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control" id="floatingUsuario">
             <label for="floatingUsuario" class="color-label font-bold">Buscar por nombre o ID</label>
         </div>
-        <button type="button" class="btn btn-outline-info col-2 color-button-search"><i
+        <button type="button" (click)="consultarClientesPorNombreIdentificacion()" class="btn btn-outline-info col-2 color-button-search"><i
                 class="bi bi-search esp-icon-search"></i></button>
     </div>
     <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -46,7 +46,7 @@
                                 </li>
                                 <li class="list-group-item">
                                     <div class="form-floating">
-                                        <input type="text" [(ngModel)]="usuario.talla" placeholder="" [disabled]="true"
+                                        <input type="text" [(ngModel)]="usuario.estatura" placeholder="" [disabled]="true"
                                             class="form-control form-control-sm" id="floatingEstatura">
                                         <label for="floatingEstatura" class="color-label font-bold">Estatura (CM)</label>
                                     </div>
@@ -365,7 +365,7 @@
         <div class="row">
             <div class="col-12 mb-3">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="usuarioActualizar.talla" placeholder=""
+                    <input type="text" [(ngModel)]="usuarioActualizar.estatura" placeholder=""
                         class="form-control form-control-sm" id="floatingTalla">
                     <label for="floatingTalla" class="color-label font-bold">Estatura (CM)</label>
                 </div>

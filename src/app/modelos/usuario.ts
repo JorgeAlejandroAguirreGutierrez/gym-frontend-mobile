@@ -10,7 +10,7 @@ export class Usuario {
     nombre: string;
     identificacion: string;
     contrasena: string; 
-    talla: number;
+    estatura: number;
     edad: number;
     activo: boolean;
     imagen: string;
@@ -26,7 +26,7 @@ export class Usuario {
         this.nombre="";
         this.identificacion="";
         this.contrasena="";
-        this.talla=null as any;
+        this.estatura=null as any;
         this.edad=null as any;
         this.activo=true;
         this.imagen="";
