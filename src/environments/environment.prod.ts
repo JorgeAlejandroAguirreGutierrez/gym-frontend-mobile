@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  host:'https://gym-auth-backend1.herokuapp.com/',
+  host:'https://gymup-auth-backend.herokuapp.com',
   prefijoUrlImagenes: '/assets/',
   prefijoUrlEjercicios: '/imgejercicio/',
   app: "GymUp"
