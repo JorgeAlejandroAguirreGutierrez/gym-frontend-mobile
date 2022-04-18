@@ -12,7 +12,7 @@ import { Parametro } from '../modelos/parametro';
 })
 export class ParametroService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   crear(parametro: Parametro): Observable<Parametro> {
     return this.http.post(environment.host + util.ruta + util.parametro, parametro, util.options).pipe(

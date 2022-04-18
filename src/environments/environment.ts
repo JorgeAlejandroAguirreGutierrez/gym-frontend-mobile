@@ -7,10 +7,7 @@ export const environment = {
   host: 'http://localhost:5001',
   prefijoUrlImagenes: '/assets/',
   prefijoUrlEjercicios: '/imgejercicio/',
-  app: "GymUp",
-  empresas : new Map([
-    ["dev", "http://localhost:5000"],
-  ])
+  app: "GymUp"
 };
 
 /*

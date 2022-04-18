@@ -83,7 +83,7 @@ export class CrearClienteComponent implements OnInit {
     this.usuario.pesos.push(peso);
     let auth: Auth=new Auth();
     auth.identificacion=this.usuario.identificacion;
-    auth.empresa=this.sesion.empresa;
+    auth.empresa.endpoint=this.sesion.endpoint;
     this.authService.crear(auth).subscribe(
       res => {
         this.usuario.contrasena=res.contrasena;

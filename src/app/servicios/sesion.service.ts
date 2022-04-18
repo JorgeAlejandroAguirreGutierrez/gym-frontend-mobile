@@ -15,13 +15,13 @@ export class SesionService {
   constructor(private http: HttpClient, private router: Router) { }
 
   crear(sesion: Sesion): Observable<Sesion> {
-    return this.http.post(environment.empresas.get(sesion.empresa)! + util.ruta + util.sesion, sesion, util.options).pipe(
+    return this.http.post(sesion.endpoint + util.ruta + util.sesion, sesion, util.options).pipe(
       map(response => response as Sesion)
     );
   }
 
   validar(sesion: Sesion): Observable<Sesion> {
-    return this.http.post<Sesion>(environment.empresas.get(sesion.empresa)! + util.ruta + util.sesion+util.validar, sesion, util.options).pipe(
+    return this.http.post<Sesion>(sesion.endpoint + util.ruta + util.sesion+util.validar, sesion, util.options).pipe(
       map(response => response as Sesion)
       );
   }

@@ -34,8 +34,7 @@ export class InicioSesionComponent implements OnInit {
     this.authService.obtenerPorIdentificacionContrasena(this.sesion.usuario.identificacion,this.sesion.usuario.contrasena ).subscribe(
       res => {
         let auth: Auth=res;
-        this.sesion.empresa=auth.empresa;
-        this.sesionService.setSesion(this.sesion);
+        this.sesion.endpoint=auth.empresa.endpoint;
         this.sesionService.crear(this.sesion).subscribe(
           res => {
             this.bandera=false;

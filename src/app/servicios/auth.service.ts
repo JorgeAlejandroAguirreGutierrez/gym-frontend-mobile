@@ -12,7 +12,7 @@ import { Auth } from '../modelos/auth';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   obtenerPorIdentificacionContrasena(identificacion: string, contrasena: string): Observable<Auth> {
     let params = new HttpParams().set("identificacion", identificacion)

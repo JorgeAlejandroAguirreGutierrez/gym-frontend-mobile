@@ -7,7 +7,7 @@ export class Sesion {
     fechaCierre: Date;
     usuario: Usuario;
 
-    empresa: string;
+    endpoint: string;
 
     constructor() { 
         this.id=0;
@@ -15,6 +15,6 @@ export class Sesion {
         this.fechaApertura=new Date();
         this.fechaCierre=null as any;
         this.usuario=new Usuario();  
-        this.empresa="";
+        this.endpoint="";
     }
 }

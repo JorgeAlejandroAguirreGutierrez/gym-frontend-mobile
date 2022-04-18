@@ -19,37 +19,37 @@ export class TipoMusculoService {
   sesion: Sesion= this.sesionService.getSesion();
 
   crear(tipoMusculo: TipoMusculo): Observable<TipoMusculo> {
-    return this.http.post(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.tipomusculo, tipoMusculo, util.options).pipe(
+    return this.http.post(this.sesion.endpoint + util.ruta + util.tipomusculo, tipoMusculo, util.options).pipe(
       map(response => response as TipoMusculo)
     );
   }
 
   consultar(): Observable<TipoMusculo[]> {
-    return this.http.get<TipoMusculo[]>(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.tipomusculo, util.options).pipe(
+    return this.http.get<TipoMusculo[]>(this.sesion.endpoint + util.ruta + util.tipomusculo, util.options).pipe(
       map(response => response as TipoMusculo[])
     );
   }
 
   obtener(id: number): Observable<TipoMusculo> {
-    return this.http.get<TipoMusculo>(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.tipomusculo + '/' + id, util.options).pipe(
+    return this.http.get<TipoMusculo>(this.sesion.endpoint + util.ruta + util.tipomusculo + '/' + id, util.options).pipe(
       map(response => response as TipoMusculo)
       );
   }
 
   actualizar(tipoMusculo: TipoMusculo): Observable<TipoMusculo> {
-    return this.http.put(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.tipomusculo, tipoMusculo, util.options).pipe(
+    return this.http.put(this.sesion.endpoint + util.ruta + util.tipomusculo, tipoMusculo, util.options).pipe(
       map(response => response as TipoMusculo)
     );
   }
 
   eliminar(id: number): Observable<TipoMusculo> {
-    return this.http.delete(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.tipomusculo + '/' + id, util.options).pipe(
+    return this.http.delete(this.sesion.endpoint + util.ruta + util.tipomusculo + '/' + id, util.options).pipe(
       map(response => response as TipoMusculo)
     );
   }
 
   buscar(tipoMusculo: TipoMusculo): Observable<TipoMusculo[]> {
-    return this.http.put(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.tipomusculo + util.buscar, tipoMusculo, util.options).pipe(
+    return this.http.put(this.sesion.endpoint + util.ruta + util.tipomusculo + util.buscar, tipoMusculo, util.options).pipe(
       map(response => response as TipoMusculo[])
     );
   }

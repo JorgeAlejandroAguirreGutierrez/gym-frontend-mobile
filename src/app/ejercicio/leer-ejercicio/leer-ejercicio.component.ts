@@ -60,7 +60,7 @@ export class LeerEjercicioComponent implements OnInit {
     this.sesionService.validar(this.sesion).subscribe(
       res => {
         this.sesion=res;
-        this.host=environment.empresas.get(this.sesion.empresa)!;
+        this.host=this.sesion.endpoint;
       },
       err => {
         if(err.error.codigo==constantes.error_codigo_sesion_invalida){

@@ -15,55 +15,55 @@ import { environment } from '../../environments/environment';
 export class EjercicioService {
 
   
-  constructor(private http: HttpClient, private router: Router, private sesionService: SesionService) { }
+  constructor(private http: HttpClient, private sesionService: SesionService) { }
 
   sesion: Sesion= this.sesionService.getSesion();
 
   crear(ejercicio: Ejercicio): Observable<Ejercicio> {
-    return this.http.post(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.ejercicio, ejercicio, util.options).pipe(
+    return this.http.post(this.sesion.endpoint + util.ruta + util.ejercicio, ejercicio, util.options).pipe(
       map(response => response as Ejercicio)
     );
   }
 
   consultar(): Observable<Ejercicio[]> {
-    return this.http.get<Ejercicio[]>(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.ejercicio, util.options).pipe(
+    return this.http.get<Ejercicio[]>(this.sesion.endpoint + util.ruta + util.ejercicio, util.options).pipe(
       map(response => response as Ejercicio[])
     );
   }
 
   consultarPorTipoMusculo(tipoMusculoId: string): Observable<Ejercicio[]> {
     let params = new HttpParams().set("tipoMusculoId", tipoMusculoId);
-    return this.http.get(environment.empresas.get(this.sesion.empresa)! + util.ruta+util.ejercicio+util.consultarPorTipoMusculo, {params: params, headers: util.options.headers}).pipe(
+    return this.http.get(this.sesion.endpoint + util.ruta+util.ejercicio+util.consultarPorTipoMusculo, {params: params, headers: util.options.headers}).pipe(
       map(response => response as Ejercicio[])
     );
   }
 
   obtener(ejercicio_id: number): Observable<Ejercicio> {
-    return this.http.get<Ejercicio>(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.ejercicio + '/' + ejercicio_id, util.options).pipe(
+    return this.http.get<Ejercicio>(this.sesion.endpoint + util.ruta + util.ejercicio + '/' + ejercicio_id, util.options).pipe(
       map(response => response as Ejercicio));
   }
 
   actualizar(ejercicio: Ejercicio): Observable<Ejercicio> {
-    return this.http.put(environment.empresas.get(this.sesion.empresa)! + util.ruta+util.ejercicio, ejercicio, util.options).pipe(
+    return this.http.put(this.sesion.endpoint + util.ruta+util.ejercicio, ejercicio, util.options).pipe(
       map(response => response as Ejercicio)
     );
   }
 
   eliminar(ejercicio_id: number): Observable<Ejercicio> {
-    return this.http.delete(environment.empresas.get(this.sesion.empresa)! + util.ruta+util.ejercicio + '/' + ejercicio_id, util.options).pipe(
+    return this.http.delete(this.sesion.endpoint + util.ruta+util.ejercicio + '/' + ejercicio_id, util.options).pipe(
       map(response => response as Ejercicio)
     );
   }
 
   buscar(ejercicio: Ejercicio): Observable<Ejercicio[]> {
-    return this.http.put(environment.empresas.get(this.sesion.empresa)! + util.ruta+util.ejercicio+util.buscar, ejercicio, util.options).pipe(
+    return this.http.put(this.sesion.endpoint + util.ruta+util.ejercicio+util.buscar, ejercicio, util.options).pipe(
       map(response => response as Ejercicio[])
     );
   }
 
   consultarPorNombre(nombre: string): Observable<Ejercicio[]> {
     let params = new HttpParams().set("nombre", nombre);
-    return this.http.get(environment.empresas.get(this.sesion.empresa)! + util.ruta+util.ejercicio+util.consultarPorNombre, {params: params, headers: util.options.headers}).pipe(
+    return this.http.get(this.sesion.endpoint + util.ruta+util.ejercicio+util.consultarPorNombre, {params: params, headers: util.options.headers}).pipe(
       map(response => response as Ejercicio[])
     );
   }
@@ -71,7 +71,7 @@ export class EjercicioService {
   crearImagen(imagen: File, id: number): Observable<boolean> {
     const formData: FormData = new FormData();
     formData.append('imagen', imagen, imagen.name);
-    return this.http.post(environment.empresas.get(this.sesion.empresa)! + util.ruta + util.ejercicio + '/imagen' + '/' + id, formData, util.optionsImagen).pipe(
+    return this.http.post(this.sesion.endpoint + util.ruta + util.ejercicio + '/imagen' + '/' + id, formData, util.optionsImagen).pipe(
       map(response => response as any)
     );
   }
