@@ -1,42 +1,58 @@
 .font-family {
-    font-family: 'Baloo 2', cursive;
-  }
+  font-family: 'Baloo 2', cursive;
+}
   
-  .font-size {
-      font-family: 'Baloo 2', cursive;
-      font-size: 20px;
+.font-size {
+  font-family: 'Baloo 2', cursive;
+  font-size: 20px;
+}
+
+.font-color{
+  color: #496bb7;
+}
+
+.color-label{
+  color: #2b4a99;
+}
+
+.font-size-tittle {
+  font-family: 'Baloo 2', cursive;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.color-button{
+  background-color: #496bb7;
+}
+
+.color-tittle{
+  color: #2b4a99;
+}
+
+.separate{
+  margin-right: 10px;
+}
+
+.justify {
+  justify-content: start;
+}
+.esp-image{
+  margin-top: -20%;
+  margin-bottom: -10%;
+}
+
+@media only screen and ( min-width: 992px ){
+  #fondoInicioSesion{
+        background-repeat: round;
   }
-  
-  .font-color{
-      color: #496bb7;
+  #logo{
+      width: 30%;
+      height: auto;
+      margin-top: -5%;
+      margin-bottom: -5%;
   }
-  
-  .color-label{
-    color: #2b4a99;
+  #centrar{
+      display: flex;
+      justify-content: center;
   }
-  
-  .font-size-tittle {
-      font-family: 'Baloo 2', cursive;
-      font-size: 30px;
-      font-weight: bold;
-  }
-  
-  .color-button{
-      background-color: #496bb7;
-  }
-  
-  .color-tittle{
-    color: #2b4a99;
-  }
-  
-  .separate{
-      margin-right: 10px;
-  }
-  
-  .justify {
-    justify-content: start;
-  }
-  .esp-image{
-      margin-top: -20%;
-      margin-bottom: -10%;
-  }
+}

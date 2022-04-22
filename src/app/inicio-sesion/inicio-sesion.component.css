@@ -21,3 +21,18 @@
 .font-bold {
     font-weight: bold;
 }
+
+@media only screen and ( min-width: 992px ){
+	#fondoInicioSesion{
+        background-repeat: round;
+    }
+    #logo{
+        width: 30%;
+        height: auto;
+    }
+    #centrar{
+        display: flex;
+        justify-content: center;
+    }
+
+}

@@ -73,3 +73,19 @@
   }
   
 }
+
+@media only screen and ( min-width: 992px ){
+  #fondoInicioSesion{
+        background-repeat: round;
+  }
+  #logo{
+      width: 30%;
+      height: auto;
+      margin-top: -5%;
+      margin-bottom: -5%;
+  }
+  #centrar{
+      display: flex;
+      justify-content: center;
+  }
+}
