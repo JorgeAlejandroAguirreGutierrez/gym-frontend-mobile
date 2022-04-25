@@ -372,7 +372,7 @@
                     <select [(ngModel)]="rutinaActualizar.medidaPeso" id="floatingMedidaPeso" [compareWith]="compareFn"
                         class="form-select">
                         <option [value]="null"></option>
-                        <option *ngFor="let medidaPeso of medidasPesos" [ngValue]="medidaPeso">
+                        <option *ngFor="let medidaPeso of medidasPesos" [ngValue]="medidaPeso.valor">
                             {{medidaPeso.valor}}
                         </option>
                     </select>
@@ -398,7 +398,7 @@
                     <select [(ngModel)]="rutinaActualizar.medidaTiempo" id="floatingMedidaTiempo"
                         [compareWith]="compareFn" class="form-select">
                         <option [value]="null"></option>
-                        <option *ngFor="let medidaTiempo of medidasTiempos" [ngValue]="medidaTiempo">
+                        <option *ngFor="let medidaTiempo of medidasTiempos" [ngValue]="medidaTiempo.valor">
                             {{medidaTiempo.valor}}
                         </option>
                     </select>
