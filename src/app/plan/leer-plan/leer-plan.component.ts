@@ -20,6 +20,7 @@ export class LeerPlanComponent implements OnInit {
   app=environment.app;
   prefijoUrlImagenes = environment.prefijoUrlImagenes;
   logo=constantes.logo1;
+  host="";
 
   sesion: Sesion= null as any;
   usuario: Usuario=new Usuario();
@@ -44,23 +45,12 @@ export class LeerPlanComponent implements OnInit {
     this.obtenerPorIdentificacion();
   }
 
-  obtenerPorIdentificacion(){
-    this.usuarioService.obtenerPorIdentificacion(this.sesion.usuario.identificacion).subscribe(
-      res => {
-        this.usuario=res;
-        console.log(this.usuario);
-      },
-      err => {
-        Swal.fire(constantes.error, constantes.error_obtener_usuario, constantes.error_swal)
-      }
-    );
-  }
-
   validarSesion(){
     this.sesion=this.sesionService.getSesion();
     this.sesionService.validar(this.sesion).subscribe(
       res => {
         this.sesion=res;
+        this.host=this.sesion.endpoint;
       },
       err => {
         if(err.error.codigo==constantes.error_codigo_sesion_invalida){
@@ -71,6 +61,18 @@ export class LeerPlanComponent implements OnInit {
           this.sesionService.cerrarSesion();
           this.navegarIndex();
         }
+      }
+    );
+  }
+
+  obtenerPorIdentificacion(){
+    this.usuarioService.obtenerPorIdentificacion(this.sesion.usuario.identificacion).subscribe(
+      res => {
+        this.usuario=res;
+        console.log(this.usuario);
+      },
+      err => {
+        Swal.fire(constantes.error, constantes.error_obtener_usuario, constantes.error_swal)
       }
     );
   }

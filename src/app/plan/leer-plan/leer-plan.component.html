@@ -113,7 +113,7 @@
                 
                 <ng-container *ngIf="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen!=null">
                     <img class="card-img-top"
-                        src="{{prefijoUrlEjercicios+usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen}}"
+                        src="{{host+prefijoUrlEjercicios+usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen}}"
                         height="300px" alt="Card image cap">
                 </ng-container>
                 <ng-container *ngIf="usuario.plan.dias[seleccionPE].rutinas[seleccionRE].ejercicio.imagen==null">
