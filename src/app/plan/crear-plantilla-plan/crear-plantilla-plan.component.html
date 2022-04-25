@@ -223,7 +223,7 @@
         <ng-container *ngIf="campoMedidaPeso">
             <div class="row mb-3">
                 <div class="form-floating">
-                    <select [(ngModel)]="rutinaCrear.medidaPeso" id="floatingMedidaPeso" [compareWith]="compareFn"
+                    <select [(ngModel)]="rutinaCrear.medidaPeso" id="floatingMedidaPeso"
                         class="form-select">
                         <option [value]="null"></option>
                         <option *ngFor="let medidaPeso of medidasPesos" [ngValue]="medidaPeso.valor">
@@ -249,7 +249,7 @@
         <ng-container *ngIf="campoMedidaTiempo">
             <div class="row mb-3">
                 <div class="form-floating">
-                    <select [(ngModel)]="rutinaCrear.medidaTiempo" id="floatingMedidaTiempo" [compareWith]="compareFn"
+                    <select [(ngModel)]="rutinaCrear.medidaTiempo" id="floatingMedidaTiempo"
                         class="form-select">
                         <option [value]="null"></option>
                         <option *ngFor="let medidaTiempo of medidasTiempos" [ngValue]="medidaTiempo.valor">
@@ -353,7 +353,7 @@
         <ng-container *ngIf="campoMedidaPeso">
             <div class="row mb-3">
                 <div class="form-floating">
-                    <select [(ngModel)]="rutinaActualizar.medidaPeso" id="floatingMedidaPeso" [compareWith]="compareFn"
+                    <select [(ngModel)]="rutinaActualizar.medidaPeso" id="floatingMedidaPeso"
                         class="form-select">
                         <option [value]="null"></option>
                         <option *ngFor="let medidaPeso of medidasPesos" [ngValue]="medidaPeso.valor">
@@ -379,8 +379,7 @@
         <ng-container *ngIf="campoMedidaTiempo">
             <div class="row mb-3">
                 <div class="form-floating">
-                    <select [(ngModel)]="rutinaActualizar.medidaTiempo" id="floatingMedidaTiempo"
-                        [compareWith]="compareFn" class="form-select">
+                    <select [(ngModel)]="rutinaActualizar.medidaTiempo" id="floatingMedidaTiempo" class="form-select">
                         <option [value]="null"></option>
                         <option *ngFor="let medidaTiempo of medidasTiempos" [ngValue]="medidaTiempo.valor">
                             {{medidaTiempo.valor}}
