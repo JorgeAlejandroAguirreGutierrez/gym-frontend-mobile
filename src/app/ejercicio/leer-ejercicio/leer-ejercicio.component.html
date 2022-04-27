@@ -119,9 +119,15 @@
                 <ng-container *ngIf="ejercicioLeer.nombrePersonalizado!=''">
                     <label class="font-color font-bold">{{ejercicioLeer.nombrePersonalizado}}</label>
                 </ng-container>
-                
-                <img class="card-img-top" src="{{host+prefijoUrlEjercicios+ejercicioLeer.imagen}}" height="300px"
+                <ng-container *ngIf="ejercicioLeer.imagen==''">
+                    <textarea rows="3" [disabled]="true" [(ngModel)]="ejercicioLeer.detalle"
+                        oninput="this.value = this.value.toUpperCase()" class="form-control form-control-sm"></textarea>
+                </ng-container>
+                <ng-container *ngIf="ejercicioLeer.imagen!=''">
+                    <img class="card-img-top" src="{{host+prefijoUrlEjercicios+ejercicioLeer.imagen}}" height="300px"
                     alt="Card image cap">
+                </ng-container>
+                
             </div>
         </div>
     </div>
