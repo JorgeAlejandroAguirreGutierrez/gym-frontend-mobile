@@ -338,7 +338,7 @@
         <div class="row">
             <div class="col-12 mb-3">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="usuarioActualizar.nombre" placeholder=""
+                    <input type="text" [(ngModel)]="usuarioActualizar.nombre" oninput="this.value = this.value.toUpperCase()" placeholder=""
                         class="form-control form-control-sm" id="floatingNombre">
                     <label for="floatingNombre" class="color-label font-bold">Nombre</label>
                 </div>
