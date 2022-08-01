@@ -5,7 +5,7 @@ export class Auth {
     identificacion: string;
     contrasena: string; 
     empresa: Empresa;
-    terminoCondicion: boolean;
+    //terminoCondicion: boolean;
     activo: boolean;
 
     constructor(){
@@ -13,7 +13,7 @@ export class Auth {
         this.identificacion="";
         this.contrasena="";
         this.empresa=new Empresa();
-        this.terminoCondicion=false;
+        //this.terminoCondicion=false;
         this.activo=true;
     }
 }
