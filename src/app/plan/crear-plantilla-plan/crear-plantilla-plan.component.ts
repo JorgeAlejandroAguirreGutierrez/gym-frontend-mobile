@@ -116,6 +116,17 @@ export class CrearPlantillaPlanComponent implements OnInit {
     );
   }
 
+  actualizarNombre(){
+    if(this.plantillaPlan.id!=0){
+      this.actualizar();
+    }
+  }
+  actualizarSomatotipo(){
+    if(this.plantillaPlan.id!=0){
+      this.actualizar();
+    }
+  }
+
   actualizar(){
     this.plantillaPlanService.actualizar(this.plantillaPlan).subscribe(
       res => {

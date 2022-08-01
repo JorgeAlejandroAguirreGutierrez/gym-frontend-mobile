@@ -16,7 +16,7 @@
         <div class="col-12">
             <div class="form-floating">
                 <input type="text" [(ngModel)]="plantillaPlan.nombre" oninput="this.value = this.value.toUpperCase()"
-                    placeholder="" class="form-control" id="floatingNombre">
+                    placeholder="" class="form-control" id="floatingNombre" (change)="actualizarNombre()">
                 <label for="floatingNombre" class="color-label font-bold">Nombre Plantilla</label>
             </div>
         </div>
@@ -26,7 +26,7 @@
             <div class="form-floating">
                 <input type="text" [(ngModel)]="plantillaPlan.somatotipo"
                     oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control"
-                    id="floatingSomatotipo">
+                    id="floatingSomatotipo" (change)="actualizarSomatotipo()">
                 <label for="floatingSomatotipo" class="color-label font-bold">Somatotipo</label>
             </div>
         </div>

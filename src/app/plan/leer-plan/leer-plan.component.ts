@@ -6,7 +6,6 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 import Swal from 'sweetalert2';
 import * as constantes from '../../constantes';
 import { environment } from '../../../environments/environment';
-import * as util from '../../util';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Sesion } from 'src/app/modelos/sesion';
 

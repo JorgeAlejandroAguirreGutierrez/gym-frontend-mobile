@@ -22,6 +22,14 @@ export class AuthService {
       );
   }
 
+  validarTerminoCondicion(identificacion: string, contrasena: string): Observable<Auth> {
+    let params = new HttpParams().set("identificacion", identificacion)
+                                 .set("contrasena", contrasena);
+    return this.http.get<Auth>(environment.host + util.ruta + util.auth + util.obtenerPorIdentificacionContrasena, {params: params, headers: util.options.headers}).pipe(
+      map(response => response as Auth)
+      );
+  }
+
   crear(auth: Auth): Observable<Auth> {
     return this.http.post(environment.host + util.ruta + util.auth, auth, util.options).pipe(
       map(response => response as Auth)
