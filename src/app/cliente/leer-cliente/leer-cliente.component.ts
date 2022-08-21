@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { Usuario } from '../../modelos/usuario';
 import Swal from 'sweetalert2';
@@ -128,6 +128,7 @@ export class LeerClienteComponent implements OnInit {
   }
 
   actualizar(){
+    console.log(this.usuarioActualizar);
     this.usuarioService.actualizar(this.usuarioActualizar).subscribe(
       res => {
         this.usuarioActualizar=res;

@@ -207,7 +207,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaCrear.repeticiones" placeholder="" class="form-control"
-                        style="text-transform:uppercase" id="floatingRepeticiones">
+                        oninput="this.value = this.value.toUpperCase()" id="floatingRepeticiones">
                         <label for="floatingRepeticiones" class="color-label font-bold">Repeticiones</label>
                     </div>
                 </div>
@@ -218,7 +218,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaCrear.series" placeholder="" class="form-control"
-                        style="text-transform:uppercase" id="floatingSeries">
+                        oninput="this.value = this.value.toUpperCase()" id="floatingSeries">
                         <label for="floatingSeries" class="color-label font-bold">Series</label>
                     </div>
                 </div>
@@ -229,7 +229,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaCrear.valorPeso" placeholder="" class="form-control"
-                        style="text-transform:uppercase" id="floatingValorPeso">
+                        oninput="this.value = this.value.toUpperCase()" id="floatingValorPeso">
                         <label for="floatingValorPeso" class="color-label font-bold">Valor Peso</label>
                     </div>
                 </div>
@@ -255,7 +255,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaCrear.valorTiempo" placeholder="" class="form-control"
-                        style="text-transform:uppercase" id="floatingTiempo">
+                        oninput="this.value = this.value.toUpperCase()" id="floatingTiempo">
                         <label for="floatingTiempo" class="color-label font-bold">Tiempo</label>
                     </div>
                 </div>
@@ -337,7 +337,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaActualizar.repeticiones" placeholder=""
-                            class="form-control" style="text-transform:uppercase"
+                            class="form-control" oninput="this.value = this.value.toUpperCase()"
                             id="floatingRepeticiones">
                         <label for="floatingRepeticiones" class="color-label font-bold">Repeticiones</label>
                     </div>
@@ -349,7 +349,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaActualizar.series" placeholder="" class="form-control"
-                        style="text-transform:uppercase" id="floatingSeries">
+                        oninput="this.value = this.value.toUpperCase()" id="floatingSeries">
                         <label for="floatingSeries" class="color-label font-bold">Series</label>
                     </div>
                 </div>
@@ -360,7 +360,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaActualizar.valorPeso" placeholder=""
-                            class="form-control" style="text-transform:uppercase" id="floatingValorPeso">
+                            class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingValorPeso">
                         <label for="floatingValorPeso" class="color-label font-bold">Peso</label>
                     </div>
                 </div>
@@ -386,7 +386,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="number" [(ngModel)]="rutinaActualizar.valorTiempo" placeholder=""
-                            class="form-control" style="text-transform:uppercase" id="floatingTiempo">
+                            class="form-control" oninput="this.value = this.value.toUpperCase()" id="floatingTiempo">
                         <label for="floatingTiempo" class="color-label font-bold">Tiempo</label>
                     </div>
                 </div>
@@ -456,7 +456,7 @@
             <div class="col-12">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="plantillaPlanCrear.nombre" placeholder="" class="form-control"
-                    style="text-transform:uppercase" id="floatingNombre">
+                    oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
                     <label for="floatingNombre" class="color-label font-bold">Nombre</label>
                 </div>
             </div>
@@ -465,7 +465,7 @@
             <div class="col-12">
                 <div class="form-floating">
                     <input type="text" [(ngModel)]="plantillaPlanCrear.somatotipo" placeholder="" class="form-control"
-                    style="text-transform:uppercase" id="floatingSomatotipo">
+                    oninput="this.value = this.value.toUpperCase()" id="floatingSomatotipo">
                     <label for="floatingSomatotipo" class="color-label font-bold">Somatotipo</label>
                 </div>
             </div>

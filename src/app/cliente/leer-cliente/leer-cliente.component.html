@@ -14,7 +14,7 @@
     </div>
     <div class="input-group mb-3">
         <div class="form-floating col-10">
-            <input type="text" [(ngModel)]="usuario" style="text-transform:uppercase" placeholder="" class="form-control" id="floatingUsuario">
+            <input type="text" [(ngModel)]="usuario" oninput="this.value = this.value.toUpperCase()" placeholder="" class="form-control" id="floatingUsuario">
             <label for="floatingUsuario" class="color-label font-bold">Buscar por nombre o ID</label>
         </div>
         <button type="button" (click)="consultarClientesPorNombreIdentificacion()" class="btn btn-outline-info col-2 color-button-search"><i
@@ -238,7 +238,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="observacionActualizar" placeholder="" style="text-transform:uppercase"
+                    <input type="text" [(ngModel)]="observacionActualizar" placeholder="" oninput="this.value = this.value.toUpperCase()"
                         class="form-control form-control-sm" id="floatingObservacion">
                     <label for="floatingObservacion" class="color-label font-bold">Nueva Observacion</label>
                 </div>
@@ -288,7 +288,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="objetivoActualizar" placeholder="" style="text-transform:uppercase"
+                    <input type="text" [(ngModel)]="objetivoActualizar" placeholder="" oninput="this.value = this.value.toUpperCase()"
                         class="form-control form-control-sm" id="floatingObservacion">
                     <label for="floatingObjetivo" class="color-label font-bold">Nuevo Objetivo</label>
                 </div>
@@ -338,8 +338,8 @@
         <div class="row">
             <div class="col-12 mb-3">
                 <div class="form-floating">
-                    <input type="text" [(ngModel)]="usuarioActualizar.nombre" style="text-transform:uppercase" placeholder=""
-                        class="form-control form-control-sm" id="floatingNombre">
+                    <input type="text" [(ngModel)]="usuarioActualizar.nombre" placeholder=""
+                    class="form-control form-control-sm" id="floatingNombre">
                     <label for="floatingNombre" class="color-label font-bold">Nombre</label>
                 </div>
             </div>

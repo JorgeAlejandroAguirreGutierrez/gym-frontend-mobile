@@ -16,7 +16,7 @@
         <div class="col-12">
             <div class="form-floating">
                 <input type="text" [(ngModel)]="usuario.nombre" placeholder="" class="form-control"
-                    style="text-transform:uppercase" id="floatingNombre">
+                oninput="this.value = this.value.toUpperCase()" id="floatingNombre">
                 <label for="floatingNombre" class="color-label font-bold">Nombre</label>
             </div>
         </div>
@@ -59,7 +59,7 @@
         <div class="col-12">
             <div class="form-floating">
                 <input type="text" [(ngModel)]="observacion" placeholder="" class="form-control"
-                    style="text-transform:uppercase" id="floatingObservacion">
+                oninput="this.value = this.value.toUpperCase()" id="floatingObservacion">
                 <label for="floatingObservacion" class="color-label font-bold">Observacion</label>
             </div>
         </div>
@@ -97,7 +97,7 @@
         <div class="col-12">
             <div class="form-floating">
                 <input type="text" [(ngModel)]="objetivo" placeholder="" class="form-control"
-                    style="text-transform:uppercase" id="floatingObjetivo">
+                oninput="this.value = this.value.toUpperCase()" id="floatingObjetivo">
                 <label for="floatingObjetivo" class="color-label font-bold">Objetivo</label>
             </div>
         </div>
