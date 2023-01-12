@@ -45,6 +45,7 @@ export class LeerMedidaComponent implements OnInit {
     }
     this.sesionService.validar(this.sesion).subscribe(
       res => {
+        console.log(res);
         this.sesion=res;
         this.obtenerPorIdentificacion(this.sesion.usuario.identificacion);
       },
