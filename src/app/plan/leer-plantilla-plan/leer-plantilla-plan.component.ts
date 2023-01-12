@@ -54,6 +54,9 @@ export class LeerPlantillaPlanComponent implements OnInit {
 
   validarSesion(){
     this.sesion=this.sesionService.getSesion();
+    if(this.sesion == null){
+      this.navegarIndex();
+    }
     this.sesionService.validar(this.sesion).subscribe(
       res => {
         this.sesion=res;

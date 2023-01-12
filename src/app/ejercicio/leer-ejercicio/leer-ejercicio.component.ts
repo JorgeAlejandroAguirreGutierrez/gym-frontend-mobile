@@ -56,7 +56,9 @@ export class LeerEjercicioComponent implements OnInit {
 
   validarSesion(){
     this.sesion=this.sesionService.getSesion();
-    console.log(this.sesion);
+    if(this.sesion == null){
+      this.navegarIndex();
+    }
     this.sesionService.validar(this.sesion).subscribe(
       res => {
         this.sesion=res;
