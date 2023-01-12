@@ -39,6 +39,7 @@ export class LeerMedidaComponent implements OnInit {
 
   validarSesion(){
     this.sesion=this.sesionService.getSesion();
+    console.log(this.sesion);
     if(this.sesion == null){
       this.navegarIndex();
     }
