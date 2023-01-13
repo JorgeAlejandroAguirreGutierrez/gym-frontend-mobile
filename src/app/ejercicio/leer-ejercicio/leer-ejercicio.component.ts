@@ -183,7 +183,7 @@ export class LeerEjercicioComponent implements OnInit {
   }
 
   navegarIndex() {
-    this.router.navigate(['/inicio']);
+    this.router.navigate(['/iniciar-sesion']);
   }
 
   cerrarSesion(event: any) {

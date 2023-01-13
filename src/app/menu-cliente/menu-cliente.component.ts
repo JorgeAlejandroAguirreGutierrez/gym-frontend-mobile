@@ -50,7 +50,7 @@ export class MenuClienteComponent implements OnInit {
   }
 
   navegarIndex() {
-    this.router.navigateByUrl('/inicio');
+    this.router.navigateByUrl('/iniciar-sesion');
   }
 
   navegarVerPlanEntrenamiento(){

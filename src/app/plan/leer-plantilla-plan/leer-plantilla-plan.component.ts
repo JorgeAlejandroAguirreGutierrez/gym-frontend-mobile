@@ -129,7 +129,7 @@ export class LeerPlantillaPlanComponent implements OnInit {
   }
 
   navegarIndex() {
-    this.router.navigate(['/inicio']);
+    this.router.navigate(['/iniciar-sesion']);
   }
 
   cerrarSesion(event: any) {

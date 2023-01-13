@@ -53,7 +53,7 @@ export class MenuComponent implements OnInit {
   }
 
   navegarIndex() {
-    this.router.navigateByUrl('/inicio');
+    this.router.navigateByUrl('/iniciar-sesion');
   }
 
   navegarCrearCliente(){
